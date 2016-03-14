@@ -27,7 +27,7 @@ body{
 }
 
 form{
-	font-size: 0.8em;
+	
 }
 
 header h1{
@@ -40,6 +40,23 @@ header p{
     text-align: center;
 }
 
+legend{
+    font-size: 1.2em;
+}
+
+select{
+    font-size: 1.3em;
+}
+
+input[type=date], input[type=number] {
+        font-size: 1.5em;
+}
+
+input[type=checkbox], input[type=radio] {
+    font-size: 5em;
+}
+
+
 /****************************************************************************************/
 
 
@@ -48,8 +65,11 @@ header p{
 /*backgrounfgrey: #333333;
 */
 
+body{
+ 
+}
 .container{
-	background-color: rgba(234,221,208,0.3)
+	background-color: rgba(234,221,208,0.6)
 }
 
 .balkLinks{
@@ -89,7 +109,6 @@ form{
 }
 
 input {
-	
     color: #4C4C4C;
 }
 
@@ -116,7 +135,7 @@ body{
 }
 
 
- .container{
+.container{
         box-sizing: border-box;
 	padding: 2%;
 	width: 96%;
@@ -124,10 +143,6 @@ body{
 }
 
 
-header .headerImage{
-	height: auto;
-       
-}
 
 header h1, p{
     padding-top: 0.2em;
@@ -139,6 +154,7 @@ header h1, p{
 	width: 100%;
         background-size: 150%;
         background-repeat: no-repeat;
+      
 }
 
 .hoofdmenu{
@@ -146,9 +162,7 @@ header h1, p{
 }
 
 .hoofdmenu ul {
-
 list-style:none;
-
 border-radius: 4px;
 padding: 1%;
 min-width: 595px;
@@ -168,13 +182,18 @@ box-shadow: 3px 3px 5px #808080 ;
 margin: 0 0 0 0;
 }
 
-.hoofdmenu a {
+.hoofdmenu a {  
 display: block;
 text-decoration: none;
 width:3.2em;
 height:3em;
 background: url(../images/icons/icons.png)
+}
 
+.hoofdmenu p {  
+display: block;
+padding:25%;
+    margin-left: 3em;
 }
 
 
@@ -215,8 +234,16 @@ fieldset{
 
 input[type=date], input[type=number] {
 	width: 94%;
+        height: 3em;
+        box-shadow: 3px 3px 3px darkgrey inset;
 }
 
+input[type=checkbox], input[type=radio] {
+}
+
+select {
+    width: 100%
+}
 .profielForm{
 	
 }
