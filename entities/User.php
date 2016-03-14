@@ -4,18 +4,18 @@
 
 class user{
 
-    private $userID,$username,$password,$email,$sex,$age,$preference,$hairColor,$length,$build,$eyeColor,$hobbies,$oneNight,$longTerm,$friends,$bio,$place,$occupation,$smoker,$admin;
+    private $userID,$username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$hobbies,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin;
     
     private static $usernameMap = array();
     
-    public function __construct($userID,$username,$password,$email,$sex,$age,$preference,$hairColor,$length,$build,$eyeColor,$hobbies,$oneNight,$longTerm,$friends,$bio,$place,$occupation,$smoker,$admin) {
+    public function __construct($userID,$username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$hobbies,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin) {
        if(!isset(self::$usernameMap[$username])){
         $this->userID = $userID;
         $this->username = $username;
         $this->password = $password;
         $this->email = $email;
         $this->sex = $sex;
-        $this->age = $age;
+        $this->age = $birthDate;
         $this->preference = $preference;
         $this->hairColor = $hairColor;
         $this->length = $length;
@@ -26,7 +26,8 @@ class user{
         $this->longTerm = $longTerm;
         $this->friends = $friends;
         $this->bio = $bio;
-        $this->place = $place;
+        $this->region = $region;
+        $this->postcode = $postcode;
         $this->occupation = $occupation;
         $this->smoker = $smoker;
         $this->admin = $admin;
@@ -54,8 +55,8 @@ class user{
         return $this->sex;
     }
     
-    public function getAge() {
-        return $this->age;
+    public function getBirthDate() {
+        return $this->birthDate;
     }
     
     public function getPreference() {
@@ -98,8 +99,12 @@ class user{
         return $this->bio;
     }
     
-    public function getPlace() {
-        return $this->place;
+    public function getRegion() {
+        return $this->region;
+    }
+    
+    public function getPostcode() {
+        return $this->postcode;
     }
     
     public function getOccupation() {
