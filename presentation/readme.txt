@@ -1,0 +1,1 @@
+In deze laag moeten alle "html" files. Deze moeten eindigen op extensie .twig ipv .html
