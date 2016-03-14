@@ -114,11 +114,6 @@ class user{
         return $this->admin;        
     }
     
-    public static function create($param) {
-        
-    }
-    
-    
 
     
 }
