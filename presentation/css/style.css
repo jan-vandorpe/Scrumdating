@@ -1,0 +1,309 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/******OUTLINE*******
+body, header, section, article, div, img, nav, ul, li{
+	outline: red dotted 1px;
+	margin: 0;
+	padding: 0;
+}
+*/
+
+/*****NORMALISATION******/
+body, header, section, article, div, img, nav, ul, li, h1, p{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+}
+
+/******TYPOGRAFIE*************************************************************************/
+body{
+	font-family: arial, sans-serif;
+}
+
+form{
+	font-size: 0.8em;
+}
+
+header h1{
+    font-size: 2.5em;
+    text-align: center;
+}
+
+header p{
+
+    text-align: center;
+}
+
+/****************************************************************************************/
+
+
+
+/******KLEUREN****************************************************************************/
+/*backgrounfgrey: #333333;
+*/
+
+.container{
+	background-color: rgba(234,221,208,0.3)
+}
+
+.balkLinks{
+    background:  #808080;
+}
+
+.balkRechts{
+    background:cadetblue;
+}
+
+header h1, p{
+    color: beige;
+}
+
+header .headerImage{
+	background:  black;
+}
+
+.hoofdmenu ul {
+
+}
+
+.hoofdmenu ul li {
+background: rgba(255,255,255,0.8);
+}
+
+legend{
+	
+	background: rgba(255,255,255,0.6);;
+}
+fieldset{	
+	background: rgba();
+}
+
+form{
+	color: #4C4C4C;
+}
+
+input {
+	
+    color: #4C4C4C;
+}
+
+/****************************************************************************************/
+
+
+/******STRUCTUUR******/
+body{
+	background:url(../images/background/skulls.png);	
+}
+
+
+.balkLinks{
+    box-sizing: border-box;
+    width: 100%;
+    float: none;
+   
+}
+
+.balkRechts{
+    box-sizing: border-box;
+    width:100%;
+    float: none;
+}
+
+
+ .container{
+        box-sizing: border-box;
+	padding: 2%;
+	width: 96%;
+	margin: 0 auto 0 auto;	
+}
+
+
+header .headerImage{
+	height: auto;
+       
+}
+
+header h1, p{
+    padding-top: 0.2em;
+    text-shadow: 1px 1px 1px black;
+}
+
+.headerImage{
+	background: url(../images/background/sensual.jpg) 50% 45%;
+	width: 100%;
+        background-size: 150%;
+        background-repeat: no-repeat;
+}
+
+.hoofdmenu{
+    padding-bottom: 1%;
+}
+
+.hoofdmenu ul {
+
+list-style:none;
+
+border-radius: 4px;
+padding: 1%;
+min-width: 595px;
+}
+
+.hoofdmenu li {
+box-sizing: border-box;
+padding:0.5em ;
+float:left;
+margin: 0 1% 0 0;
+border-radius: 4px;
+border: 1px solid white;
+box-shadow: 3px 3px 5px #808080 ;
+}
+
+.hoofdmenu li:last-of-type {
+margin: 0 0 0 0;
+}
+
+.hoofdmenu a {
+display: block;
+text-decoration: none;
+width:3.2em;
+height:3em;
+background: url(../images/icons/icons.png)
+
+}
+
+
+
+
+.hoofdmenu #a {background-position: -90px -85px;} 
+.hoofdmenu #b {background-position: -180px -85px;} 
+.hoofdmenu #c {background-position: -275px -85px;} 
+.hoofdmenu #d {background-position: -370px -85px;} 
+
+
+.labellook{
+	display: block;
+}
+
+
+
+legend{
+	padding: 0.3em 0.8em 0.1em;
+	border-radius: 3px;
+	box-shadow: 2px 2px 3px #808080;
+}
+
+fieldset{	
+	padding: 0.8em 2%;
+	border: 1px solid white;
+	border-radius: 3px;
+}
+
+.profielitem{
+	margin-bottom: 0.7em;
+}
+	
+.vast{
+	top:100px;
+	left:150px;
+}
+
+input[type=date], input[type=number] {
+	width: 94%;
+}
+
+.profielForm{
+	
+}
+
+input {
+	padding: 3%;
+	border-radius: 4px;
+	border: 1px solid white;
+}
+
+
+/****************************************************************************************/
+
+
+
+
+
+
+/********CLEARFIX*************************************************************************/
+/*clear*/
+.cf{clear: both;}
+/*
+clearfix hack
+http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+.clearFix:before, .clearFix:after{
+    content:" ";
+    display:table;
+}
+.clearFix:after{
+    clear:both;
+}
+
+/*enkel voor IE6/7 */
+.clearFix{
+    *zoom:1;
+}
+/****************************************************************************************/
+
+
+
+
+
+
+/********MEDIA QUERIES*******************************************************************/
+@media screen and (max-width: 40.5em) {
+  .product-img {
+    width: 50%;
+    float: left;
+  }
+  .hoofdmenu ul li a  {
+  }
+
+}
+
+@media only screen and (min-width: 608px) {
+
+.balkLinks{
+   
+    width: 20%;
+    float: left;
+}
+
+.balkRechts{
+    
+    width:20%;
+    float: right;
+}
+ 
+ .container{
+	padding: 2%;
+	width: 60%;
+	margin: 0 auto 0 auto;	
+}
+
+   .hoofdmenu li {	
+	width:24.25%;
+}
+
+  .hoofdmenu p {
+    padding-left: 0.5em;
+    
+    color: white;
+   }
+   
+   .headerImage{
+        background-size: 100%;
+        
+}
+}
