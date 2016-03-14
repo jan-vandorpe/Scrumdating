@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" type="image/png"  href="">
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Uw Westvloamse datingsite</title>
+</head>
+
+<body>
+	<header class="headerImage">
+	
+		<nav class="hoofdmenu">
+			<ul>
+				<li><a href="#" id="a">Menu</a></li>
+				<li><a href="#" id="b">Profiel</a></li>
+				<li><a href="#" id="c">Matchen</a></li>
+				<li><a href="#" id="d">Overig</a></li>
+			</ul>
+		</nav>
+		
+	</header>
+
+
+	<section class="profiel">
+		<div class="container">
+			<fieldset class="vast">
+				<legend>Profiel Aanmaak</legend>
+				<form action="profiel.html" method="post" class="profielForm" id="profileData" name="profileData">
+					<div class="profielitem">
+						<fieldset>
+							<legend>Geslacht</legend>
+							<label for="man" class="labelradio labellook"><input type="radio" id="man" name="gender" value="male" checked/>Man</label>
+							<label for="vrouw" class="labelradio labellook"><input type="radio" id="vrouw" name="gender" value="female"/>Vrouw</label> 
+							<label for="anders" class="labelradio labellook"><input type="radio" id="anders" name="gender" value="other"/>Anders</label>
+						</fieldset>
+					</div>
+					<div class="profielitem">
+						<fieldset>
+							<legend><label for="geboren" class="verplicht labellook">Geboortedatum</label></legend>
+							<input type="date" id="geboren" name="bDate" placeholder="DD-MM-JJJ" required/>
+						</fieldset>
+					</div>
+					<div class="profielitem">
+						<fieldset>
+							<legend><label for="lengte" class="verplicht labellook">Lengte in cm</label></legend>
+							<input type="number" id="lengte" name="lenght" placeholder="lengte in cm" required/>
+						</fieldset>
+					</div>
+					<div class="profielitem">
+						<fieldset>
+							<legend><label for ="figuur" class="verplicht labellook">Figuur</label></legend>
+							<select id="figuur" name="bodyShape" required>
+								<option value=mager>Mager</option>
+								<option value=slank>Slank</option>
+								<option value=gespierd>Gespierd</option>
+								<option value=rond>Met rondingen</option>
+								<option value=gezet>Gezet</option>
+							</select>
+						</fieldset>
+					</div>
+					<div class="profielitem">
+						<fieldset>
+							<legend><label>Soort relatie</label></legend>
+							<label for="vriendschap" class="labelcheckbox labellook"><input type="checkbox" id="vriendschap" name="vriendschap" value="friend" checked>Vriendschap</label>
+							<label for="oneNight" class="labelcheckbox labellook"><input type="checkbox" id="oneNight" name="oneNight" value="oneNight">One night stand</label>
+							<label for="langetermijn" class="labelcheckbox labellook"><input type="checkbox" id="langetermijn" name="longterm" value="longterm">Lange termijn</label>
+						</fieldset>
+					</div>
+				</form>
+			</fieldset>
+		</div>
+	</section>
+</body>
+</html>
