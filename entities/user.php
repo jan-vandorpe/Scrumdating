@@ -6,7 +6,10 @@ class user{
 
     private $userID,$username,$password,$email,$sex,$age,$preference,$hairColor,$length,$build,$eyeColor,$hobbies,$oneNight,$longTerm,$friends,$bio,$place,$occupation,$smoker,$admin;
     
+    private static $usernameMap = array();
+    
     public function __construct($userID,$username,$password,$email,$sex,$age,$preference,$hairColor,$length,$build,$eyeColor,$hobbies,$oneNight,$longTerm,$friends,$bio,$place,$occupation,$smoker,$admin) {
+       if(!isset(self::$usernameMap[$username])){
         $this->userID = $userID;
         $this->username = $username;
         $this->password = $password;
@@ -27,6 +30,7 @@ class user{
         $this->occupation = $occupation;
         $this->smoker = $smoker;
         $this->admin = $admin;
+       }
     }
     
     
@@ -108,6 +112,10 @@ class user{
     
     public function getAdmin() {
         return $this->admin;        
+    }
+    
+    public static function create($param) {
+        
     }
     
     
