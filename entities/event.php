@@ -4,13 +4,13 @@
 
 class event{
     
-private $evntName,$evntDate,$evntDescription,$evntLocation,$evntPrice,$evntID;
+private $evntName,$evntDate,$evntDescription,$venueID,$evntPrice,$evntID;
 
-public function __construct($evntName,$evntDate,$evntDescription,$evntLocation,$evntPrice,$evntID) {
+public function __construct($evntName,$evntDate,$evntDescription,$venueID,$evntPrice,$evntID) {
     $this->evntName = $evntName;
     $this->evntDate = $evntDate;
     $this->evntDescription = $evntDescription;
-    $this->evntLocation = $evntLocation;
+    $this->evntLocation = $venueID;
     $this->evntPrice = $evntPrice;
     $this->evntID = $evntID;    
 }
@@ -27,8 +27,8 @@ public function getEvntDescription() {
     return $this->evntDescription;
 }
 
-public function getEvntLocation() {
-    return $this->evntLocation;
+public function getVenueID() {
+    return $this->venueID;
 }
     
 public function getEvntPrice() {
