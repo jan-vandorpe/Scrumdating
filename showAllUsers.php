@@ -1,7 +1,7 @@
 <?php
 //showAllUsers.php
-require_once 'service/UserService.php';
-require_once 'Library\vendor\autoload.php';
+require_once 'service\UserService.php';
+require_once 'library\vendor\autoload.php';
 
 //get all users
 $userSvc = new UserService();
@@ -12,6 +12,6 @@ $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
 //execute twig page
-$view = $twig->render('userList.twig', array('userList' => $userLijst));
+$view = $twig->render('attributen.twig', array('userList' => $userLijst));
 print($view);
 

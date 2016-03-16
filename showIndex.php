@@ -20,6 +20,7 @@ if(isset($_SESSION['login'])){ //Gebruiker al ingelogd?
   if ($user=null){ 
     unset($_SESSION['login']); //geen gebruiker gevonden? Unset de session want verkeerd
   } 
+}
 
 //zet alle variabelen klaar in de presentatie pagina
 $view = $twig->render('index.twig', array('user' => $user));
