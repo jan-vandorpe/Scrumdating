@@ -2,6 +2,7 @@
 
 require_once 'DBConfig.php';
 require_once 'entities/Event.php';
+require_once 'entities/EventType.php';
 
 class EventDAO{
     
@@ -29,6 +30,19 @@ class EventDAO{
         foreach ($resultset as $rij) {
             $event = new event($rij["evntID"],$rij["evntDate"],$rij["evntName"],$rij["venueID"]);
             array_push($lijst, $event);
+        }
+    $dbh = null;
+    return $lijst;
+    }
+    
+    public function getAllEventTypes() {
+        $sql ="SELECT * FROM eventtypes";
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING,  DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+        $resultset = $dbh->query($sql);
+        $lijst = array();
+        foreach ($resultset as $rij) {
+            $eventtype = new eventType($rij["evntName"],$rij["evntDescription"],$rij["evntPrice"]);
+            array_push($lijst, $eventtype);
         }
     $dbh = null;
     return $lijst;
