@@ -26,6 +26,10 @@ body{
 	font-family: arial, sans-serif;
 }
 
+.login{
+    font-size: 0.9em;
+}
+
 form{
 	
 }
@@ -36,9 +40,10 @@ header h1{
 }
 
 header p{
-
     text-align: center;
 }
+
+
 
 legend{
     font-size: 1.2em;
@@ -67,6 +72,10 @@ input[type=checkbox], input[type=radio] {
 
 body{
  
+}
+
+.login form{
+    background-color: rgba(234,221,208,0.6);
 }
 .container{
 	background-color: rgba(234,221,208,0.6)
@@ -118,6 +127,24 @@ input {
 /******STRUCTUUR******/
 body{
 	background:url(../images/background/skulls.png);	
+}
+
+
+.login{
+    padding: 0.3em;
+
+}
+.login form{
+   border-radius: 4px;  
+}
+
+.login label{
+    display: block;
+    width: 100%;
+}
+.login input[type=text]{
+    width: 8em;
+    
 }
 
 
@@ -191,7 +218,7 @@ background: url(../images/icons/icons.png)
 }
 
 .hoofdmenu p {  
-display: block;
+display: none;
 padding:25%;
     margin-left: 3em;
 }
@@ -232,13 +259,19 @@ fieldset{
 	left:150px;
 }
 
-input[type=date], input[type=number] {
+.profielForm input[type=date], input[type=number] {
 	width: 94%;
         height: 3em;
         box-shadow: 3px 3px 3px darkgrey inset;
 }
 
-input[type=checkbox], input[type=radio] {
+.profielForm input[type=checkbox], input[type=radio] {
+}
+
+.profielForm input {
+	padding: 3%;
+	border-radius: 4px;
+        border: 1px solid white;
 }
 
 select {
@@ -248,11 +281,7 @@ select {
 	
 }
 
-input {
-	padding: 3%;
-	border-radius: 4px;
-	border: 1px solid white;
-}
+
 
 
 /****************************************************************************************/
@@ -302,7 +331,6 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 @media only screen and (min-width: 608px) {
 
 .balkLinks{
-   
     width: 20%;
     float: left;
 }
@@ -324,6 +352,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 }
 
   .hoofdmenu p {
+      display: block;
     padding-left: 0.5em;
     
     color: white;
