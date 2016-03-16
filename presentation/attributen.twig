@@ -42,7 +42,7 @@ and open the template in the editor.
                 <tbody>
                   {% for user in userList %}
                     <tr>
-                        <td>{{user.userID}}</td>
+                      <td><a href='profileControl.php?user={{user.userID}}' alt='Profile van user ID {{user.userID}}'>{{user.userID}}</a></td>
                         <td>{{user.username}}</td>
                         <td>{{user.password}}</td>
                         <td>{{user.email}}</td>
