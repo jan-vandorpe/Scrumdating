@@ -4,14 +4,12 @@
 
 class event{
     
-private $evntName,$evntDate,$evntDescription,$venueID,$evntPrice,$evntID;
+private $evntName,$evntDate,$venueID,$evntID;
 
-public function __construct($evntName,$evntDate,$evntDescription,$venueID,$evntPrice,$evntID) {
+public function __construct($evntID,$evntDate,$evntName,$venueID) {
     $this->evntName = $evntName;
     $this->evntDate = $evntDate;
-    $this->evntDescription = $evntDescription;
-    $this->evntLocation = $venueID;
-    $this->evntPrice = $evntPrice;
+    $this->venueID = $venueID;
     $this->evntID = $evntID;    
 }
 
