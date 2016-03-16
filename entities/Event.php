@@ -21,16 +21,8 @@ public function getEvntDate() {
     return $this->evntDate;
 }
 
-public function getEvntDescription() {
-    return $this->evntDescription;
-}
-
 public function getVenueID() {
     return $this->venueID;
-}
-    
-public function getEvntPrice() {
-    return $this->evntPrice;
 }
 
 public function getEvntID() {
