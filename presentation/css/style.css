@@ -3,31 +3,35 @@
 
 /******OUTLINE*******
 body, header, section, article, div, img, nav, ul, li{
-	outline: red dotted 1px;
-	margin: 0;
-	padding: 0;
+        outline: red dotted 1px;
+        margin: 0;
+        padding: 0;
 }
 */
 
 /*****NORMALISATION******/
-body, header, section, article, div, img, nav, ul, li, h1, p{
-	margin: 0;
-	padding: 0;
+body, header, section, article, div, img, nav, ul, li, h1, h2, p{
+    margin: 0;
+    padding: 0;
 }
 
 body{
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
 }
 
 /******TYPOGRAFIE*************************************************************************/
 body{
-	font-family: arial, sans-serif;
+    font-family: arial, sans-serif;
+}
+
+.login{
+    font-size: 0.9em;
 }
 
 form{
-	
+
 }
 
 header h1{
@@ -36,9 +40,10 @@ header h1{
 }
 
 header p{
-
     text-align: center;
 }
+
+
 
 legend{
     font-size: 1.2em;
@@ -49,13 +54,20 @@ select{
 }
 
 input[type=date], input[type=number] {
-        font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 input[type=checkbox], input[type=radio] {
     font-size: 5em;
 }
 
+.hoofdFooter p{
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.55em;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+}
 
 /****************************************************************************************/
 
@@ -66,50 +78,62 @@ input[type=checkbox], input[type=radio] {
 */
 
 body{
- 
+
+}
+
+.login form{
+    background-color: rgba(234,221,208,0.6);
+}
+.login input[type=text] input[type=password]{
+    background: white;
+}
+
+.inhoud{
+    background: rgba(150,150,150,0.6);
 }
 .container{
-	background-color: rgba(234,221,208,0.6)
+    background-color: rgba(234,221,208,0.6)
 }
 
 .balkLinks{
     background:  #808080;
+    display: none;
 }
 
 .balkRechts{
     background:cadetblue;
 }
 
-header h1, p{
+header, h1 p{
     color: beige;
 }
 
 header .headerImage{
-	background:  black;
+    background:  black;
 }
 
-.hoofdmenu ul {
-
-}
 
 .hoofdmenu ul li {
-background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.8);
 }
 
 legend{
-	
-	background: rgba(255,255,255,0.6);;
-}
-fieldset{	
-	background: rgba();
+
+    background: rgba(255,255,255,0.6);;
 }
 
+
 form{
-	color: #4C4C4C;
+    color: #4C4C4C;
 }
 
 input {
     color: #4C4C4C;
+}
+
+.hoofdFooter{
+    background-color: rgba(234,221,208,0.6);
+    color: gray;
 }
 
 /****************************************************************************************/
@@ -117,7 +141,25 @@ input {
 
 /******STRUCTUUR******/
 body{
-	background:url(../images/background/skulls.png);	
+    background:url(../images/background/skulls.png);	
+}
+
+
+.login{
+    padding: 0.3em;
+
+}
+.login form{
+    border-radius: 4px;  
+}
+
+.login label{
+    display: block;
+    width: 100%;
+}
+.login input[type=text] input[type=password]{
+    
+    width: auto;
 }
 
 
@@ -125,7 +167,7 @@ body{
     box-sizing: border-box;
     width: 100%;
     float: none;
-   
+
 }
 
 .balkRechts{
@@ -136,25 +178,31 @@ body{
 
 
 .container{
-        box-sizing: border-box;
-	padding: 2%;
-	width: 96%;
-	margin: 0 auto 0 auto;	
+    float: left;
+    box-sizing: border-box;
+    padding: 2%;
+    width: 100%;
+    margin: 0 auto 0 auto;	
 }
 
 
 
-header h1, p{
-    padding-top: 0.2em;
+header .hoofdmenu p{
+    padding-top: 1em;
     text-shadow: 1px 1px 1px black;
 }
 
+.headerImage h1,.headerImage p {
+    text-shadow: 1px 1px 1px black;
+}
+
+
 .headerImage{
-	background: url(../images/background/sensual.jpg) 50% 45%;
-	width: 100%;
-        background-size: 150%;
-        background-repeat: no-repeat;
-      
+    background: url(../images/background/sensual.jpg) 50% 45%;
+    width: 100%;
+    background-size: 150%;
+    background-repeat: no-repeat;
+
 }
 
 .hoofdmenu{
@@ -162,37 +210,37 @@ header h1, p{
 }
 
 .hoofdmenu ul {
-list-style:none;
-border-radius: 4px;
-padding: 1%;
-min-width: 595px;
+    list-style:none;
+    border-radius: 4px;
+    padding: 1%;
+    min-width: 595px;
 }
 
 .hoofdmenu li {
-box-sizing: border-box;
-padding:0.5em ;
-float:left;
-margin: 0 1% 0 0;
-border-radius: 4px;
-border: 1px solid white;
-box-shadow: 3px 3px 5px #808080 ;
+    box-sizing: border-box;
+    padding:0.5em ;
+    float:left;
+    margin: 0 1% 0 0;
+    border-radius: 4px;
+    border: 1px solid white;
+    box-shadow: 3px 3px 5px #808080;
 }
 
 .hoofdmenu li:last-of-type {
-margin: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .hoofdmenu a {  
-display: block;
-text-decoration: none;
-width:3.2em;
-height:3em;
-background: url(../images/icons/icons.png)
+    display: block;
+    text-decoration: none;
+    width:3.2em;
+    height:3em;
+    background: url(../images/icons/icons.png)
 }
 
 .hoofdmenu p {  
-display: block;
-padding:25%;
+    display: none;
+    padding:25%;
     margin-left: 3em;
 }
 
@@ -200,59 +248,65 @@ padding:25%;
 
 
 .hoofdmenu #a {background-position: -90px -85px;} 
-.hoofdmenu #b {background-position: -180px -85px;} 
-.hoofdmenu #c {background-position: -275px -85px;} 
-.hoofdmenu #d {background-position: -370px -85px;} 
+.hoofdmenu #b {background-position: -275px -85px;} 
+.hoofdmenu #c {background-position: -370px -85px;} 
+.hoofdmenu #d {background-position: -90px -180px;} 
 
 
 .labellook{
-	display: block;
+    display: block;
 }
 
 
 
 legend{
-	padding: 0.3em 0.8em 0.1em;
-	border-radius: 3px;
-	box-shadow: 2px 2px 3px #808080;
+    padding: 0.3em 0.8em 0.1em;
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px #808080;
 }
 
 fieldset{	
-	padding: 0.8em 2%;
-	border: 1px solid white;
-	border-radius: 3px;
+    padding: 0.8em 2%;
+    border: 1px solid white;
+    border-radius: 3px;
 }
 
 .profielitem{
-	margin-bottom: 0.7em;
+    margin-bottom: 0.7em;
 }
-	
+
 .vast{
-	top:100px;
-	left:150px;
+    top:100px;
+    left:150px;
 }
 
-input[type=date], input[type=number] {
-	width: 94%;
-        height: 3em;
-        box-shadow: 3px 3px 3px darkgrey inset;
+.profielForm input[type=date], input[type=number] {
+    width: 94%;
+    height: 3em;
+    box-shadow: 3px 3px 3px darkgrey inset;
 }
 
-input[type=checkbox], input[type=radio] {
+.profielForm input[type=checkbox], input[type=radio] {
+}
+
+.profielForm input {
+    padding: 3%;
+    border-radius: 4px;
+    border: 1px solid white;
 }
 
 select {
     width: 100%
 }
 .profielForm{
-	
+
 }
 
-input {
-	padding: 3%;
-	border-radius: 4px;
-	border: 1px solid white;
+.hoofdFooter{
+    padding: 0.5em;
 }
+
+
 
 
 /****************************************************************************************/
@@ -290,47 +344,54 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 /********MEDIA QUERIES*******************************************************************/
 @media screen and (max-width: 40.5em) {
-  .product-img {
-    width: 50%;
-    float: left;
-  }
-  .hoofdmenu ul li a  {
-  }
+    .product-img {
+        width: 50%;
+        float: left;
+    }
+    .hoofdmenu ul li a  {
+    }
 
 }
 
 @media only screen and (min-width: 608px) {
+    .login form{
+        float: right;
+    }
+    .login label{
+        display: inline;
+    }
 
-.balkLinks{
-   
-    width: 20%;
-    float: left;
-}
+    .balkLinks{
+        display:  block;
+        width: 20%;
+        float: left;
+    }
 
-.balkRechts{
-    
-    width:20%;
-    float: right;
-}
- 
- .container{
-	padding: 2%;
-	width: 60%;
-	margin: 0 auto 0 auto;	
-}
+    .balkRechts{
 
-   .hoofdmenu li {	
-	width:24.25%;
-}
+        width:20%;
+        float: right;
+    }
 
-  .hoofdmenu p {
-    padding-left: 0.5em;
-    
-    color: white;
-   }
-   
-   .headerImage{
+    .container{
+        padding: 2%;
+        width: 60%;
+        margin: 0 auto 0 auto;	
+    }
+
+    .hoofdmenu li {	
+        width:24.25%;
+    }
+
+    .hoofdmenu p {
+        display: block;
+        padding-left: 0.5em;
+
+        color: white;
+    }
+
+    .headerImage{
         background-size: 100%;
-        
-}
+
+    }
 }
