@@ -4,23 +4,24 @@
 
 class user{
 
-    private $userID,$username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin;
+    private $userID,$username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$hobbies,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin;
     
     private static $usernameMap = array();
     
-    public function __construct($userID,$username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin) {
+    public function __construct($userID,$username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$hobbies,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin) {
        if(!isset(self::$usernameMap[$username])){
         $this->userID = $userID;
         $this->username = $username;
         $this->password = $password;
         $this->email = $email;
         $this->sex = $sex;
-        $this->birthDate = $birthDate;
+        $this->age = $birthDate;
         $this->preference = $preference;
         $this->hairColor = $hairColor;
         $this->length = $length;
         $this->build = $build;
         $this->eyeColor = $eyeColor;
+        $this->hobbies = $hobbies;
         $this->oneNight = $oneNight;
         $this->longTerm = $longTerm;
         $this->friends = $friends;
@@ -76,6 +77,10 @@ class user{
     
     public function getEyeColor() {
         return $this->eyeColor;
+    }
+    
+    public function getHobbies() {
+        return $this->hobbies;
     }
     
     public function getOneNight() {
