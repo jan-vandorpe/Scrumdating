@@ -1,12 +1,9 @@
 <?php
 
 require_once 'DBConfig.php';
-require_once '../entities/Event.php';
+require_once 'entities/Event.php';
 
-$test = new UserDAO();
-$test->getByID(8);
-
-class UserDAO{
+class EventDAO{
     
     public function getAll(){
         $sql ="SELECT * FROM events";
