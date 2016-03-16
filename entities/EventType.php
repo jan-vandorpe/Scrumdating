@@ -2,7 +2,7 @@
 
 //Entiteit/eventType.php
 
-class eventType{
+class EventType{
     
 private $evntName,$evntDescription,$evntPrice;
 

@@ -1,9 +1,9 @@
 <?php
 
 require_once 'DBConfig.php';
-require_once 'entities/Venues.php';
+require_once 'entities/Venue.php';
 
-class venueDAO{
+class VenueDAO{
     
     public function getAll(){
         $sql ="SELECT * FROM venues";
@@ -11,7 +11,7 @@ class venueDAO{
         $resultset = $dbh->query($sql);
         $lijst = array();
         foreach ($resultset as $rij) {
-            $venue = new venues($rij["venueID"],$rij["venueName"],$rij["venueCity"],$rij["venueStreet"],$rij["venueStreetNR"],$rij["venueCapacity"]);
+            $venue = new Venue($rij["venueID"],$rij["venueName"],$rij["venueCity"],$rij["venueStreet"],$rij["venueStreetNR"],$rij["venueCapacity"]);
             array_push($lijst, $venue);
         }
     $dbh = null;
@@ -27,7 +27,7 @@ class venueDAO{
         $lijst = array();
         
         foreach ($resultset as $rij) {
-            $venue = new venues($rij["venueID"],$rij["venueName"],$rij["venueCity"],$rij["venueStreet"],$rij["venueStreetNR"],$rij["venueCapacity"]);
+            $venue = new Venue($rij["venueID"],$rij["venueName"],$rij["venueCity"],$rij["venueStreet"],$rij["venueStreetNR"],$rij["venueCapacity"]);
             array_push($lijst, $venue);
         }
     $dbh = null;

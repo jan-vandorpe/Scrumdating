@@ -1,8 +1,8 @@
 <?php
 
-//Entities/venues.php
+//Entities/Venue.php
 
-class venues{
+class Venue{
     
     private $venueID,$venueName,$venueCity,$venueStreet,$venueStreetNR,$venueCapacity;
     

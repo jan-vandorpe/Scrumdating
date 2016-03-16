@@ -2,19 +2,19 @@
 
 //Entiteit/event.php
 
-class event{
+class Event{
     
-private $evntName,$evntDate,$venueID,$evntID;
+private $evntType,$evntDate,$venue,$evntID;
 
-public function __construct($evntID,$evntDate,$evntName,$venueID) {
-    $this->evntName = $evntName;
+public function __construct($evntID,$evntDate,$evntType,$venue) {
+    $this->evntType = $evntType;
     $this->evntDate = $evntDate;
-    $this->venueID = $venueID;
+    $this->venue = $venue;
     $this->evntID = $evntID;    
 }
 
-public function getEvntName() {
-    return $this->evntName;
+public function getEvntType() {
+    return $this->evntType;
 }
 
 public function getEvntDate() {
@@ -25,8 +25,8 @@ public function getEvntDescription() {
     return $this->evntDescription;
 }
 
-public function getVenueID() {
-    return $this->venueID;
+public function getVenue() {
+    return $this->venue;
 }
     
 public function getEvntPrice() {

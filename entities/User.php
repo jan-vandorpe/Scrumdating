@@ -2,7 +2,7 @@
 
 //Entiteit/user.php
 
-class user{
+class User{
 
     private $userID,$username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin;
     

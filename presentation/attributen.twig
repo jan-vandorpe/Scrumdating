@@ -84,8 +84,8 @@ and open the template in the editor.
                     <tr>
                         <td>{{event.evntID}}</td>
                         <td>{{event.evntDate}}</td>
-                        <td>{{event.evntName}}</td>
-                        <td>{{event.venueID}}</td>
+                        <td>{{event.evntType.evntPrice}}</td>
+                        <td>{{event.venue.venueID}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
