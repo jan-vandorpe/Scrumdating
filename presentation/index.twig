@@ -16,8 +16,7 @@
             <div class="login clearFix">
                 <form action="login.html" method="post" class="login" id="login" name="login">
                     <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
-                    <label for="password">wachtwoord :<input type="text" id="password" name="password"></label>
-
+                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>
                 </form>
             </div>
 
@@ -26,10 +25,10 @@
 
             <nav class="hoofdmenu clearFix">
                 <ul>
-                    <li><a href="#" id="a"><p>Menu</p></a></li>
-                    <li><a href="#" id="b"><p>Profiel</p></a></li>
+                    <li><a href="index.twig" id="a"><p>Menu</p></a></li>
+                    <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
                     <li><a href="#" id="c"><p>Matchen</p></a></li>
-                    <li><a href="#" id="d"><p>Overig</p></a></li>
+                    <li><a href="#" id="d"><p>Instellingen</p></a></li>
                 </ul>
             </nav>
 
@@ -37,27 +36,28 @@
 
 
 
-        <div class="inhoud cf">
+        <div class="inhoud clearFix">
 
-
-
-
-            <div class="container">
-                <div class="welkom"
-                <h2>Welkom</h2>
-                <p>Gebruiker : </p>
-                </div>
-
-            </div>
-
-
-            <section class="balkRechts">
-                <h1>bALK RECHTS</h1>
-            </section>
             <section class="balkLinks">
                 <h1>balk links</h1>
             </section>
+            
+            <div class="container">
+                <div class="welkom">
+                    <h2>Welkom</h2>
+                    <p>Gregory </p>
+                </div>
+            </div>
+
+            <section class="balkRechts">
+                <h1>BALK RECHTS</h1>
+            </section>
+
 
         </div>
+
+        <footer class="hoofdFooter">
+            <p><span>This project is build by Jordi, Wouter, Gregory and Micha &COPY; 2016</span></p>
+        </footer>
     </body>
 </html>
