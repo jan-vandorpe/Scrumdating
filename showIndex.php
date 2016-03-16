@@ -1,5 +1,5 @@
 <?php
-//toonHomepage.php
+//showIndex.php
 
 //Verwijst naar de twig library
 require_once 'library/vendor/autoload.php';

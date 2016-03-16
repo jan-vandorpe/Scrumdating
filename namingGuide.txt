@@ -26,6 +26,7 @@ service/
 ----/UserService.php
 ----/EventService.php
 ----/VenueService.php
-toonIndex.php
+showAllUsers.php
+showIndex.php
 userLogin.php
 userRegistratie.php
