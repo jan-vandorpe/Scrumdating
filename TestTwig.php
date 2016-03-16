@@ -15,5 +15,5 @@ class User {
 }
 $user = new User('jordy');
 
-$view = $twig->render('test.twig', array('user' => 'bart'));
+$view = $twig->render('test.twig', array('user' => $user));
 print($view);
