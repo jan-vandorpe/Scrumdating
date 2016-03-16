@@ -47,21 +47,21 @@ and open the template in the editor.
                         <td>{{user.password}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.sex}}</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
+                        <td>{{user.birthDate}}</td>
+                        <td>{{user.preference}}</td>
+                        <td>{{user.hairColor}}</td>
+                        <td>{{user.length}}</td>
+                        <td>{{user.build}}</td>
+                        <td>{{user.eyeColor}}</td>
+                        <td>{{user.oneNight}}</td>
+                        <td>{{user.longTerm}}</td>
+                        <td>{{user.friends}}</td>
+                        <td>{{user.bio}}</td>
+                        <td>{{user.region}}</td>
+                        <td>{{user.postcode}}</td>
+                        <td>{{user.occupation}}</td>
+                        <td>{{user.smoker}}</td>
+                        <td>{{user.admin}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -80,12 +80,14 @@ and open the template in the editor.
                     </tr>
                 </thead>
                 <tbody>
+                  {% for event in eventList %}
                     <tr>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
+                        <td>{{event.evntID}}</td>
+                        <td>{{event.evntDate}}</td>
+                        <td>{{event.evntName}}</td>
+                        <td>{{event.venueID}}</td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
 
@@ -104,21 +106,23 @@ and open the template in the editor.
                     </tr>
                 </thead>
                 <tbody>
+                  {% for venue in venueList %}
                     <tr>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
+                        <td>{{venue.venueID}}</td>
+                        <td>{{venue.venueName}}</td>
+                        <td>{{venue.venueCity}}</td>
+                        <td>{{venue.venueStreet}}</td>
+                        <td>{{venue.venueStreetNR}}</td>
+                        <td>{{venue.venueCapacity}}</td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
         <div>
             <table class="eventtypes">
                 <caption>eventypes</caption>
-                <thead>
+                <thead>                 
                     <tr>
                         <th>eventName</th>
                         <th>evntDescription</th>
@@ -126,11 +130,13 @@ and open the template in the editor.
                     </tr>
                 </thead>
                 <tbody>
+                   {% for eventType in eventTypeList %}
                     <tr>
-                        <td>g</td>
-                        <td>g</td>
-                        <td>g</td>
+                        <td>{{eventType.evntName}}</td>
+                        <td>{{eventType.evntDescription}}</td>
+                        <td>{{eventType.evntPrice}}</td>
                     </tr>
+                   {% endfor %}
                 </tbody>
             </table>
 

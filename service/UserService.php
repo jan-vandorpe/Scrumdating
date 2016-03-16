@@ -1,6 +1,6 @@
 <?php
 //service/UserService.php
-require_once 'UserDAO.php';
+require_once 'data/UserDAO.php';
 
 class UserService {
   public function getUserList(){

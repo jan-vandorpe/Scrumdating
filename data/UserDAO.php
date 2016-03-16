@@ -2,7 +2,7 @@
 //data/UserDAO.php
 
 require_once 'DBConfig.php';
-require_once '../entities/User.php';
+require_once 'entities/User.php';
 
 $test = new UserDAO();
 $test->getByID(3);
