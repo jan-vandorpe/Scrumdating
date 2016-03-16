@@ -1,0 +1,1 @@
+Hier gaan alle css files. Om deze aan te spreken in je presentation laag gebruik je gewoon "css/[bestandsnaam]"; alle paths zijn relatief tot de controllers (die in de hoofdmap staan).
