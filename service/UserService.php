@@ -4,14 +4,20 @@ require_once 'UserDAO.php';
 
 class UserService {
   public function getUserList(){
-    $userDAO = new UserDAO;
+    $userDAO = new UserDAO();
     $list = $userDAO->getAll();
     return $list;
   }
   
-  public function getUserById($id){
-    $userDAO = new UserDAO;
-    $user = $userDAO->getById();
+  public function getUserByID($userID){
+    $userDAO = new UserDAO();
+    $user = $userDAO->getById($userID);
     return $user;
-  }  
+  }
+  
+  public function verifyUserLogin($username,$password){
+    $userDAO = new UserDAO();
+    $login = $userDAO->verifyLogin($username,$password);
+    return $login;
+  }
 }
