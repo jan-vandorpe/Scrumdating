@@ -1,0 +1,1 @@
+Hier alle img files. Om deze aan te spreken in je presentation laag gebruik je gewoon "img/[bestandsnaam]"; alle paths zijn relatief tot de controllers (die in de hoofdmap staan).
