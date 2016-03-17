@@ -32,6 +32,12 @@ if(isset($_GET['event'])) {
   $view = $twig->render('eventDetail.twig', array('event' => $event,'eventTypeList' => $eventTypeList,'venueList'=>$venueList));
 }
 
+//event toevoegeen
+if(isset($_GET['add'])){
+  $eventSvc = new EventService();
+  $eventSvc->addEvent();
+}
+
 //venue management
 if(isset($_GET['venue'])){
   $venueSvc = new VenueService();

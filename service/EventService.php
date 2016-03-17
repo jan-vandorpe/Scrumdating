@@ -24,5 +24,16 @@ class EventService {
     $eventType = $eventDAO->getEventTypeByID();
     return $eventType;
   }
+  
+  public function addEvent() {
+      
+    $_POST["evntDate"] = $evDate;
+    $_POST["evntName"] = $evName; 
+    $_POST["venueID"] = $venID;  
+      
+    $eventDAO = new EventDAO();
+    $eventDAO = $eventDAO->toevoegenEvent($evDate,$evName,$venID);
+    return $eventDAO;
+  }
 }
 

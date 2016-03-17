@@ -50,11 +50,7 @@ class EventDAO {
     return $lijst;
   }
   
-  public function toevoegenEvent() {  
-      
-    $_POST["evntDate"] = $evDate;
-    $_POST["evntName"] = $evName; 
-    $_POST["venueID"] = $venID;
+  public function addEvent($evDate,$evName,$venID) {     
       
     $sql = "INSERT INTO events (evntDate,evntName,venueID) values (:evDate, :evName,:venID)";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
@@ -63,7 +59,7 @@ class EventDAO {
     $dbh = null;    
   }
   
-  public function toevoegenEventtype() {
+  public function addEventtype() {
     $_POST["evntName"] = $evName;
     $_POST["evntDescription"] = $evDescription; 
     $_POST["evntPrice"] = $evPrice;
