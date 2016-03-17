@@ -50,7 +50,7 @@
         <h2>Event Overzicht</h2>
         <!--form hier -->
         <a href="#">Event Aanmaken</a>
-        <form action="" method="post" id="events" name="events">
+        <form method="post" id="events" name="events">
           <div>
             <label for="evntID">Event ID:</label>
             <input type="number" id="evntID" name="fnaam" title="vul hier uw familienaam" placeholder="{{event.evntID}}">
@@ -100,7 +100,7 @@
           </div>
           <div>
             <label for="venueStreetNR" >Venue Street Number:</label>
-            <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" disabled placeholder="{{event.venue.venueStreet}}">
+            <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" disabled placeholder="{{event.venue.venueStreetNR}}">
           </div>
           <div>
             <label for="venueCapacity" >Venue Capacity:</label>
@@ -108,8 +108,8 @@
           </div>
           <div>
             <input type="submit" value="Add" href="adminControl.php?add=event"/>
-            <input type="submit" value="Update" href="adminControl.php?update=event"/>
-            <input type="submit" value="Delete" href="adminControl.php?delete=event"/>
+            <input type="submit" value="Update"/>
+            <input type="submit" value="Delete"/>
           </div>
         </form>
       </div>
