@@ -19,5 +19,10 @@ class EventService {
     $list = $eventDAO->getAllEventTypes();
     return $list;
   }
+  public function getEventTypeByID(){
+    $eventDAO = new EventDAO();
+    $eventType = $eventDAO->getEventTypeByID();
+    return $eventType;
+  }
 }
 
