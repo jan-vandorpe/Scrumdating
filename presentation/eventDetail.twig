@@ -50,7 +50,7 @@
         <h2>Event Overzicht</h2>
         <!--form hier -->
         <a href="#">Event Aanmaken</a>
-        <form action="AdminControl.php" method="post" id="events" name="events">
+        <form method="post" id="events" name="events">
           <div>
             <label for="evntID">Event ID:</label>
             <input type="number" id="evntID" name="fnaam" title="vul hier uw familienaam" placeholder="{{event.evntID}}">
@@ -107,8 +107,8 @@
             <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" disabled placeholder="{{event.venue.venueCapacity}}">
           </div>
           <div>
-            <input type="submit" value="Submit"/>
-            <input type="reset" value="Reset"/>
+            <input type="submit" value="Add" href="adminControl.php?add=event"/>
+            <input type="submit" value="Update"/>
             <input type="submit" value="Delete"/>
           </div>
         </form>
