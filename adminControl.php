@@ -22,9 +22,13 @@ if (isset($_GET['user'])) {
 if(isset($_GET['event'])) {
   $eventSvc = new EventService();
   $event = $eventSvc->getEventByID($_GET['event']);
+  $eventTypeList = $eventSvc->getEventTypeList();
+  
+  $venueSvc = new VenueService();
+  $venueList = $venueSvc->getVenueList();
 
   //prepare twig page
-  $view = $twig->render('eventDetail.twig', array('event' => $event));
+  $view = $twig->render('eventDetail.twig', array('event' => $event,'eventTypeList' => $eventTypeList,'venueList'=>$venueList));
 }
 
 //venue management
