@@ -48,64 +48,70 @@
 
       <div class="container">
         <h2>Event Overzicht</h2>
-    <!--form hier -->
-    <a href="#">Event Aanmaken</a>
-    <form action="AdminControl.php" method="post" id="events" name="events">
-        <div>
+        <!--form hier -->
+        <a href="#">Event Aanmaken</a>
+        <form action="AdminControl.php" method="post" id="events" name="events">
+          <div>
             <label for="evntID">Event ID:</label>
-            <input type="number" id="evntID" name="fnaam" title="vul hier uw familienaam">
+            <input type="number" id="evntID" name="fnaam" title="vul hier uw familienaam" placeholder="{{event.evntID}}">
             </select>
-        </div>
-        <div>
-            <label for="evntName" >Event Name:</label>
-            <input type="text" id="evntName" name="evntName"
-                   title="evntName" disabled>
-        </div>
-        <div>
+          </div>
+          <div>
             <label for="evntDate">Event Datum:</label>
-            <input type="date" id="evntDate" name="evntDate" title="Event Date in het formaat 1956-12-31" disabled>
-        </div>
-        <div>
-            <label for="venueID" >Venue ID:</label>
-            <input type="number" id="venueID" name="venueID" title="venueID" disabled>
-        </div>
-        <div>
+            <input type="date" id="evntDate" name="evntDate" title="Event Date in het formaat 1956-12-31" placeholder="{{event.evntDate|date("dd/mm/YYYY")}}">
+          </div>
+          <div>
+            <label for="evntName" >Event Type:</label>
+            <select name="evntName" title="evntName">
+              {% for eventType in eventTypeList %}
+              <option value="{{eventType.evntName}}" {% if eventType.evntName == event.evntType.evntName %}selected="selected"{% endif %}>{{eventType.evntName}}</option>
+              {% endfor %}
+            </select>            
+          </div>
+          <div>
             <label for="evntDescription">Event Description</label>
-            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled></textarea>
-        </div>
-        <div>
+            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled placeholder="{{event.evntType.evntDescription}}"></textarea>
+          </div>
+          <div>
             <label for="evntPrice" >Event Price:</label>
-            <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled>
-        </div>
-        <div>
-            <label for="venueName">Venue Name:</label>
-            <input type="text" id="venueName" name="venueName" title="Venue Name" disabled>
-            </select>
-        </div>
-        <div>
+            <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled placeholder="{{event.evntType.evntPrice}}">
+          </div>
+          <div>
+            <label for="venueName">Venue:</label>
+            <select name="venueID" title="Venue Name">
+              {% for venue in venueList %}
+              <option value="{{venue.venueID}} {% if venue.venueID == event.venue.venueID %}" selected="selected"{% endif %}>{{venue.venueName}}</option>
+              {% endfor %}
+            </select>   
+          </div>
+          <div>
+            <label for="venueID" >Venue ID:</label>
+            <input type="number" id="venueID" name="venueIDdisplay" title="venueID" placeholder="{{event.venue.venueID}}">
+          </div>
+          <div>
             <label for="venueCity">Venue City:</label>
-            <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled>
+            <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled placeholder="{{event.venue.venueCity}}">
             </select>
-        </div>
-        <div>
+          </div>
+          <div>
             <label for="venueStreet">Venue Street:</label>
-            <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled>
+            <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled placeholder="{{event.venue.venueStreet}}">
             </select>
-        </div>
-        <div>
+          </div>
+          <div>
             <label for="venueStreetNR" >Venue Street Number:</label>
-            <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" disabled>
-        </div>
-        <div>
+            <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" disabled placeholder="{{event.venue.venueStreet}}">
+          </div>
+          <div>
             <label for="venueCapacity" >Venue Capacity:</label>
-            <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" disabled>
-        </div>
-        <div>
+            <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" disabled placeholder="{{event.venue.venueCapacity}}">
+          </div>
+          <div>
             <input type="submit" value="Submit"/>
             <input type="reset" value="Reset"/>
             <input type="submit" value="Delete"/>
-        </div>
-    </form>
+          </div>
+        </form>
       </div>
 
       <section class="balkRechts">
