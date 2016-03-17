@@ -34,8 +34,11 @@ if(isset($_GET['event'])) {
 
 //event toevoegeen
 if(isset($_GET['add'])){
+  $_POST["evntDate"] = $evDate;
+  $_POST["evntName"] = $evName; 
+  $_POST["venueID"] = $venID;  
   $eventSvc = new EventService();
-  $eventSvc->addEvent();
+  $eventSvc->addEvent($evDate,$evName,$venID);
 }
 
 //venue management
