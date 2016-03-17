@@ -23,7 +23,7 @@ class EventDAO {
   }
 
   public function getByID($evntID) {
-    $sql = "SELECT * FROM events WHERE evntID = :ID AND events.evntName = eventtypes.evntName";
+    $sql = "SELECT * FROM events, eventtypes, venues WHERE evntID = :ID AND events.evntName = eventtypes.evntName AND events.venueID = venues.venueID";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':ID' => $evntID));
