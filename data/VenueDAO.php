@@ -23,11 +23,10 @@ class VenueDAO {
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':ID' => $venueID));
-    $rij = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $rij = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $venue = new venues($rij["venueID"], $rij["venueName"], $rij["venueCity"], $rij["venueStreet"], $rij["venueStreetNR"], $rij["venueCapacity"]);
-
-
+    $venue = new Venue($rij["venueID"], $rij["venueName"], $rij["venueCity"], $rij["venueStreet"], $rij["venueStreetNR"], $rij["venueCapacity"]);
+    
     $dbh = null;
     return $venue;
   }

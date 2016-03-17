@@ -43,7 +43,7 @@ class EventDAO {
     $resultset = $dbh->query($sql);
     $lijst = array();
     foreach ($resultset as $rij) {
-      $eventtype = new eventType($rij["evntName"], $rij["evntDescription"], $rij["evntPrice"]);
+      $eventtype = new EventType($rij["evntName"], $rij["evntDescription"], $rij["evntPrice"]);
       array_push($lijst, $eventtype);
     }
     $dbh = null;
