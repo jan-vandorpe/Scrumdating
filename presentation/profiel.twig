@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png"  href="images/icons/favicon.png">
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Uw Westvloamse datingsite</title>
+    </head>
+
+    <body>
+        <header class="headerImage">
+            <div class="login clearFix">
+                <form action="login.html" method="post" class="login" id="login" name="login">
+                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
+                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>
+                </form>
+            </div>
+
+            <h1><span>Losse Flodders</span></h1>
+            <p>Westvlaamse datingsite</p>
+
+            <nav class="hoofdmenu clearFix">
+                <ul>
+                    <li><a href="index.twig" id="a"><p>Menu</p></a></li>
+                    <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
+                    <li><a href="#" id="c"><p>Matchen</p></a></li>
+                    <li><a href="#" id="d"><p>Instellingen</p></a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+
+
+        <div class="inhoud clearFix">
+
+            <section class="balkLinks">
+                <h1>balk links</h1>
+            </section>
+            
+            <div class="container">
+                <fieldset class="vast">
+                    <legend>Profiel Aanmaak</legend>
+                    <form action="profiel.html" method="post" class="profielForm" id="profileData" name="profileData">
+                        <div class="profielitem">
+                            <fieldset>
+                                <legend>Geslacht</legend>
+                                <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="m" checked/>Man</label>
+                                <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="v"/>Vrouw</label> 
+                                <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="o"/>Anders</label>
+                            </fieldset>
+                        </div>
+                        <div class="profielitem">
+                            <fieldset>
+                                <legend><label for="geboren" class="verplicht labellook">Geboortedatum</label></legend>
+                                <input type="date" id="geboren" name="bDate" placeholder="DD-MM-JJJ" required/>
+                            </fieldset>
+                        </div>
+                        <div class="profielitem">
+                            <fieldset>
+                                <legend><label for="lengte" class="verplicht labellook">Lengte</label></legend>
+                                <input type="number" id="lengte" name="lenght" placeholder="lengte in cm" required/>
+                            </fieldset>
+                        </div>
+                        <div class="profielitem">
+                            <fieldset>
+                                <legend><label for ="build" class="verplicht labellook">Figuur</label></legend>
+                                <select id="build" name="build" required>
+                                    <option value=mager>Mager</option>
+                                    <option value=slank>Slank</option>
+                                    <option value=gespierd>Gespierd</option>
+                                    <option value=bigboned>Big Boned</option>
+                                    <option value=muffintop>Muffin Top</option>
+                                </select>
+                            </fieldset>
+                        </div>
+                        <div class="profielitem">
+                            <fieldset>
+                                <legend><label>Soort relatie</label></legend>
+                                <label for="vriendschap" class="labelcheckbox labellook"><input type="checkbox" id="vriendschap" name="vriendschap" value="friend" checked>Vriendschap</label>
+                                <label for="oneNight" class="labelcheckbox labellook"><input type="checkbox" id="oneNight" name="oneNight" value="oneNight">One night stand</label>
+                                <label for="langetermijn" class="labelcheckbox labellook"><input type="checkbox" id="langetermijn" name="longterm" value="longterm">Lange termijn</label>
+                            </fieldset>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+
+            <section class="balkRechts">
+                <h1>BALK RECHTS</h1>
+            </section>
+
+
+        </div>
+
+        <footer class="hoofdFooter">
+            <p><span>This project is build by Jordi, Wouter, Gregory and Micha &COPY; 2016</span></p>
+        </footer>
+    </body>
+</html>
