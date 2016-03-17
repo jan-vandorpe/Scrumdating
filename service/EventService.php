@@ -24,5 +24,12 @@ class EventService {
     $eventType = $eventDAO->getEventTypeByID();
     return $eventType;
   }
+  
+  public function addEvent($evDate,$evName,$venID) {
+           
+    $eventDAO = new EventDAO();
+    $eventDAO = $eventDAO->toevoegenEvent($evDate,$evName,$venID);
+    return $eventDAO;
+  }
 }
 

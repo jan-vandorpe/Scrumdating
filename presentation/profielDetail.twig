@@ -63,9 +63,9 @@
                             </div>
                             <div>
                                 <span>Geslacht</span>
-                                <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="m" checked/>Man</label>
-                                <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="v"/>Vrouw</label>
-                                <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="o"/>Anders</label>
+                                <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="m" {% if user.sex == 'm' %} checked="checked" {% endif %}/>Man</label>
+                                <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="f" {% if user.sex == 'f' %} checked="checked" {% endif %}/>Vrouw</label>
+                                <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="o" {% if user.sex == 'o' %} checked="checked" {% endif %}/>Anders</label>
                             </div>
                             <div>
                                 <label for="birthDate">Geboorte Datum:</label>
@@ -73,9 +73,9 @@
                             </div>
                             <div>
                                 <span>Preference</span>
-                                <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="m" checked/>Man</label>
-                                <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="v"/>Vrouw</label>
-                                <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="o"/>Man & Vrouw</label>
+                                <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="m" {% if user.preference == 'm' %} checked="checked" {% endif %}/>Man</label>
+                                <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="f" {% if user.preference == 'f' %} checked="checked" {% endif %}/>Vrouw</label>
+                                <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="a" {% if user.preference == 'a' %} checked="checked" {% endif %}/>Man & Vrouw</label>
                             </div>
                             <div>
                                 <label for="hairColor" >hairColor:</label>
@@ -89,11 +89,11 @@
                             <div>
                                 <label for ="build" class="verplicht labellook">Figuur</label>
                                 <select id="build" name="build" required>
-                                    <option value=mager>Mager</option>
-                                    <option value=slank>Slank</option>
-                                    <option value=gespierd>Gespierd</option>
-                                    <option value=bigboned>Big Boned</option>
-                                    <option value=muffintop>Muffin Top</option>
+                                    <option value="mager">Mager</option>
+                                    <option value="slank">Slank</option>
+                                    <option value="gespierd">Gespierd</option>
+                                    <option value="bigboned">Big Boned</option>
+                                    <option value="muffintop">Muffin Top</option>
                                 </select>
                             </div>
                             <div>
@@ -103,9 +103,9 @@
                             </div>
                             <div>
                                 <label>Soort relatie</label>
-                                <label for="friends" class="labelcheckbox labellook"><input type="checkbox" id="friends" name="friends" value="1" checked>Vriendschap</label>
-                                <label for="oneNight" class="labelcheckbox labellook"><input type="checkbox" id="oneNight" name="oneNight" value="1">One night stand</label>
-                                <label for="longTerm" class="labelcheckbox labellook"><input type="checkbox" id="longTerm" name="longterm" value="1">Lange termijn</label>
+                                <label for="friends" class="labelcheckbox labellook"><input type="checkbox" id="friends" name="friends" value="1" {% if user.friends == '1' %} checked="checked" {% endif %}>Vriendschap</label>
+                                <label for="oneNight" class="labelcheckbox labellook"><input type="checkbox" id="oneNight" name="oneNight" value="1" {% if user.oneNight == '1' %} checked="checked" {% endif %}>One night stand</label>
+                                <label for="longTerm" class="labelcheckbox labellook"><input type="checkbox" id="longTerm" name="longTerm" value="1"{% if user.longTerm == '1' %} checked="checked" {% endif %}>Lange termijn</label>
                             </div>
                             <div>
                                 <label for="bio">Bio:</label>
@@ -122,22 +122,22 @@
                             <div>
                                 <label for ="occupation" class="verplicht labellook">Occupation</label>
                                 <select id="occupation" name="occupation" placeholder="{{user.occupation}}">
-                                    <option value=student>student</option>
-                                    <option value=ik doe niet veel>ik doe niet veel</option>
-                                    <option value=kelner>kelner</option>
-                                    <option value=werknemer>werknemer</option>
-                                    <option value=werkgever>werkgever</option>
+                                    <option value="student" {% if user.occupation == 'student' %} selected="selected" {% endif %}>student</option>
+                                    <option value="ik doe niet veel"{% if user.occupation == 'ik doe niet veel' %} selected="selected" {% endif %}>ik doe niet veel</option>
+                                    <option value="kelner"{% if user.occupation == 'kelner' %} selected="selected" {% endif %}>kelner</option>
+                                    <option value="werknemer"{% if user.occupation == 'werknemer' %} selected="selected" {% endif %}>werknemer</option>
+                                    <option value="werkgever"{% if user.occupation == 'werkgever' %} selected="selected" {% endif %}>werkgever</option>
                                 </select>
                             </div>
                             <div>
                                 <span>Roker</span>
-                                <label for="smoker" class="labelradio labellook"><input type="radio" id="smoker" name="smoker" value="1"/>Ja</label>
-                                <label for="smoker" class="labelradio labellook"><input type="radio" id="smoker" name="smoker" value="0"/>Nee</label>
+                                <label for="smoker" class="labelradio labellook"><input type="radio" id="smoker" name="smoker" value="1" {% if user.smoker == '1' %} checked="checked" {% endif %}/>Ja</label>
+                                <label for="smoker" class="labelradio labellook"><input type="radio" id="smoker" name="smoker" value="0" {% if user.smoker == '0' %} checked="checked" {% endif %}/>Nee</label>
                             </div>
                             <div>
                                 <span>Admin</span>
-                                <label for="admin" class="labelradio labellook"><input type="radio" id="admin" name="admin" value="1"/>Ja</label>
-                                <label for="admin" class="labelradio labellook"><input type="radio" id="admin" name="admin" value="0"/>Nee</label>
+                                <label for="admin" class="labelradio labellook"><input type="radio" id="admin" name="admin" value="1" {% if user.admin == '1' %} checked="checked" {% endif %}/>Ja</label>
+                                <label for="admin" class="labelradio labellook"><input type="radio" id="admin" name="admin" value="0" {% if user.admin == '0' %} checked="checked" {% endif %}/>Nee</label>
                             </div>
                         </form>
                 </fieldset>
