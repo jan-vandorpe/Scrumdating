@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png"  href="images/icons/favicon.png">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Uw Westvloamse datingsite</title>
+  </head>
+
+  <body>
+    <header class="headerImage">
+      <div class="login clearFix">
+        {% if user == 'Guest' %}
+          <form action="loginCheck.php" method="post" class="login" id="login" name="login">
+            <label for="username">gebruikersnaam: <input type="text" id="username" name="username"></label>
+            <label for="password">wachtwoord: <input type="password" id="password" name="password"></label>
+          </form>
+        {% else %}
+          <p>Gebruiker: {{user.username}}</p>
+        {% endif %}              
+      </div>
+
+      <h1><span>Losse Flodders</span></h1>
+      <p>Westvlaamse datingsite</p>
+
+      <nav class="hoofdmenu clearFix">
+        <ul>
+          <li><a href="index.twig" id="a"><p>Menu</p></a></li>
+          <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
+          <li><a href="#" id="c"><p>Matchen</p></a></li>
+          <li><a href="#" id="d"><p>Instellingen</p></a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+
+
+    <div class="inhoud clearFix">
+
+      <section class="balkLinks">
+        <h1>balk links</h1>
+      </section>
+
+      <div class="container">
+        <h2>Event Overzicht</h2>
+    <!--form hier -->
+    <a href="#">Event Aanmaken</a>
+    <form action="AdminControl.php" method="post" id="events" name="events">
+        <div>
+            <label for="evntID">Event ID:</label>
+            <input type="number" id="evntID" name="fnaam" title="vul hier uw familienaam">
+            </select>
+        </div>
+        <div>
+            <label for="evntName" >Event Name:</label>
+            <input type="text" id="evntName" name="evntName"
+                   title="evntName" disabled>
+        </div>
+        <div>
+            <label for="evntDate">Event Datum:</label>
+            <input type="date" id="evntDate" name="evntDate" title="Event Date in het formaat 1956-12-31" disabled>
+        </div>
+        <div>
+            <label for="venueID" >Venue ID:</label>
+            <input type="number" id="venueID" name="venueID" title="venueID" disabled>
+        </div>
+        <div>
+            <label for="evntDescription">Event Description</label>
+            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled></textarea>
+        </div>
+        <div>
+            <label for="evntPrice" >Event Price:</label>
+            <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled>
+        </div>
+        <div>
+            <label for="venueName">Venue Name:</label>
+            <input type="text" id="venueName" name="venueName" title="Venue Name" disabled>
+            </select>
+        </div>
+        <div>
+            <label for="venueCity">Venue City:</label>
+            <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled>
+            </select>
+        </div>
+        <div>
+            <label for="venueStreet">Venue Street:</label>
+            <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled>
+            </select>
+        </div>
+        <div>
+            <label for="venueStreetNR" >Venue Street Number:</label>
+            <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" disabled>
+        </div>
+        <div>
+            <label for="venueCapacity" >Venue Capacity:</label>
+            <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" disabled>
+        </div>
+        <div>
+            <input type="submit" value="Submit"/>
+            <input type="reset" value="Reset"/>
+            <input type="submit" value="Delete"/>
+        </div>
+    </form>
+      </div>
+
+      <section class="balkRechts">
+        <h1>BALK RECHTS</h1>
+      </section>
+
+
+    </div>
+
+    <footer class="hoofdFooter">
+      <p><span>This project was built by Jordy, Wouter, Gregory and Micha &COPY; 2016</span></p>
+    </footer>
+  </body>
+</html>
