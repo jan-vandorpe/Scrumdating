@@ -8,7 +8,7 @@ require_once 'entities/Venue.php';
 class EventDAO {
 
   public function getAll() {
-    $sql = "SELECT * FROM events, eventtypes, venues WHERE events.evntName = eventtypes.evntName AND events.venueID = venues.venueID";
+    $sql = "SELECT * FROM events, eventtypes, venues WHERE events.evntName = eventtypes.evntName AND events.venueID = venues.venueID ORDER BY eventID ASC";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $resultset = $dbh->query($sql);
     $lijst = array();
@@ -27,7 +27,7 @@ class EventDAO {
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':ID' => $evntID));
-    $resultset = $stmt->fetch(PDO::FETCH_ASSOC);
+    $rij = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
     $venue = new Venue($rij["venueID"], $rij["venueName"], $rij["venueCity"], $rij["venueStreet"], $rij["venueStreetNR"], $rij["venueCapacity"]);
