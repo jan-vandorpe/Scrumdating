@@ -15,7 +15,7 @@ if (isset($_GET['user'])) {
   $user = $userSvc->getUserByID($_GET['user']);
 
 //prepare twig page
-  $view = $twig->render('profiel.twig', array('user' => $user));
+  $view = $twig->render('profielDetail.twig', array('user' => $user));
 }
 
 //event management
@@ -24,7 +24,7 @@ if(isset($_GET['event'])) {
   $event = $eventSvc->getEventByID($_GET['event']);
 
   //prepare twig page
-  $view = $twig->render('event.twig', array('event' => $event));
+  $view = $twig->render('eventDetail.twig', array('event' => $event));
 }
 
 //venue management
@@ -33,7 +33,7 @@ if(isset($_GET['venue'])){
   $venue=$venueSvc->getVenueByID($_GET['venue']);
   
   //prepare twig page
-  $view = $twig->render('venue.twig', array('venue' => $venue));
+  $view = $twig->render('venueDetail.twig', array('venue' => $venue));
 }
 
 //event type management
@@ -42,7 +42,7 @@ if(isset($_GET['eventtype'])){
   $eventType = $eventTypeSvc->getEventTypeByID();
   
   //prepare twig page
-  $view = $twig->render('eventType.twig', array('eventType' => $eventType));
+  $view = $twig->render('eventTypeDetail.twig', array('eventType' => $eventType));
 }
 
 //execute twig page
