@@ -42,7 +42,7 @@ and open the template in the editor.
                 <tbody>
                   {% for user in userList %}
                     <tr>
-                      <td><a href='profileControl.php?user={{user.userID}}' alt='Profile van user ID {{user.userID}}'>{{user.userID}}</a></td>
+                      <td><a href='adminControl.php?user={{user.userID}}' alt='Profile van user ID {{user.username}}'>{{user.userID}}</a></td>
                         <td>{{user.username}}</td>
                         <td>{{user.password}}</td>
                         <td>{{user.email}}</td>
@@ -82,9 +82,9 @@ and open the template in the editor.
                 <tbody>
                   {% for event in eventList %}
                     <tr>
-                        <td>{{event.evntID}}</td>
+                      <td><a href="adminControl.php?event={{event.evntID}}" alt="Details van event {{event.evntID}}">{{event.evntID}}</a></td>
                         <td>{{event.evntDate}}</td>
-                        <td>{{event.evntType.evntPrice}}</td>
+                        <td>{{event.evntType.evntName}}</td>
                         <td>{{event.venue.venueID}}</td>
                     </tr>
                     {% endfor %}
@@ -108,7 +108,7 @@ and open the template in the editor.
                 <tbody>
                   {% for venue in venueList %}
                     <tr>
-                        <td>{{venue.venueID}}</td>
+                      <td><a href="adminControl.php?venue={{venue.venueID}}" alt="Details van venue {{venue.venueName}}">{{venue.venueID}}</a></td>
                         <td>{{venue.venueName}}</td>
                         <td>{{venue.venueCity}}</td>
                         <td>{{venue.venueStreet}}</td>
@@ -132,7 +132,7 @@ and open the template in the editor.
                 <tbody>
                    {% for eventType in eventTypeList %}
                     <tr>
-                        <td>{{eventType.evntName}}</td>
+                      <td><a href="adminControl.php?eventType={{eventType.evntName}}" alt="Details van event type {{eventType.evntName}}">{{eventType.evntName}}</a></td>
                         <td>{{eventType.evntDescription}}</td>
                         <td>{{eventType.evntPrice}}</td>
                     </tr>
