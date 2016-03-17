@@ -8,7 +8,6 @@ require_once 'service\VenueService.php';
 //initialize twig environment
 $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
-$twig->getExtension('core')->setDateFormat('d/m/Y');
 
 //profile management
 if (isset($_GET['user'])) {
@@ -30,15 +29,6 @@ if(isset($_GET['event'])) {
 
   //prepare twig page
   $view = $twig->render('eventDetail.twig', array('event' => $event,'eventTypeList' => $eventTypeList,'venueList'=>$venueList));
-}
-
-//event toevoegeen
-if(isset($_GET['add'])){
-  $_POST["evntDate"] = $evDate;
-  $_POST["evntName"] = $evName; 
-  $_POST["venueID"] = $venID;  
-  $eventSvc = new EventService();
-  $eventSvc->addEvent($evDate,$evName,$venID);
 }
 
 //venue management
