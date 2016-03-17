@@ -8,6 +8,7 @@ require_once 'service\VenueService.php';
 //initialize twig environment
 $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
+$twig->getExtension('core')->setDateFormat('d/m/Y');
 
 //profile management
 if (isset($_GET['user'])) {

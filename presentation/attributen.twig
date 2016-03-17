@@ -83,7 +83,7 @@ and open the template in the editor.
                   {% for event in eventList %}
                     <tr>
                       <td><a href="adminControl.php?event={{event.evntID}}" alt="Details van event {{event.evntID}}">{{event.evntID}}</a></td>
-                        <td>{{event.evntDate}}</td>
+                      <td>{{event.evntDate|date("d/m/Y")}}</td>
                         <td>{{event.evntType.evntName}}</td>
                         <td>{{event.venue.venueID}}</td>
                     </tr>
