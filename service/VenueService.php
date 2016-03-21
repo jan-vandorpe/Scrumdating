@@ -18,4 +18,8 @@ class VenueService {
     $venueDAO = new VenueDAO();
     $venueDAO->add($venueName, $venueCity,$venueStreet,$venueStreetNR,$venueCapacity);
   }
+  public function deleteVenue($venueID){
+    $venueDAO = new VenueDAO();
+    $venueDAO->delete($venueID);
+  }
 }

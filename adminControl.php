@@ -207,7 +207,7 @@ if (isset($_GET['venue'])) {
   print($view);
   exit(0);
 }
-//venuetoevoegeen
+//venue toevoegeen
 if (isset($_POST["addVenue"])) {  
   $venueName= $_POST["venueName"];
   $venueCity = $_POST["venueCity"];
@@ -217,6 +217,14 @@ if (isset($_POST["addVenue"])) {
   
   $venueSvc = new VenueService();
   $venueSvc->addVenue($venueName, $venueCity,$venueStreet,$venueStreetNR,$venueCapacity);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
+//venue delete
+if (isset($_GET["deleteVenue"])) {
+  $venueID = $_GET["deleteVenue"];
+  $venueSvc = new VenueService();
+  $venueSvc->deleteVenue($venueID);
   include_once 'showAllAttributes.php';
   exit(0);
 }

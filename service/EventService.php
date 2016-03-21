@@ -34,8 +34,7 @@ class EventService {
     $eventDAO->updateEvent($evID,$evDate,$evName,$venID);
   }
   
-  public function addEvent($evDate,$evName,$venID) {
-           
+  public function addEvent($evDate,$evName,$venID) {           
     $eventDAO = new EventDAO();
     $eventDAO = $eventDAO->addEvent($evDate,$evName,$venID);
     return $eventDAO;

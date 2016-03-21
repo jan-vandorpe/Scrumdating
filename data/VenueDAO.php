@@ -37,5 +37,12 @@ class VenueDAO {
     $stmt->execute(array(':venueName'=>$venueName,':venueCity'=>$venueCity,':venueStreet'=>$venueStreet,':venueStreetNR'=>$venueStreetNR,':venueCapacity'=>$venueCapacity));  
     $dbh = null;    
   }
+    public function delete($venueID) {
+    $sql = "DELETE FROM venues WHERE venueID = :ID";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':ID'=> $venueID));  
+    $dbh = null;    
+  }
 
 }
