@@ -53,7 +53,7 @@
         <form method="post" id="events" name="events" action="adminControl.php">
           <div>
             <label for="evntID">Event ID:</label>
-            <input type="number" id="evntID" name="evntID" title="" placeholder="{{event.evntID}}">
+            <input type="number" id="evntID" name="evntID" title="" value="{{event.evntID }}" placeholder="{{event.evntID}}">
             </select>
           </div>
           <div>
@@ -107,7 +107,7 @@
             <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" disabled placeholder="{{event.venue.venueCapacity}}">
           </div>
           <div>
-            <input type="submit" Value="Add"/>
+            <input type="submit" Value="Update" name="updateEvent"/>
           </div>
         </form>
       </div>

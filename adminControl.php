@@ -73,6 +73,40 @@ if(isset($_GET["deleteEvent"])){
   $eventSvc = new EventService();
   $eventSvc->deleteEvent($evID);
   include_once 'showAllAttributes.php';
+  exit(0);
+}
+
+//event aanpassen
+if(isset($_POST["updateEvent"])){
+  $evID = $_POST["evntID"];
+  $evDate = $_POST["evntDate"];
+  $evName = $_POST["evntName"]; 
+  $venID = $_POST["venueID"];
+  $eventSvc = new EventService();
+  $eventSvc->updateEvent($evID,$evDate,$evName,$venID);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
+
+//user verwijderen
+if(isset($_GET["deleteUser"])){
+  $userID = $_GET["deleteUser"];
+  $eventSvc = new EventService();
+  $eventSvc->deleteEvent($userID);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
+
+//user aanpassen
+if(isset($_POST["updateUser"])){
+  $evID = $_POST["userID"];
+  $evDate = $_POST["evntDate"];
+  $evName = $_POST["evntName"]; 
+  $venID = $_POST["venueID"];
+  $eventSvc = new EventService();
+  $eventSvc->updateEvent($evID,$evDate,$evName,$venID);
+  include_once 'showAllAttributes.php';
+  exit(0);
 }
 
 //venue management
