@@ -32,6 +32,11 @@ if (isset($_GET['new'])) {
     //prepare twig page
     $view = $twig->render('newVenue.twig');
   }
+  //new event type form
+  if($new='eventType'){
+    //prepare twig page
+    $view = $twig->render('newEventType.twig');
+  }
   //execute twig page
   print($view);
   exit(0);
@@ -62,24 +67,9 @@ if (isset($_POST["addUser"])) {
   $length = $_POST['length'];
   $build = $_POST['build'];
   $eyeColor = $_POST['eyeColor'];
-  if (!isset($_POST['oneNight'])) {
-    $oneNight = 0;
-  }
-  else {
-    $oneNight = $_POST['oneNight'];
-  }
-  if (!isset($_POST['longTerm'])) {
-    $longTerm = 0;
-  }
-  else {
-    $longTerm = $_POST['longTerm'];
-  }
-  if (!isset($_POST['friends'])) {
-    $friends = 0;
-  }
-  else {
-    $friends = $_POST['friends'];
-  }
+  if (!isset($_POST['oneNight'])) {$oneNight = 0;} else {$oneNight = $_POST['oneNight'];}
+  if (!isset($_POST['longTerm'])) {$longTerm = 0;}else {$longTerm = $_POST['longTerm'];}
+  if (!isset($_POST['friends'])) {$friends = 0;}else {$friends = $_POST['friends'];}
   $bio = $_POST['bio'];
   $region = $_POST['region'];
   $postcode = $_POST['postcode'];
@@ -228,6 +218,20 @@ if (isset($_GET["deleteVenue"])) {
   include_once 'showAllAttributes.php';
   exit(0);
 }
+//venue update
+if(isset($_POST['updateVenue'])){
+  $venueID = $_POST['venueID'];
+  $venueName= $_POST["venueName"];
+  $venueCity = $_POST["venueCity"];
+  $venueStreet = $_POST["venueStreet"];
+  $venueStreetNR = $_POST["venueStreetNR"];
+  $venueCapacity = $_POST["venueCapacity"];
+  
+  $venueSvc = new VenueService();
+  $venueSvc->updateVenue($venueID,$venueName, $venueCity,$venueStreet,$venueStreetNR,$venueCapacity);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
 
 //event type management
 if (isset($_GET['eventtype'])) {
@@ -239,5 +243,24 @@ if (isset($_GET['eventtype'])) {
 
   //execute twig page
   print($view);
+  exit(0);
+}
+//event type toevoegen
+if (isset($_POST["addEventType"])) {  
+  $evntName = $_POST['evntName'];
+  $evntDescription = $_POST['evntDescription'];
+  $evntPrice = $_POST['evntPrice'];
+  
+  $eventSvc = new EventService();
+  $eventSvc->addEventType($evntName,$evntDescription,$evntPrice);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
+//event type verwijderen
+if (isset($_GET['deleteEventType'])){
+  $eventName = $_GET['deleteEventType'];
+  $eventSvc = new EventService();
+  $eventSvc->deleteEventType($eventName);
+  include_once 'showAllAttributes.php';
   exit(0);
 }

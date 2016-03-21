@@ -67,15 +67,11 @@ class EventDAO {
     $dbh = null;    
   }
   
-  public function addEventtype() {
-    $_POST["evntName"] = $evName;
-    $_POST["evntDescription"] = $evDescription; 
-    $_POST["evntPrice"] = $evPrice;
-      
-    $sql = "INSERT INTO eventtypes (evntName,evntDescription,evntPrice) values (:evName, :evDescription,:evPrice)";
+  public function addEventType($evntName,$evntDescription,$evntPrice) {      
+    $sql = "INSERT INTO eventtypes (evntName,evntDescription,evntPrice) values (:evntName, :evntDescription,:evntPrice)";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':evName'=> $evName,':evDescription'=> $evDescription,':evPrice'=>$evPrice));  
+    $stmt->execute(array(':evntName'=> $evntName,':evntDescription'=> $evntDescription,':evntPrice'=>$evntPrice));  
     $dbh = null;    
   }
   
@@ -88,7 +84,7 @@ class EventDAO {
     $dbh = null;            
   }
   
-  public function updateEventtupe($evntName) {
+  public function updateEventType($evntName) {
     $_POST["evntName"] = $evName;
     $_POST["evntDescription"] = $evDescription; 
     $_POST["evntPrice"] = $evPrice;  
@@ -98,6 +94,13 @@ class EventDAO {
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':evName'=> $evName,':evDescription'=> $evDescription,':evPrice'=>$evPrice,':evNameID'=>$evntName));  
     $dbh = null; 
+  }
+  public function deleteEventType($evntName){
+    $sql = "DELETE FROM eventtypes WHERE evntName = :name";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':name'=> $evntName));  
+    $dbh = null;   
   }
   
 }
