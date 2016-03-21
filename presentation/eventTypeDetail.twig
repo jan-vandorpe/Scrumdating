@@ -56,11 +56,11 @@
                             </div>
                             <div>
                                 <label for="evntDescription">Event Description</label>
-                                <textarea id="evntDescription" name="evntDescription" title="Event Description?" placeholder="{{event.evntType.evntDescription}}"></textarea>
+                                <textarea id="evntDescription" name="evntDescription" title="Event Description?" value="{{event.evntType.evntDescription}}"></textarea>
                             </div>
                             <div>
                                 <label for="evntPrice" >Event Price:</label>
-                                <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" placeholder="{{event.evntType.evntPrice}}">
+                                <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" value="{{event.evntType.evntPrice}}">
                             </div>
                             <div>
                                 <input type="submit" value="Add"/>
@@ -83,4 +83,3 @@
         </footer>
     </body>
 </html>
-{# empty Twig template #}
