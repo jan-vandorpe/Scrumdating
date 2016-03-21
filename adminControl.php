@@ -54,6 +54,8 @@ if (isset($_GET['event'])) {
   //execute twig page
   print($view);
   exit(0);
+}
+
 //event toevoegeen
 if(isset($_POST["evntID"])){
   $evDate = $_POST["evntDate"];
