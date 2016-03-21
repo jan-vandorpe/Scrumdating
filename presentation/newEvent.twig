@@ -49,7 +49,6 @@
       <div class="container">
         <h2>Event Overzicht</h2>
         <!--form hier -->
-        <a href="#">Event Aanmaken</a>
         <form action="adminControl.php" method="post" id="events" name="events">
           <div>
             <label for="evntDate">Event Datum:</label>
@@ -65,11 +64,11 @@
           </div>
           <div>
             <label for="evntDescription">Event Description</label>
-            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled placeholder="{{eventTypeList.1.evntDescription}}"></textarea>
+            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled placeholder="{{eventTypeList[1].evntDescription}}"></textarea>
           </div>
           <div>
             <label for="evntPrice" >Event Price:</label>
-            <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled placeholder="{{event.evntType.evntPrice}}">
+            <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled placeholder="{{eventTypeList[1].evntPrice}}">
           </div>
           <div>
             <label for="venueName">Venue:</label>
