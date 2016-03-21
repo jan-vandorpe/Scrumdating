@@ -50,10 +50,10 @@
         <h2>Event Overzicht</h2>
         <!--form hier -->
         <a href="#">Event Aanmaken</a>
-        <form method="post" id="events" name="events">
+        <form method="post" id="events" name="events" action="adminControl.php">
           <div>
             <label for="evntID">Event ID:</label>
-            <input type="number" id="evntID" name="fnaam" title="vul hier uw familienaam" placeholder="{{event.evntID}}">
+            <input type="number" id="evntID" name="evntID" title="" placeholder="{{event.evntID}}">
             </select>
           </div>
           <div>
@@ -77,7 +77,7 @@
             <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled placeholder="{{event.evntType.evntPrice}}">
           </div>
           <div>
-            <label for="venueName">Venue:</label>
+            <label for="venueID">Venue:</label>
             <select name="venueID" title="Venue Name">
               {% for venue in venueList %}
               <option value="{{venue.venueID}} {% if venue.venueID == event.venue.venueID %}" selected="selected"{% endif %}>{{venue.venueName}}</option>
@@ -85,8 +85,8 @@
             </select>   
           </div>
           <div>
-            <label for="venueID" >Venue ID:</label>
-            <input type="number" id="venueID" name="venueIDdisplay" title="venueID" placeholder="{{event.venue.venueID}}">
+            <label for="venueIDDisplay" >Venue ID:</label>
+            <input type="number" id="venueIDDisplay" name="venueIDDisplay" title="venueID" placeholder="{{event.venue.venueID}}">
           </div>
           <div>
             <label for="venueCity">Venue City:</label>
@@ -107,9 +107,7 @@
             <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" disabled placeholder="{{event.venue.venueCapacity}}">
           </div>
           <div>
-            <input type="submit" value="Add" href="adminControl.php?add=event"/>
-            <input type="submit" value="Update"/>
-            <input type="submit" value="Delete"/>
+            <input type="submit" Value="Add"/>
           </div>
         </form>
       </div>

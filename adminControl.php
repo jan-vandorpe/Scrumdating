@@ -33,12 +33,13 @@ if(isset($_GET['event'])) {
 }
 
 //event toevoegeen
-if(isset($_GET['add'])){
-  $_POST["evntDate"] = $evDate;
-  $_POST["evntName"] = $evName; 
-  $_POST["venueID"] = $venID;  
+if(isset($_POST["evntID"])){
+  $evDate = $_POST["evntDate"];
+  $evName = $_POST["evntName"]; 
+  $venID = $_POST["venueID"];  
   $eventSvc = new EventService();
   $eventSvc->addEvent($evDate,$evName,$venID);
+  header( "Location: http://localhost/losseFlodder/showAllAttributes.php");
 }
 
 //venue management
