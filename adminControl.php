@@ -9,9 +9,9 @@ require_once 'service\VenueService.php';
 $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
-//create new
+//"create new" form pages
 if (isset($_GET['new'])) {
-  //new event
+  //new event form
   if ($_GET['new'] = 'event') {
     $eventSvc = new EventService();
     $venueSvc = new VenueService();
@@ -21,12 +21,17 @@ if (isset($_GET['new'])) {
     //prepare twig page
     $view = $twig->render('newEvent.twig',array('eventTypeList' => $eventTypeList,'venueList'=>$venueList));
   }
+  //new user form
+  if ($_get['new'] = 'user'){
+    //prepare twig page
+    $view = $twig->render('newUser.twig');
+  }
   //execute twig page
   print($view);
   exit(0);
 }
 
-//profile management
+//user management
 if (isset($_GET['user'])) {
   $userSvc = new UserService();
   $user = $userSvc->getUserByID($_GET['user']);
@@ -37,6 +42,46 @@ if (isset($_GET['user'])) {
   //execute twig page
   print($view);
   exit(0);
+}
+
+//user toevoegen
+if(isset($_POST["addUser"])){
+  
+  $oneNight=0;
+  $longTerm=0;
+  $friends=0;
+    
+  $username=$_POST['username'];
+  $password=$_POST['password'];
+  $email=$_POST['email'];
+  $sex=$_POST['sex'];
+  $birthDate=$_POST['birthDate'];
+  $preference=$_POST['preference'];
+  $hairColor=$_POST['hairColor'];
+  $length=$_POST['length'];
+  $build=$_POST['build'];
+  $eyeColor=$_POST['eyeColor'];  
+  if(!isset($_POST['oneNight'])){$oneNight = 0;}else{$oneNight=$_POST['oneNight'];}
+  if(!isset($_POST['longTerm'])){$longTerm = 0;}else{$longTerm=$_POST['longTerm'];}
+  if(!isset($_POST['friends'])){$friends = 0;}else{$friends=$_POST['friends'];}
+  $bio=$_POST['bio'];
+  $region=$_POST['region'];
+  $postcode=$_POST['postcode'];
+  $occupation=$_POST['occupation'];
+  $smoker=$_POST['smoker'];
+  $admin=0;
+  
+  $userSvc = new UserService();
+  $userSvc->addUser($username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker, $admin);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
+//user verwijderen
+if(isset($_GET["deleteUser"])){
+  $userID = $_GET["deleteUser"];
+  $userSvc = new UserService();
+  $userSvc->deleteUser($userID);
+  include_once 'showAllAttributes.php';
 }
 
 //event management

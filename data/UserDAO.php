@@ -34,8 +34,15 @@ class UserDAO {
     $dbh = null;
     return $user;
   }
+  public function delete($userID) {
+    $sql = "DELETE FROM users WHERE userID = :ID";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':ID'=> $userID));  
+    $dbh = null;    
+  }
   
-  public function Add($username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin){
+   public function Add($username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin){
       
     $sql = "INSERT INTO users (username,password,email,sex,birthDate,preference,hairColor,length,build,eyeColor,oneNight,longTerm,friends,bio,region,postcode,occupation,smoker,admin) values (:username,:password,:email,:sex,:birthDate,:preference,:hairColor,:length,:build,:eyeColor,:oneNight,:longTerm,:friends,:bio,:region,:postcode,:occupation,:smoker,:admin)";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
