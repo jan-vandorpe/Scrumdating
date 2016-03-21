@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png"  href="images/icons/favicon.png">
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Uw Westvloamse datingsite</title>
+    </head>
+
+    <body>
+        <header class="headerImage">
+            <div class="login clearFix">
+                <form action="login.html" method="post" class="login" id="login" name="login">
+                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
+                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>
+                </form>
+            </div>
+
+            <h1><span>Losse Flodders</span></h1>
+            <p>Westvlaamse datingsite</p>
+
+            <nav class="hoofdmenu clearFix">
+                <ul>
+                    <li><a href="index.twig" id="a"><p>Menu</p></a></li>
+                    <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
+                    <li><a href="#" id="c"><p>Matchen</p></a></li>
+                    <li><a href="#" id="d"><p>Instellingen</p></a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+
+
+        <div class="inhoud clearFix">
+
+            <section class="balkLinks">
+                <h1>balk links</h1>
+            </section>
+            
+            <div class="container">
+                <fieldset class="vast">
+                    <h1>Venue Aanmaken</h1>
+                    <form action="#" method="post" class="eventLine" id="eventLine" name="eventLine">
+                        <div>
+                            <label for="evntID">Event ID:</label>
+                            <input type="number" id="evntID" name="evntID" title="evntID" placeholder="{{eventline.evntID}}">
+                        </div>
+                        <div>
+                            <label for="userID">User ID:</label>
+                            <input type="number" id="userID" name="userID" title="userID" placeholder="{{eventline.userID}}">
+                        </div>
+                        <div>
+                            <label for="evntDate">Event Datum:</label>
+                            <input type="date" id="evntDate" name="evntDate" title="Event Date in het formaat 1956-12-31" placeholder="{{event.evntDate|date("dd/mm/YYYY")}}">
+                        </div>
+                        <div>
+                            <label for="evntName" >Event Type:</label>
+                            <select name="evntName" title="evntName">
+                                {% for eventType in eventTypeList %}
+                                    <option value="{{eventType.evntName}}" {% if eventType.evntName == event.evntType.evntName %}selected="selected"{% endif %}>{{eventType.evntName}}</option>
+                                {% endfor %}
+                            </select>            
+                        </div>
+                        <div>
+                            <label for="evntDescription">Event Description</label>
+                            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled placeholder="{{event.evntType.evntDescription}}"></textarea>
+                        </div>
+                        <div>
+                            <label for="evntPrice" >Event Price:</label>
+                            <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled placeholder="{{event.evntType.evntPrice}}">
+                        </div>
+                        <div>
+                            <label for="venueName">Venue:</label>
+                            <select name="venueID" title="Venue Name">
+                                {% for venue in venueList %}
+                                    <option value="{{venue.venueID}} {% if venue.venueID == event.venue.venueID %}" selected="selected"{% endif %}>{{venue.venueName}}</option>
+                                {% endfor %}
+                            </select>   
+                        </div>
+                        <div>
+                            <label for="venueID" >Venue ID:</label>
+                            <input type="number" id="venueID" name="venueIDdisplay" title="venueID" placeholder="{{event.venue.venueID}}">
+                        </div>
+                        <div>
+                            <label for="venueCity">Venue City:</label>
+                            <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled placeholder="{{event.venue.venueCity}}">
+                            </select>
+                        </div>
+                        <div>
+                            <label for="venueStreet">Venue Street:</label>
+                            <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled placeholder="{{event.venue.venueStreet}}">
+                            </select>
+                        </div>
+                        <div>
+                            <label for="venueStreetNR" >Venue Street Number:</label>
+                            <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" disabled placeholder="{{event.venue.venueStreetNR}}">
+                        </div>
+
+                    </form>
+                </fieldset>
+            </div>
+
+            <section class="balkRechts">
+                <h1>BALK RECHTS</h1>
+            </section>
+
+
+        </div>
+
+        <footer class="hoofdFooter">
+            <p><span>This project is build by Jordi, Wouter, Gregory and Micha &COPY; 2016</span></p>
+        </footer>
+    </body>
+</html>
+{# empty Twig template #}
