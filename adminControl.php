@@ -207,6 +207,19 @@ if (isset($_GET['venue'])) {
   print($view);
   exit(0);
 }
+//venuetoevoegeen
+if (isset($_POST["addVenue"])) {  
+  $venueName= $_POST["venueName"];
+  $venueCity = $_POST["venueCity"];
+  $venueStreet = $_POST["venueStreet"];
+  $venueStreetNR = $_POST["venueStreetNR"];
+  $venueCapacity = $_POST["venueCapacity"];
+  
+  $venueSvc = new VenueService();
+  $venueSvc->addVenue($venueName, $venueCity,$venueStreet,$venueStreetNR,$venueCapacity);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
 
 //event type management
 if (isset($_GET['eventtype'])) {

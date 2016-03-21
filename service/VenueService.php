@@ -14,4 +14,8 @@ class VenueService {
     $venue = $venueDAO->getById($venueID);
     return $venue;
   }
+  public function addVenue($venueName, $venueCity,$venueStreet,$venueStreetNR,$venueCapacity) {
+    $venueDAO = new VenueDAO();
+    $venueDAO->add($venueName, $venueCity,$venueStreet,$venueStreetNR,$venueCapacity);
+  }
 }
