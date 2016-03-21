@@ -182,15 +182,16 @@ body{
     box-sizing: border-box;
     padding: 2%;
     width: 100%;
-    margin: 0 auto 0 auto;	
+    margin: 0 auto;	
 }
 
-
+.nofloat{
+    float:none
+}
 
 header .hoofdmenu p{
     padding-top: 1em;
     text-shadow: 1px 1px 1px black;
-    
 }
 
 .headerImage h1,.headerImage p {
@@ -351,7 +352,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     }
     .hoofdmenu ul li a  {
     }
- 
+
 }
 
 @media only screen and (min-width: 608px) {
@@ -377,11 +378,11 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     .container{
         padding: 2%;
         width: 60%;
-        margin: 0 auto 0 auto;	
+        margin: 0 auto;	
     }
 
     .hoofdmenu li {	
-        width:23%;
+        width:24.25%;
     }
 
     .hoofdmenu p {
@@ -395,5 +396,4 @@ http://nicolasgallagher.com/micro-clearfix-hack/
         background-size: 100%;
 
     }
-  
 }
