@@ -44,12 +44,31 @@
             <div class="container">
                 <fieldset class="vast">
                     <h1>Venue Aanmaken</h1>
-                        <form action="#" method="post" class="profielForm" id="profileData" name="profileData">
+                        <form action="#" method="post" class="venueForm" id="venueData" name="venueData">
                             <div>
                                 <label for="venueID">Event ID:</label>
-                                <input type="number" id="venueID" name="venueID" title="venueID" placeholder="{{venues.venueID}}">
+                                <input type="number" id="venueID" name="venueID" title="venueID" placeholder="{{venue.venueID}}">
                             </div>
-                            
+                            <div>
+                                <label for="venueName" >Venue Name:</label>
+                                <input type="text" id="venueName" name="venueName" title="venueName" placeholder="{{venue.venueName}}">
+                            </div>
+                            <div>
+                                <label for="venueCity" >Venue City:</label>
+                                <input type="text" id="venueCity" name="venueCity" title="venueCity" placeholder="{{venue.venueCity}}">
+                            </div>
+                            <div>
+                                <label for="venueStreet" >Venue Street:</label>
+                                <input type="text" id="venueStreet" name="venueStreet" title="venueStreet" placeholder="{{venue.venueStreet}}">
+                            </div>
+                            <div>
+                                <label for="venueStreetNR" >Venue Street NR:</label>
+                                <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" placeholder="{{venue.venueStreetNR}}">
+                            </div>
+                            <div>
+                                <label for="venueCapacity" >Venue Capacity:</label>
+                                <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" placeholder="{{venue.venueCapacity}}">
+                            </div>
                             <div>
                                 <input type="submit" value="Add"/>
                                 <input type="submit" value="Update"/>
