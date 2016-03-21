@@ -57,7 +57,7 @@ if (isset($_GET['event'])) {
 }
 
 //event toevoegeen
-if(isset($_POST["evntID"])){
+if(!isset($_POST["evntID"])){
   $evDate = $_POST["evntDate"];
   $evName = $_POST["evntName"]; 
   $venID = $_POST["venueID"];  
