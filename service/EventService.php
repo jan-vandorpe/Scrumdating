@@ -24,6 +24,10 @@ class EventService {
     $eventType = $eventDAO->getEventTypeByID();
     return $eventType;
   }
+  public function deleteEvent($evntID){
+    $eventDAO = new EventDAO();
+    $eventDAO->deleteEvent($evntID);
+  }
   
   public function addEvent($evDate,$evName,$venID) {
            

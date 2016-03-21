@@ -77,6 +77,7 @@ and open the template in the editor.
                         <th>eventDate</th>
                         <th>eventName</th>
                         <th>venueID</th>
+                        <th>delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,9 +87,10 @@ and open the template in the editor.
                       <td>{{event.evntDate|date("d/m/Y")}}</td>
                         <td>{{event.evntType.evntName}}</td>
                         <td>{{event.venue.venueID}}</td>
-                    </tr>
+                        <td><a href="adminControl.php?deleteEvent={{event.evntID}}" alt="Delete event {{event.evntID}}">Delete event</a></td>
+                    </tr>                  
                     {% endfor %}
-                    <tr><td colspan="3"><a href="adminControl.php?new=event">New Event</a><td></tr>
+                    <tr><td colspan="4"><a href="adminControl.php?new=event">New Event</a><td></tr>
                 </tbody>
             </table>
 
