@@ -24,11 +24,20 @@ class EventService {
     $eventType = $eventDAO->getEventTypeByID();
     return $eventType;
   }
+  public function deleteEvent($evntID){
+    $eventDAO = new EventDAO();
+    $eventDAO->deleteEvent($evntID);
+  }
+  
+  public function updateEvent($evID,$evDate,$evName,$venID) {
+    $eventDAO = new EventDAO();
+    $eventDAO->updateEvent($evID,$evDate,$evName,$venID);
+  }
   
   public function addEvent($evDate,$evName,$venID) {
            
     $eventDAO = new EventDAO();
-    $eventDAO = $eventDAO->toevoegenEvent($evDate,$evName,$venID);
+    $eventDAO = $eventDAO->addEvent($evDate,$evName,$venID);
     return $eventDAO;
   }
 }

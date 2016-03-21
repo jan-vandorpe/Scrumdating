@@ -59,6 +59,14 @@ class EventDAO {
     $dbh = null;    
   }
   
+  public function deleteEvent($evID) {
+    $sql = "DELETE FROM events WHERE evntID = :ID";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':ID'=> $evID));  
+    $dbh = null;    
+  }
+  
   public function addEventtype() {
     $_POST["evntName"] = $evName;
     $_POST["evntDescription"] = $evDescription; 
@@ -71,12 +79,9 @@ class EventDAO {
     $dbh = null;    
   }
   
-  public function updateEvent($evntID) {
-    $_POST["evntDate"] = $evDate;
-    $_POST["evntName"] = $evName; 
-    $_POST["venueID"] = $venID;
+  public function updateEvent($evntID,$evDate,$evName,$venID) {
     
-    $sql="UPDATE events SET evntDate = :evDame, evntName = :evName, venueID = :venID WHERE evntID = :evntID";
+    $sql="UPDATE events SET evntDate = :evDate, evntName = :evName, venueID = :venID WHERE evntID = :evntID";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':evDate'=> $evDate,':evName'=> $evName,':venID'=>$venID,':evntID'=>$evntID));  

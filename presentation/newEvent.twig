@@ -47,18 +47,12 @@
       </section>
 
       <div class="container">
-        <h2>Event Overzicht</h2>
+        <h2>Event Toevoegen</h2>
         <!--form hier -->
-        <a href="#">Event Aanmaken</a>
-        <form method="post" id="events" name="events" action="adminControl.php">
-          <div>
-            <label for="evntID">Event ID:</label>
-            <input type="number" id="evntID" name="evntID" title="" value="{{event.evntID }}" placeholder="{{event.evntID}}">
-            </select>
-          </div>
+        <form action="adminControl.php" method="post" id="events" name="events">
           <div>
             <label for="evntDate">Event Datum:</label>
-            <input type="date" id="evntDate" name="evntDate" title="Event Date in het formaat 1956-12-31" placeholder="{{event.evntDate|date("dd/mm/YYYY")}}">
+            <input type="date" id="evntDate" name="evntDate" title="Event Date in het formaat 1956-12-31">
           </div>
           <div>
             <label for="evntName" >Event Type:</label>
@@ -70,11 +64,11 @@
           </div>
           <div>
             <label for="evntDescription">Event Description</label>
-            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled placeholder="{{event.evntType.evntDescription}}"></textarea>
+            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled placeholder="{{eventTypeList[0].evntDescription}}"></textarea>
           </div>
           <div>
             <label for="evntPrice" >Event Price:</label>
-            <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled placeholder="{{event.evntType.evntPrice}}">
+            <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled placeholder="{{eventTypeList[0].evntPrice}}">
           </div>
           <div>
             <label for="venueID">Venue:</label>
@@ -86,28 +80,28 @@
           </div>
           <div>
             <label for="venueIDDisplay" >Venue ID:</label>
-            <input type="number" id="venueIDDisplay" name="venueIDDisplay" title="venueID" placeholder="{{event.venue.venueID}}">
+            <input type="number" id="venueID" name="venueIDDisplay" disabled title="venueID" placeholder="{{venueList[0].venueID}}">
           </div>
           <div>
             <label for="venueCity">Venue City:</label>
-            <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled placeholder="{{event.venue.venueCity}}">
+            <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled placeholder="{{venueList[0].venueCity}}">
             </select>
           </div>
           <div>
             <label for="venueStreet">Venue Street:</label>
-            <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled placeholder="{{event.venue.venueStreet}}">
+            <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled placeholder="{{venueList[0].venueStreet}}">
             </select>
           </div>
           <div>
             <label for="venueStreetNR" >Venue Street Number:</label>
-            <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" disabled placeholder="{{event.venue.venueStreetNR}}">
+            <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" disabled placeholder="{{venueList[0].venueStreetNR}}">
           </div>
           <div>
             <label for="venueCapacity" >Venue Capacity:</label>
-            <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" disabled placeholder="{{event.venue.venueCapacity}}">
+            <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" disabled placeholder="{{venueList[0].venueCapacity}}">
           </div>
           <div>
-            <input type="submit" Value="Update" name="updateEvent"/>
+            <input type="submit" value="Add" name="addEvent"/>            
           </div>
         </form>
       </div>
@@ -124,3 +118,4 @@
     </footer>
   </body>
 </html>
+
