@@ -46,6 +46,11 @@ if (isset($_GET['user'])) {
 
 //user toevoegen
 if(isset($_POST["addUser"])){
+  
+  $oneNight=0;
+  $longTerm=0;
+  $friends=0;
+    
   $username=$_POST['username'];
   $password=$_POST['password'];
   $email=$_POST['email'];
@@ -55,10 +60,10 @@ if(isset($_POST["addUser"])){
   $hairColor=$_POST['hairColor'];
   $length=$_POST['length'];
   $build=$_POST['build'];
-  $eyeColor=$_POST['eyeColor'];
-  $oneNight=$_POST['oneNight'];
-  $longTerm=$_POST['longTerm'];
-  $friends=$_POST['friends'];
+  $eyeColor=$_POST['eyeColor'];  
+  if(!isset($_POST['oneNight'])){$oneNight = 0;}else{$oneNight=$_POST['oneNight'];}
+  if(!isset($_POST['longTerm'])){$longTerm = 0;}else{$longTerm=$_POST['longTerm'];}
+  if(!isset($_POST['friends'])){$friends = 0;}else{$friends=$_POST['friends'];}
   $bio=$_POST['bio'];
   $region=$_POST['region'];
   $postcode=$_POST['postcode'];
@@ -113,6 +118,40 @@ if(isset($_GET["deleteEvent"])){
   $eventSvc = new EventService();
   $eventSvc->deleteEvent($evID);
   include_once 'showAllAttributes.php';
+  exit(0);
+}
+
+//event aanpassen
+if(isset($_POST["updateEvent"])){
+  $evID = $_POST["evntID"];
+  $evDate = $_POST["evntDate"];
+  $evName = $_POST["evntName"]; 
+  $venID = $_POST["venueID"];
+  $eventSvc = new EventService();
+  $eventSvc->updateEvent($evID,$evDate,$evName,$venID);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
+
+//user verwijderen
+if(isset($_GET["deleteUser"])){
+  $userID = $_GET["deleteUser"];
+  $eventSvc = new EventService();
+  $eventSvc->deleteEvent($userID);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
+
+//user aanpassen
+if(isset($_POST["updateUser"])){
+  $evID = $_POST["userID"];
+  $evDate = $_POST["evntDate"];
+  $evName = $_POST["evntName"]; 
+  $venID = $_POST["venueID"];
+  $eventSvc = new EventService();
+  $eventSvc->updateEvent($evID,$evDate,$evName,$venID);
+  include_once 'showAllAttributes.php';
+  exit(0);
 }
 
 //venue management
