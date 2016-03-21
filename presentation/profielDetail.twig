@@ -89,11 +89,11 @@
                             <div>
                                 <label for ="build" class="verplicht labellook">Figuur</label>
                                 <select id="build" name="build" required>
-                                    <option value="mager">Mager</option>
-                                    <option value="slank">Slank</option>
-                                    <option value="gespierd">Gespierd</option>
-                                    <option value="bigboned">Big Boned</option>
-                                    <option value="muffintop">Muffin Top</option>
+                                    <option value="mager" {% if user.build == "mager" %} selected="selected" {% endif %}>Mager</option>
+                                    <option value="slank"{% if user.build == "slank" %} selected="selected" {% endif %}>Slank</option>
+                                    <option value="gespierd"{% if user.build == "gespierd" %} selected="selected" {% endif %}>Gespierd</option>
+                                    <option value="bigboned"{% if user.build == "bigboned" %} selected="selected" {% endif %}>Big Boned</option>
+                                    <option value="muffintop"{% if user.build == "muffintop" %} selected="selected" {% endif %}>Muffin Top</option>
                                 </select>
                             </div>
                             <div>
