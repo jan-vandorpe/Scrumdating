@@ -57,13 +57,22 @@ if (isset($_GET['event'])) {
 }
 
 //event toevoegeen
-if(!isset($_POST["evntID"])){
+if(isset($_POST["addEvent"])){
   $evDate = $_POST["evntDate"];
   $evName = $_POST["evntName"]; 
   $venID = $_POST["venueID"];  
   $eventSvc = new EventService();
   $eventSvc->addEvent($evDate,$evName,$venID);
-  header( "Location: http://localhost/losseFlodder/showAllAttributes.php");
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
+
+//event verwijderen
+if(isset($_GET["deleteEvent"])){
+  $evID = $_GET["deleteEvent"];
+  $eventSvc = new EventService();
+  $eventSvc->deleteEvent($evID);
+  include_once 'showAllAttributes.php';
 }
 
 //venue management

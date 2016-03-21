@@ -59,6 +59,14 @@ class EventDAO {
     $dbh = null;    
   }
   
+  public function deleteEvent($evID) {
+    $sql = "DELETE * FROM events WHERE evntID = :ID";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':ID'=> $evID));  
+    $dbh = null;    
+  }
+  
   public function addEventtype() {
     $_POST["evntName"] = $evName;
     $_POST["evntDescription"] = $evDescription; 
