@@ -14,9 +14,12 @@ if (isset($_GET['new'])) {
   //new event
   if ($_GET['new'] = 'event') {
     $eventSvc = new EventService();
+    $venueSvc = new VenueService();
     $eventTypeList = $eventSvc->getEventTypeList();
+    $venueList = $venueSvc->getVenueList();
+    
     //prepare twig page
-    $view = $twig->render('newEvent.twig',array('eventTypeList' => $eventTypeList));
+    $view = $twig->render('newEvent.twig',array('eventTypeList' => $eventTypeList,'venueList'=>$venueList));
   }
   //execute twig page
   print($view);
