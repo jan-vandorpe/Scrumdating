@@ -190,6 +190,7 @@ body{
 header .hoofdmenu p{
     padding-top: 1em;
     text-shadow: 1px 1px 1px black;
+    
 }
 
 .headerImage h1,.headerImage p {
@@ -350,7 +351,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     }
     .hoofdmenu ul li a  {
     }
-
+ 
 }
 
 @media only screen and (min-width: 608px) {
@@ -380,7 +381,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     }
 
     .hoofdmenu li {	
-        width:24.25%;
+        width:23%;
     }
 
     .hoofdmenu p {
@@ -394,4 +395,5 @@ http://nicolasgallagher.com/micro-clearfix-hack/
         background-size: 100%;
 
     }
+  
 }
