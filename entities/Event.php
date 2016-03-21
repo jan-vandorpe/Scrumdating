@@ -8,7 +8,8 @@ private $evntType,$evntDate,$venue,$evntID;
 
 public function __construct($evntID,$evntDate,$evntType,$venue) {
     $this->evntType = $evntType;
-    $this->evntDate = $evntDate;
+    $date=date('Y-m-d',strtotime($evntDate));
+    $this->evntDate = $date;
     $this->venue = $venue;
     $this->evntID = $evntID;    
 }
