@@ -34,5 +34,12 @@ class UserDAO {
     $dbh = null;
     return $user;
   }
+  public function delete($userID) {
+    $sql = "DELETE FROM users WHERE userID = :ID";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':ID'=> $userID));  
+    $dbh = null;    
+  }
 
 }

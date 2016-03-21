@@ -20,4 +20,12 @@ class UserService {
     $login = $userDAO->verifyLogin($username,$password);
     return $login;
   }
+  public function addUser($username,$password,$email,$sex,$birthDate, $preference,$hairColor,$length,$build,$eyeColor,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin){
+    $userDAO = new UserDAO();
+    $userDAO->add($username,$password,$email,$sex,$birthDate, $preference,$hairColor,$length,$build,$eyeColor,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin);
+  }
+  public function deleteUser($userID){
+    $userDAO = new UserDAO();
+    $userDAO->delete($userID);
+  }
 }
