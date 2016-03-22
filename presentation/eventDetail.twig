@@ -53,12 +53,13 @@
         <form method="post" id="events" name="events" action="adminControl.php">
           <div>
             <label for="evntID">Event ID:</label>
-            <input type="number" id="evntID" name="evntID" title="" value="{{event.evntID }}" placeholder="{{event.evntID}}">
+            <input type="number" id="evntID" name="evntID" title="" value="{{event.evntID }}" value="{{event.evntID}}">
             </select>
           </div>
           <div>
             <label for="evntDate">Event Datum:</label>
-            <input type="date" id="evntDate" name="evntDate" title="Event Date in het formaat 1956-12-31" placeholder="{{event.evntDate|date("dd/mm/YYYY")}}">
+            <input type="date" id="evntDate" name="evntDate" title="Event Date in het formaat 1956-12-31" value="{{event.evntDate|date("d/m/Y")}}">
+            {{event.evntDate|date("d/m/Y")}}
           </div>
           <div>
             <label for="evntName" >Event Type:</label>
@@ -70,11 +71,11 @@
           </div>
           <div>
             <label for="evntDescription">Event Description</label>
-            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled placeholder="{{event.evntType.evntDescription}}"></textarea>
+            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled value="{{event.evntType.evntDescription}}"></textarea>
           </div>
           <div>
             <label for="evntPrice" >Event Price:</label>
-            <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled placeholder="{{event.evntType.evntPrice}}">
+            <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" disabled value="{{event.evntType.evntPrice}}">
           </div>
           <div>
             <label for="venueID">Venue:</label>
@@ -86,25 +87,25 @@
           </div>
           <div>
             <label for="venueIDDisplay" >Venue ID:</label>
-            <input type="number" id="venueIDDisplay" name="venueIDDisplay" title="venueID" placeholder="{{event.venue.venueID}}">
+            <input type="number" id="venueIDDisplay" name="venueIDDisplay" title="venueID" value="{{event.venue.venueID}}">
           </div>
           <div>
             <label for="venueCity">Venue City:</label>
-            <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled placeholder="{{event.venue.venueCity}}">
+            <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled value="{{event.venue.venueCity}}">
             </select>
           </div>
           <div>
             <label for="venueStreet">Venue Street:</label>
-            <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled placeholder="{{event.venue.venueStreet}}">
+            <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled value="{{event.venue.venueStreet}}">
             </select>
           </div>
           <div>
             <label for="venueStreetNR" >Venue Street Number:</label>
-            <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" disabled placeholder="{{event.venue.venueStreetNR}}">
+            <input type="number" id="venueStreetNR" name="venueStreetNR" title="venueStreetNR" disabled value="{{event.venue.venueStreetNR}}">
           </div>
           <div>
             <label for="venueCapacity" >Venue Capacity:</label>
-            <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" disabled placeholder="{{event.venue.venueCapacity}}">
+            <input type="number" id="venueCapacity" name="venueCapacity" title="venueCapacity" disabled value="{{event.venue.venueCapacity}}">
           </div>
           <div>
             <input type="submit" Value="Update" name="updateEvent"/>

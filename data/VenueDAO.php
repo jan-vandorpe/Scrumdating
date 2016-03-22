@@ -26,9 +26,32 @@ class VenueDAO {
     $rij = $stmt->fetch(PDO::FETCH_ASSOC);
 
     $venue = new Venue($rij["venueID"], $rij["venueName"], $rij["venueCity"], $rij["venueStreet"], $rij["venueStreetNR"], $rij["venueCapacity"]);
-    
+
     $dbh = null;
     return $venue;
   }
 
+  public function add($venueName, $venueCity, $venueStreet, $venueStreetNR, $venueCapacity) {
+    $sql = "INSERT INTO venues (venueName,venueCity,venueStreet,venueStreetNR,venueCapacity) values (:venueName,:venueCity,:venueStreet,:venueStreetNR,:venueCapacity)";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':venueName' => $venueName, ':venueCity' => $venueCity, ':venueStreet' => $venueStreet, ':venueStreetNR' => $venueStreetNR, ':venueCapacity' => $venueCapacity));
+    $dbh = null;
+  }
+
+  public function delete($venueID) {
+    $sql = "DELETE FROM venues WHERE venueID = :ID";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':ID' => $venueID));
+    $dbh = null;
+  }
+
+  public function update($venueID, $venueName, $venueCity, $venueStreet, $venueStreetNR, $venueCapacity) {
+    $sql = "UPDATE venues SET venueID = :venueID, venueName = :venueName, venueCity = :venueCity, venueStreet = :venueStreet, venueStreetNR = :venueStreetNR, venueCapacity = :venueCapacity WHERE venueID = :venueID";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array('venueID'=>$venueID,':venueName' => $venueName, ':venueCity' => $venueCity, ':venueStreet' => $venueStreet, ':venueStreetNR' => $venueStreetNR, ':venueCapacity' => $venueCapacity));
+    $dbh = null;
+  }
 }
