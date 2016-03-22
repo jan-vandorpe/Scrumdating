@@ -37,5 +37,10 @@ class UserService {
     $userDAO = new UserDAO();
     $userDAO->update($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker, $admin);
   }
+  public function checkLogin($username,$password){
+    $userDAO = new UserDAO();
+    $user = $userDAO->checkLogin($username,$password);
+    return $user;
+  }
 
 }

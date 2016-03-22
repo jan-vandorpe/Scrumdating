@@ -7,9 +7,15 @@ class User{
     private $userID,$username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin;
     
     private static $usernameMap = array();
+    private static $emailMap = array();
     
     public function __construct($userID,$username,$password,$email,$sex,$birthDate,$preference,$hairColor,$length,$build,$eyeColor,$oneNight,$longTerm,$friends,$bio,$region,$postcode,$occupation,$smoker,$admin) {
        if(!isset(self::$usernameMap[$username])){
+         self::$usernameMap[$username] = 1;
+       }
+       if(!isset(self::$emailMap[$email])){
+         self::$emailMap[$email] = 1;
+       }         
         $this->userID = $userID;
         $this->username = $username;
         $this->password = $password;
@@ -30,7 +36,6 @@ class User{
         $this->occupation = $occupation;
         $this->smoker = $smoker;
         $this->admin = $admin;
-       }
     }
     
     

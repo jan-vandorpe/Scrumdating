@@ -99,7 +99,7 @@ class EventDAO {
     $dbh = null;   
   }
   public function getEventTypeByName($evntName){
-    $sql="SELECT * FROM eventtypes WHERE evntName = :name";
+    $sql="SELECT * FROM eventtpes WHERE evntName = :name";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':name'=> $evntName));    

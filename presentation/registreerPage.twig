@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -32,37 +33,43 @@
             </nav>
 
         </header>
+
+
+
         <div class="inhoud clearFix">
 
             <section class="balkLinks">
-                <h1>balk links</h1>
+                <h1></h1>
             </section>
-            
-            <div class="container">
+
+            <div class="midden">
                 <fieldset class="vast">
-                    <h1>Event Type Aanmaken</h1>
-                        <form action="adminControl.php" method="post" class="eventTypeForm" id="eventTypeData" name="eventTypeData">
-                            <div>
-                                <label for="evntName" >Event Type Name:</label>
-                                <textarea id="evntName" name="evntName" title="Event Name"></textarea>                                     
-                            </div>
-                            <div>
-                                <label for="evntDescription">Event Description</label>
-                                <textarea id="evntDescription" name="evntDescription" title="Event Description"></textarea>
-                            </div>
-                            <div>
-                                <label for="evntPrice" >Event Price:</label>
-                                <input type="number" id="evntPrice" name="evntPrice" title="evntPrice">
-                            </div>
-                            <div>
-                                <input type="submit" value="Add" name="addEventType"/>                                
-                            </div>
-                        </form>
+                    <h1></h1>
+                    <form action="userprofielpage.html" method="post" class="profielForm" id="profileData" name="profileData">
+
+                        <div>
+                            <label for="username" >User Name:</label>
+                            <input type="text" id="username" name="username" title="username" placeholder="{{user.username}}">
+                        </div>
+                        <div>
+                            <label for="password" >Password:</label>
+                            <input type="text" id="password" name="password" title="password" placeholder="{{user.password}}">
+                        </div>
+                        <div>
+                            <span>email</span>
+                            <input type="email" id="email" name="email" title="email" value="{{user.email}}">
+                        </div>
+                        <div>
+
+                            <input type="submit" value="registreer" />
+                        </div>
+
+                    </form>
                 </fieldset>
             </div>
 
             <section class="balkRechts">
-                <h1>BALK RECHTS</h1>
+                <h1></h1>
             </section>
 
 
@@ -73,4 +80,3 @@
         </footer>
     </body>
 </html>
-
