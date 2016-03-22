@@ -321,7 +321,7 @@ fieldset{
 .profielForm input[type=submit] {
 padding: 1em;
     float: right;
-    width: 75%;
+    width: 30%;
 }
 select {
     width: 100%;
