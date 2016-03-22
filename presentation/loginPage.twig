@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png"  href="images/icons/favicon.png">
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Uw Westvloamse datingsite</title>
+    </head>
+
+    <body>
+        <header class="headerImage">
+            <div class="login clearFix">
+                <form action="login.html" method="post" class="login" id="login" name="login">
+                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
+                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>
+                </form>
+            </div>
+
+            <h1><span>Losse Flodders</span></h1>
+            <p>Westvlaamse datingsite</p>
+
+            <nav class="hoofdmenu clearFix">
+                <ul>
+                    <li><a href="index.twig" id="a"><p>Menu</p></a></li>
+                    <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
+                    <li><a href="#" id="c"><p>Matchen</p></a></li>
+                    <li><a href="#" id="d"><p>Instellingen</p></a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+
+
+        <div class="inhoud clearFix">
+
+            <section class="balkLinks">
+                <h1></h1>
+            </section>
+            
+            <div class="midden">
+                <fieldset class="vast">
+                    <h1></h1>
+                        <form action="userprofielpage.html" method="post" class="profielForm" id="profileData" name="profileData">
+
+                            <div>
+                                <label for="username" >User Name:</label>
+                                <input type="text" id="username" name="username" title="username" placeholder="{{user.username}}">
+                            </div>
+                            <div>
+                                <label for="password" >Password:</label>
+                                <input type="text" id="password" name="password" title="password" placeholder="{{user.password}}">
+                            </div>
+                            <div>
+                                <input type="submit" value="login" />
+                                <input type="submit" value="registreer" />
+                            </div>
+                           
+                        </form>
+                </fieldset>
+            </div>
+
+            <section class="balkRechts">
+                <h1></h1>
+            </section>
+
+
+        </div>
+
+        <footer class="hoofdFooter">
+            <p><span>This project is build by Jordi, Wouter, Gregory and Micha &COPY; 2016</span></p>
+        </footer>
+    </body>
+</html>
