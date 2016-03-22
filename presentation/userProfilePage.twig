@@ -14,13 +14,14 @@
     <body>
         <header class="headerImage">
             <div class="login clearFix">
-                {% if user == 'Guest' %}
-                    <form action="loginCheck.php" method="post" class="login" id="login" name="login">
-                        <label for="username">gebruikersnaam: <input type="text" id="username" name="username"></label>
-                        <label for="password">wachtwoord: <input type="password" id="password" name="password"></label>
-                    </form>
+                {% if login == false %}
+                <form action="loginControl.php" method="post" class="login" id="login" name="login">
+                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
+                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
+                    <input type="submit" value="login" name="login" />
+                </form>
                 {% else %}
-                    <p>Gebruiker: {{user.username}}</p>
+                  <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
                 {% endif %}              
             </div>
 
@@ -29,13 +30,12 @@
 
             <nav class="hoofdmenu clearFix">
                 <ul>
-                    <li><a href="index.twig" id="a"><p>Menu</p></a></li>
+                    <li><a href="showIndex.php" id="a"><p>Menu</p></a></li>
                     <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
                     <li><a href="#" id="c"><p>Matchen</p></a></li>
                     <li><a href="#" id="d"><p>Instellingen</p></a></li>
                 </ul>
             </nav>
-
         </header>
 
 
@@ -47,25 +47,25 @@
                     <div class="contact cf clearFix">
                         <img src="images/pictures/maleAvatar.svg"/>
                         <div class="gegevens">
-                            <h5>{{user.username}}</h5>
+                            <h5>{{login.username}}</h5>
                         </div>
                     </div>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/femaleAvatar.svg"/>
                         <div class="gegevens">
-                            <h5>{{user.username}}</h5>
+                            <h5>{{login.username}}</h5>
                         </div>
                     </div>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/femaleAvatar.svg"/>
                         <div class="gegevens">
-                            <h5>{{user.username}}</h5>
+                            <h5>{{login.username}}</h5>
                         </div>
                     </div>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/maleAvatar.svg"/>
                         <div class="gegevens">
-                            <h5>{{user.username}}</h5>
+                            <h5>{{login.username}}</h5>
                         </div>
                     </div>
             </section>
@@ -75,8 +75,8 @@
 
                     <img src="images/pictures/femaleAvatar.svg"/>
                     <div class="gegevens ">
-                        <h2>{{user.username}}</h2>
-                        <p>{{user.region}}</p>
+                        <h2>{{login.username}}</h2>
+                        <p>{{login.region}}</p>
                     </div>
                     <div class="wijzigLinks ">
                         <a href="#">Wijzig profiel</a>
@@ -88,16 +88,16 @@
                     <h2>Berichten</h2>
                     <div class="bericht contact">
                         <img src="images/pictures/femaleAvatar.svg"/>
-                        <h5>{{user.username}}</h5>
+                        <h5>{{login.username}}</h5>
                         <ul class="itemDisplay cf ">      
-                            <li>{{user.bericht}}</li>
+                            <li>{{login.bericht}}</li>
                         </ul>
                     </div>
                     <div class="bericht contact">
                         <img src="images/pictures/maleAvatar.svg"/>
-                        <h5>{{user.username}}</h5>
+                        <h5>{{login.username}}</h5>
                         <ul class="itemDisplay cf">      
-                            <li>{{user.bericht}}</li>
+                            <li>{{login.bericht}}</li>
                         </ul>
                     </div>
                 </div>
