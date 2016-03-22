@@ -20,8 +20,8 @@
                     </div>
                 </form>
                 <form action="loginControl.php" method="post" class="login" id="login" name="login">
-                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
-                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
+                    <label for="username">gebruikersnaam:<input type="text" id="username" name="username"></label>
+                    <label for="password">wachtwoord:<input type="password" id="password" name="password"></label>                               
                     <input type="submit" value="login" />
                 </form>            
       </div>
@@ -50,7 +50,7 @@
 
       <div class="container">
         <div class="welkom">
-          {% if user == 'Guest' %}
+          {% if user == null %}
             <h2>Welkom, gast!</h2>            
           {% else %}
             <h2>Welkom terug {{user.username}}!</h2>
