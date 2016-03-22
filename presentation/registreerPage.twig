@@ -13,18 +13,11 @@
 
     <body>
         <header class="headerImage">
-            <div class="login ">
-                <form action="registreer.twig" method="post" class="login" id="login" name="login">
-                    <div class="login clearFix">
-                        <input type="submit" value="registreer" />
-                    </div>
-                </form>
-                <form action="login.twig" method="post" class="login" id="login" name="login">
+            <div class="login clearFix">
+                <form action="login.html" method="post" class="login" id="login" name="login">
                     <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
-                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
-                    <input type="submit" value="login" />
+                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>
                 </form>
-
             </div>
 
             <h1><span>Losse Flodders</span></h1>
@@ -63,11 +56,12 @@
                             <input type="text" id="password" name="password" title="password" placeholder="{{user.password}}">
                         </div>
                         <div>
-                            <label for="confirmPassword" >Confirm password:</label>
-                            <input type="text" id="confirmPassword" name="password" title="password" placeholder="{{user.password}}">
+                            <span>email</span>
+                            <input type="email" id="email" name="email" title="email" value="{{user.email}}">
                         </div>
                         <div>
-                            <input type="submit" value="login" />
+
+                            <input type="submit" value="registreer" />
                         </div>
 
                     </form>
