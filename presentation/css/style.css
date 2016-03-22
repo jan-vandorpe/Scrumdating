@@ -203,7 +203,9 @@ body{
 
 }
 
-
+.nofloat{
+    float:none
+}
 
 header .hoofdmenu p{
     padding-top: 1em;
@@ -469,7 +471,7 @@ float: right;
     .midden{
         padding: 2%;
         width: 60%;
-        margin: 0 auto 0 auto;	
+        margin: 0 auto;	
     }
 
     .hoofdmenu li {	
