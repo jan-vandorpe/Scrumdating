@@ -19,10 +19,10 @@
                         <input type="submit" value="registreer" />
                     </div>
                 </form>
-                <form action="login.twig" method="post" class="login" id="login" name="login">
+                <form action="loginControl.php" method="post" class="login" id="login" name="login">
                     <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
                     <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
-                    <input type="submit" value="login" />
+                    <input type="submit" value="login" name='login'/>
                 </form>
 
             </div>
@@ -52,7 +52,7 @@
             <div class="midden">
                 <fieldset class="vast">
                     <h1></h1>
-                    <form action="userprofielpage.html" method="post" class="profielForm" id="profileData" name="profileData">
+                    <form action="loginControl.php" method="post" class="profielForm" id="profileData" name="profileData">
 
                         <div>
                             <label for="username" >User Name:</label>
@@ -67,7 +67,7 @@
                             <input type="text" id="confirmPassword" name="password" title="password" placeholder="{{user.password}}">
                         </div>
                         <div>
-                            <input type="submit" value="login" />
+                            <input type="submit" value="login" name='login' />
                         </div>
 
                     </form>

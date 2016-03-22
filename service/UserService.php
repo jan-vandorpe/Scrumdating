@@ -33,9 +33,25 @@ class UserService {
     $userDAO->delete($userID);
   }
 
-  public function updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker, $admin) {
+  public function update($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker, $admin) {
     $userDAO = new UserDAO();
     $userDAO->update($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker, $admin);
+  }
+  public function checkLogin($username,$password){
+    $userDAO = new UserDAO();
+    $user = $userDAO->checkLogin($username,$password);
+    return $user;
+  }
+  
+  public function registreerUser($username,$password,$email){
+      $userDAO = new UserDAO();
+      $user = $userDAO->registreerUser($username,$password,$email);
+      return $user;
+  }
+  
+  public function updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker) {
+    $userDAO = new UserDAO();
+    $userDAO->updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker);
   }
 
 }
