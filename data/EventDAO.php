@@ -65,7 +65,16 @@ class EventDAO {
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':ID'=> $evID));  
     $dbh = null;    
-  }
+  } 
+  
+  public function updateEvent($evntID,$evDate,$evName,$venID) {
+    
+    $sql="UPDATE events SET evntDate = :evDate, evntName = :evName, venueID = :venID WHERE evntID = :evntID";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':evDate'=> $evDate,':evName'=> $evName,':venID'=>$venID,':evntID'=>$evntID));  
+    $dbh = null;            
+  }  
   
   public function addEventType($evntName,$evntDescription,$evntPrice) {      
     $sql = "INSERT INTO eventtypes (evntName,evntDescription,evntPrice) values (:evntName, :evntDescription,:evntPrice)";
@@ -75,7 +84,7 @@ class EventDAO {
     $dbh = null;    
   }
   
-  public function updateEvent($evntID,$evDate,$evName,$venID) {
+  public function updateEventType($evntName,$evntDescription,$evntPrice) {
     
     $sql="UPDATE events SET evntDate = :evDate, evntName = :evName, venueID = :venID WHERE evntID = :evntID";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
@@ -108,5 +117,7 @@ class EventDAO {
     $dbh = null;
     return $rij;
   }
+  
+  
   
 }

@@ -264,3 +264,15 @@ if (isset($_GET['deleteEventType'])){
   include_once 'showAllAttributes.php';
   exit(0);
 }
+
+//eventtype aanpassen
+if (isset($_POST["updateEventType"])) {
+  $evName = $_POST["evntName"];
+  $evID = $_POST["evntNameID"];
+  $evDescription = $_POST["evntDescription"];
+  $evPrice = $_POST["evntPrice"];
+  $eventSvc = new EventService();
+  $eventSvc->updateEventType($evName, $evID, $evDescription, $evPrice);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
