@@ -13,7 +13,7 @@ $twig = new Twig_Environment($loader);
 if (isset($_GET['new'])) {
   $new = $_GET['new'];
   //new event form
-  if ($new = 'event') {
+  if ($new == 'event') {
     $eventSvc = new EventService();
     $venueSvc = new VenueService();
     $eventTypeList = $eventSvc->getEventTypeList();
@@ -23,17 +23,17 @@ if (isset($_GET['new'])) {
     $view = $twig->render('newEvent.twig', array('eventTypeList' => $eventTypeList, 'venueList' => $venueList));
   }
   //new user form
-  if ($new = 'user') {
+  if ($new == 'user') {
     //prepare twig page
-    $view = $twig->render('newUser.twig');
+    $view = $twig->render('newUser.twig', array('target' => "adminControl.php"));
   }
   //new venue form
-  if ($new = 'venue') {
+  if ($new == 'venue') {
     //prepare twig page
     $view = $twig->render('newVenue.twig');
   }
   //new event type form
-  if($new='eventType'){
+  if($new=='eventType'){
     //prepare twig page
     $view = $twig->render('newEventType.twig');
   }
