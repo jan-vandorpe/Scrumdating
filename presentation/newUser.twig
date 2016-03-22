@@ -48,19 +48,16 @@
           <form action="{{target}}" method="post" class="profielForm" id="profileData" name="profileData">
             <div>
               <label for="username" >Userame:</label>
-              <input type="text" id="username" name="username" title="username">
+              <input type="text" id="username" name="username" title="username" value='{{user.username}}' placeholder="">
+              
             </div>
             <div>
               <label for="password">Password:</label>
-              <input type="text" id="password" name="password" title="password" placeholder="{{user.password}}">
-            </div>
-            <div>
-              <label for="password">Confirm Password:</label>
-              <input type="text" id="confirmPassword" name="confirmPassword" title="confirmPassword">
+              <input type="text" id="password" name="password" title="password" value="{{user.password}}">
             </div>
             <div>
               <span>email</span>
-              <input type="email" id="email" name="email" title="email"s>
+              <input type="email" id="email" name="email" title="email" value="{{user.email}}">
             </div>
             <div>
               <span>Geslacht</span>
