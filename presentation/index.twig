@@ -16,13 +16,13 @@
       <div class="login clearFix">
                 <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">
                     <div class="login clearFix">
-                        <input type="submit" value="registreer" />
+                        <input type="submit" value="registreer" name='registreer' />
                     </div>
                 </form>
                 <form action="loginControl.php" method="post" class="login" id="login" name="login">
-                    <label for="username">gebruikersnaam:<input type="text" id="username" name="username"></label>
-                    <label for="password">wachtwoord:<input type="password" id="password" name="password"></label>                               
-                    <input type="submit" value="login" />
+                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
+                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
+                    <input type="submit" value="login" name="login" />
                 </form>            
       </div>
 
@@ -31,7 +31,7 @@
 
       <nav class="hoofdmenu clearFix">
         <ul>
-          <li><a href="index.twig" id="a"><p>Menu</p></a></li>
+          <li><a href="showIndex.php" id="a"><p>Menu</p></a></li>
           <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
           <li><a href="#" id="c"><p>Matchen</p></a></li>
           <li><a href="#" id="d"><p>Instellingen</p></a></li>
@@ -50,7 +50,7 @@
 
       <div class="container">
         <div class="welkom">
-          {% if user == null %}
+          {% if user == 'Guest' %}
             <h2>Welkom, gast!</h2>            
           {% else %}
             <h2>Welkom terug {{user.username}}!</h2>

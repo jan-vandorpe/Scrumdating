@@ -83,12 +83,12 @@ class EventDAO {
     $stmt->execute(array(':evntName'=> $evntName,':evntDescription'=> $evntDescription,':evntPrice'=>$evntPrice));  
     $dbh = null;    
   }
-  
-  public function updateEventType($evntName) {    
+    
+  public function updateEventType($evName, $evID, $evDescription, $evPrice) {    
     $sql="UPDATE eventtypes SET evntName = :evName, evntDescription = :evDescription, evntPrice = :evPrice WHERE evntName = :evNameID";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':evName'=> $evName,':evDescription'=> $evDescription,':evPrice'=>$evPrice,':evNameID'=>$evntName));  
+    $stmt->execute(array(':evName'=> $evName,':evDescription'=> $evDescription,':evPrice'=>$evPrice,':evNameID'=>$evID));  
     $dbh = null; 
   }
   public function deleteEventType($evntName){
