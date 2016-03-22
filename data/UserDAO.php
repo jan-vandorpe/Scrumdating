@@ -65,7 +65,7 @@ class UserDAO {
     $stmt->execute(array(':username' => $username,':password' => $password));
     $rij = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    if(rij == null){
+    if($rij == false){
         return $login = false;
     }
     else{
