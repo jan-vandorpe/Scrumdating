@@ -39,9 +39,9 @@ class EventService {
     return $list;
   }
 
-  public function getEventTypeByID() {
+  public function getEventTypeByName($eventName) {
     $eventDAO = new EventDAO();
-    $eventType = $eventDAO->getEventTypeByID();
+    $eventType = $eventDAO->getEventTypeByName($eventName);
     return $eventType;
   }
   public function addEventType($evntName,$evntDescription,$evntPrice){

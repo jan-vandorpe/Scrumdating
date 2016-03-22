@@ -45,21 +45,18 @@
         <fieldset class="vast">
           <h1>Event Type Aanmaken</h1>
           <form action="adminControl.php" method="post" class="eventTypeForm" id="eventTypeData" name="eventTypeData">
+            <input type="text" name="evntNameID" value="{{eventType.evntName}}" hidden/>
             <div>
               <label for="evntName" >Event Type:</label>
-              <select name="evntName" title="evntName">
-                {% for eventType in eventTypeList %}
-                  <option value="{{eventType.evntName}}" {% if eventType.evntName == event.evntType.evntName %}selected="selected"{% endif %}>{{eventType.evntName}}</option>
-                {% endfor %}
-              </select>            
+              <input type="text" name="evntName" value="{{eventType.evntName}}"/>         
             </div>
             <div>
               <label for="evntDescription">Event Description</label>
-              <textarea id="evntDescription" name="evntDescription" title="Event Description?" value="{{event.evntType.evntDescription}}"></textarea>
+              <textarea id="evntDescription" name="evntDescription" title="Event Description?" value="{{eventType.evntDescription}}"></textarea>
             </div>
             <div>
               <label for="evntPrice" >Event Price:</label>
-              <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" value="{{event.evntType.evntPrice}}">
+              <input type="number" id="evntPrice" name="evntPrice" title="evntPrice" value="{{eventType.evntPrice}}">
             </div>
             <div>
               <input type="submit" value="Add" name="updateEventType"/>            

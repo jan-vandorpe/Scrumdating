@@ -234,9 +234,9 @@ if(isset($_POST['updateVenue'])){
 }
 
 //event type management
-if (isset($_GET['eventtype'])) {
-  $eventTypeSvc = new EventType();
-  $eventType = $eventTypeSvc->getEventTypeByID();
+if (isset($_GET['eventType'])) {
+  $eventTypeSvc = new EventService();
+  $eventType = $eventTypeSvc->getEventTypeByName($_GET['eventType']);
 
   //prepare twig page
   $view = $twig->render('eventTypeDetail.twig', array('eventType' => $eventType));
