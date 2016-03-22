@@ -234,9 +234,9 @@ if(isset($_POST['updateVenue'])){
 }
 
 //event type management
-if (isset($_GET['eventtype'])) {
-  $eventTypeSvc = new EventType();
-  $eventType = $eventTypeSvc->getEventTypeByID();
+if (isset($_GET['eventType'])) {
+  $eventTypeSvc = new EventService();
+  $eventType = $eventTypeSvc->getEventTypeByName($_GET['eventType']);
 
   //prepare twig page
   $view = $twig->render('eventTypeDetail.twig', array('eventType' => $eventType));
@@ -261,6 +261,18 @@ if (isset($_GET['deleteEventType'])){
   $eventName = $_GET['deleteEventType'];
   $eventSvc = new EventService();
   $eventSvc->deleteEventType($eventName);
+  include_once 'showAllAttributes.php';
+  exit(0);
+}
+
+//eventtype aanpassen
+if (isset($_POST["updateEventType"])) {
+  $evName = $_POST["evntName"];
+  $evID = $_POST["evntNameID"];
+  $evDescription = $_POST["evntDescription"];
+  $evPrice = $_POST["evntPrice"];
+  $eventSvc = new EventService();
+  $eventSvc->updateEventType($evName, $evID, $evDescription, $evPrice);
   include_once 'showAllAttributes.php';
   exit(0);
 }
