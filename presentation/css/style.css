@@ -273,64 +273,20 @@ header .hoofdmenu p{
 .hoofdmenu #d {background-position: -90px -180px;} 
 
 
-.labellook{
-    display: block;
-}
 
 
 
-legend{
-    padding: 0.3em 0.8em 0.1em;
-    border-radius: 3px;
-    box-shadow: 2px 2px 3px #808080;
-}
 
-fieldset{	
-    padding: 0.8em 2%;
-    border: 1px solid white;
-    border-radius: 3px;
-}
 
-.profielitem{
-    margin-bottom: 0.7em;
-}
+
+
+
 
 .vast{
     top:100px;
     left:150px;
 }
 
-.profielForm input[type=date], input[type=number] {
-    width: 94%;
-    height: 3em;
-    box-shadow: 3px 3px 3px darkgrey inset;
-}
-
-.profielForm div{
-    margin-bottom: 2em;
-    
-}
-.profielForm input[type=checkbox], input[type=radio] {
-}
-
-.profielForm input[type=text], input[type=email] {
-    padding: 1em;
-    border-radius: 4px;
-    border: 1px solid white;
-    float: right;
-    width: 70%;
-}
-.profielForm input[type=submit] {
-padding: 1em;
-    float: right;
-    width: 30%;
-}
-select {
-    width: 100%;
-}
-.profielForm{
-
-}
 
 .avatar{
     position: relative;
