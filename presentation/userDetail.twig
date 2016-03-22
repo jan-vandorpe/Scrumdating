@@ -80,9 +80,14 @@
                                 <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="a" {% if user.preference == 'a' %} checked="checked" {% endif %}/>Man & Vrouw</label>
                             </div>
                             <div>
-                                <label for="hairColor" >hairColor:</label>
-                                <input type="text" id="hairColor" name="hairColor"
-                                       title="hairColor" value="{{user.hairColor}}">
+                                <label for ="hairColor" class="verplicht labellook">Hair Color</label>
+                                <select id="hairColor" name="hairColor" required>
+                                    <option value="Kaal" {% if user.hairColor == "Kaal" %} selected="selected" {% endif %}>Kaal</option>
+                                    <option value="Bruin"{% if user.hairColor == "Bruin" %} selected="selected" {% endif %}>Bruin</option>
+                                    <option value="Blond"{% if user.hairColor == "Blond" %} selected="selected" {% endif %}>Blond</option>
+                                    <option value="Grijs"{% if user.hairColor == "Grijs" %} selected="selected" {% endif %}>Grijs</option>
+                                    <option value="Zwart"{% if user.hairColor == "Zwart" %} selected="selected" {% endif %}>Zwart</option>
+                                </select>
                             </div>
                             <div>
                                 <label for="length" class="verplicht labellook">Lengte</label>
@@ -99,8 +104,12 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="eyeColor">Oog Kleur:</label>
-                                <input type="text" id="eyeColor" name="eyeColor" title="eyeColor" value="{{user.eyeColor}}">
+                                <label for ="eyeColor" class="verplicht labellook">Eye Color</label>
+                                <select id="eyeColor" name="eyeColor" required>
+                                    <option value="Blauw" {% if user.eyeColor == "Blauw" %} selected="selected" {% endif %}>Blauw</option>
+                                    <option value="Bruin"{% if user.eyeColor == "Bruin" %} selected="selected" {% endif %}>Bruin</option>
+                                    <option value="Groen"{% if user.eyeColor == "Groen" %} selected="selected" {% endif %}>Groen</option>
+                                   
                                 </select>
                             </div>
                             <div>
