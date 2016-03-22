@@ -7,7 +7,7 @@ class Event{
 private $evntType,$evntDate,$venue,$evntID;
 
 public function __construct($evntID,$evntDate,$evntType,$venue) {
-    $this->evntType = $evntType;
+    $this->evntType = $evntType;    
     $this->evntDate = $evntDate;
     $this->venue = $venue;
     $this->evntID = $evntID;    

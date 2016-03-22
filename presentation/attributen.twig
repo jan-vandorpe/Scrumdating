@@ -37,6 +37,7 @@ and open the template in the editor.
                         <th>occupation</th>
                         <th>smoker</th>
                         <th>admin</th>
+                        <th>delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,8 +63,10 @@ and open the template in the editor.
                         <td>{{user.occupation}}</td>
                         <td>{{user.smoker}}</td>
                         <td>{{user.admin}}</td>
+                        <td><a href="adminControl.php?deleteUser={{user.userID}}" alt="Delete user {{user.userID}}">Delete user</a></td>
                     </tr>
                     {% endfor %}
+                    <tr><td  colspan="2"><a href="adminControl.php?new=user">New User</a></tr>
                 </tbody>
             </table>
         </div>
@@ -77,6 +80,7 @@ and open the template in the editor.
                         <th>eventDate</th>
                         <th>eventName</th>
                         <th>venueID</th>
+                        <th>delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,9 +90,10 @@ and open the template in the editor.
                       <td>{{event.evntDate|date("d/m/Y")}}</td>
                         <td>{{event.evntType.evntName}}</td>
                         <td>{{event.venue.venueID}}</td>
-                    </tr>
+                        <td><a href="adminControl.php?deleteEvent={{event.evntID}}" alt="Delete event {{event.evntID}}">Delete event</a></td>
+                    </tr>                  
                     {% endfor %}
-                    <tr><td colspan="3"><a href="adminControl.php?new=event">New Event</a><td></tr>
+                    <tr><td><a href="adminControl.php?new=event">New Event</a></tr>
                 </tbody>
             </table>
 
@@ -104,6 +109,7 @@ and open the template in the editor.
                         <th>venueStreet</th>
                         <th>venueStreetNR</th>
                         <th>venueCapacity</th>
+                        <th>delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -115,8 +121,10 @@ and open the template in the editor.
                         <td>{{venue.venueStreet}}</td>
                         <td>{{venue.venueStreetNR}}</td>
                         <td>{{venue.venueCapacity}}</td>
+                        <td><a href="adminControl.php?deleteVenue={{venue.venueID}}" alt="Delete venue {{venue.venueID}}">Delete venue</a></td>
                     </tr>
                     {% endfor %}
+                    <tr><td><a href="adminControl.php?new=venue">New Venue</a></tr>
                 </tbody>
             </table>
         </div>
@@ -128,6 +136,7 @@ and open the template in the editor.
                         <th>eventName</th>
                         <th>evntDescription</th>
                         <th>evntPrice</th>
+                        <th>delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -136,8 +145,10 @@ and open the template in the editor.
                       <td><a href="adminControl.php?eventType={{eventType.evntName}}" alt="Details van event type {{eventType.evntName}}">{{eventType.evntName}}</a></td>
                         <td>{{eventType.evntDescription}}</td>
                         <td>{{eventType.evntPrice}}</td>
+                        <td><a href="adminControl.php?deleteEventType={{eventType.evntName}}" alt="Delete eventType {{eventType.evntName}}">Delete event type</a></td>
                     </tr>
                    {% endfor %}
+                   <tr><td><a href="adminControl.php?new=eventType">New EventType</a></tr>
                 </tbody>
             </table>
 

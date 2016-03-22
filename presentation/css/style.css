@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 
-/******OUTLINE*******
+/******OUTLINE******
 body, header, section, article, div, img, nav, ul, li{
         outline: red dotted 1px;
         margin: 0;
@@ -10,7 +10,7 @@ body, header, section, article, div, img, nav, ul, li{
 */
 
 /*****NORMALISATION******/
-body, header, section, article, div, img, nav, ul, li, h1, h2, p{
+body, header, section, article, div, img, nav, ul, li, h1, h2, h3, h4,h5, p{
     margin: 0;
     padding: 0;
 }
@@ -28,6 +28,7 @@ body{
 
 .login{
     font-size: 0.9em;
+    display: none;
 }
 
 form{
@@ -69,6 +70,11 @@ input[type=checkbox], input[type=radio] {
     letter-spacing: 0.3em;
 }
 
+.itemDisplay{
+font-size: 0.8em;
+    
+}
+
 /****************************************************************************************/
 
 
@@ -91,17 +97,19 @@ body{
 .inhoud{
     background: rgba(150,150,150,0.6);
 }
-.container{
-    background-color: rgba(234,221,208,0.6)
+.midden{
+    background: rgba(150,150,150,0.6);
 }
 
 .balkLinks{
-    background:  #808080;
-    display: none;
+    
+    box-sizing: border-box;
+  
 }
 
 .balkRechts{
-    background:cadetblue;
+    box-sizing: border-box;
+   
 }
 
 header, h1 p{
@@ -162,27 +170,37 @@ body{
     width: auto;
 }
 
-
+.inhoud{
+    position: relative;
+    height: auto;
+    
+}
 .balkLinks{
     box-sizing: border-box;
     width: 100%;
     float: none;
+  
+  height: inherit;
+
 
 }
 
 .balkRechts{
+   margin: auto;
     box-sizing: border-box;
     width:100%;
-    float: none;
+    float: left;
+    height: inherit;
 }
 
 
-.container{
+.midden{
     float: left;
     box-sizing: border-box;
     padding: 2%;
     width: 100%;
-    margin: 0 auto;	
+    margin: 0 auto 0 auto;
+
 }
 
 .nofloat{
@@ -200,7 +218,7 @@ header .hoofdmenu p{
 
 
 .headerImage{
-    background: url(../images/background/sensual.jpg) 50% 45%;
+    background:rgba(0,0,0,0.8);
     width: 100%;
     background-size: 150%;
     background-repeat: no-repeat;
@@ -298,12 +316,59 @@ fieldset{
 }
 
 select {
-    width: 100%
+    width: 100%;
 }
 .profielForm{
 
 }
 
+.avatar{
+    position: relative;
+}
+
+.userprofiel {
+position: relative;
+}
+.userprofiel img{
+    float: left;
+    width: 30%;
+}
+.contact h5 {
+    padding-top: 1.3em;
+    
+}
+.contact img{
+    float: left;
+    width: 3em;
+}
+.gegevens{
+
+}
+.wijzigLinks{
+margin-top: 0em;
+   
+}
+.wijzigLinks a{ 
+    display: block;
+}
+.blok{
+    box-sizing: border-box;
+    background-color: white;
+    padding: 0.3em;
+    border-radius: 3px;
+    border: 1px solid black;
+    height: inherit;
+}
+
+.itemDisplay{
+    list-style-type:  none;
+    padding: 0.3em;
+    border: 1px solid  #808080;
+    box-shadow: 2px 2px 2px gray inset;
+    border-radius: 3px;
+    margin: 0.5em 0;
+    
+}
 .hoofdFooter{
     padding: 0.5em;
 }
@@ -354,8 +419,26 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     }
 
 }
+@media only screen and (min-width: 768px)  {
+    .balkLinks{
+        display:  block;
+        width: 30%;
+       
+        float: right;
+    }
 
-@media only screen and (min-width: 608px) {
+    .balkRechts{
+float: right;
+    }
+
+    .midden{
+      
+        padding: 2%;
+        width: 70%;
+        margin: 0 auto 0 auto;	
+    }
+}
+@media only screen and (min-width: 1000px) {
     .login form{
         float: right;
     }
@@ -365,17 +448,16 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
     .balkLinks{
         display:  block;
-        width: 20%;
+        width: 20%;   
         float: left;
     }
 
     .balkRechts{
-
         width:20%;
         float: right;
     }
 
-    .container{
+    .midden{
         padding: 2%;
         width: 60%;
         margin: 0 auto;	
@@ -394,6 +476,11 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
     .headerImage{
         background-size: 100%;
-
     }
+    
+    .wijzigLinks{
+    position: absolute;
+    right: 0;
+    bottom: 0.5em; 
+}
 }

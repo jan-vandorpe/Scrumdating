@@ -39,29 +39,29 @@
         <div class="inhoud clearFix">
 
             <section class="balkLinks">
-                <h1></h1>
+                <h1>balk links</h1>
             </section>
             
-            <div class="midden">
+            <div class="container">
                 <fieldset class="vast">
                     <h1>Profiel Aanmaak</h1>
-                        <form action="profiel.html" method="post" class="profielForm" id="profileData" name="profileData">
+                        <form action="adminControl.php" method="post" class="profielForm" id="profileData" name="profileData">
                             <div>
                                 <label for="userID">User ID:</label>
-                                <input type="number" id="userID" name="userID" title="Hier is je userID" placeholder="{{user.userID}}">
+                                <input type="number" id="userID" name="userID" title="Hier is je userID" value="{{user.userID}}">
                                 </select>
                             </div>
                             <div>
                                 <label for="username" >User Name:</label>
-                                <input type="text" id="username" name="username" title="username" placeholder="{{user.username}}">
+                                <input type="text" id="username" name="username" title="username" value="{{user.username}}">
                             </div>
                             <div>
                                 <label for="password" >Password:</label>
-                                <input type="text" id="password" name="password" title="password" placeholder="{{user.password}}">
+                                <input type="text" id="password" name="password" title="password" value="{{user.password}}">
                             </div>
                             <div>
                               <span>email</span>
-                              <input type="email" id="email" name="email" title="email" placeholder="{{user.email}}">
+                              <input type="email" id="email" name="email" title="email" value="{{user.email}}">
                             </div>
                             <div>
                                 <span>Geslacht</span>
@@ -71,7 +71,7 @@
                             </div>
                             <div>
                                 <label for="birthDate">Geboorte Datum:</label>
-                                <input type="date" id="birthDate" name="birthDate" title="Geboorte Datum 1956-12-31" placeholder="{{user.bithDate}}">
+                                <input type="date" id="birthDate" name="birthDate" title="Geboorte Datum 1956-12-31" value="{{user.birthDate}}">
                             </div>
                             <div>
                                 <span>Preference</span>
@@ -80,13 +80,18 @@
                                 <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="a" {% if user.preference == 'a' %} checked="checked" {% endif %}/>Man & Vrouw</label>
                             </div>
                             <div>
-                                <label for="hairColor" >hairColor:</label>
-                                <input type="text" id="hairColor" name="hairColor"
-                                       title="hairColor" placeholder="{{user.hairColor}}">
+                                <label for ="hairColor" class="verplicht labellook">Hair Color</label>
+                                <select id="hairColor" name="hairColor" required>
+                                    <option value="Kaal" {% if user.hairColor == "Kaal" %} selected="selected" {% endif %}>Kaal</option>
+                                    <option value="Bruin"{% if user.hairColor == "Bruin" %} selected="selected" {% endif %}>Bruin</option>
+                                    <option value="Blond"{% if user.hairColor == "Blond" %} selected="selected" {% endif %}>Blond</option>
+                                    <option value="Grijs"{% if user.hairColor == "Grijs" %} selected="selected" {% endif %}>Grijs</option>
+                                    <option value="Zwart"{% if user.hairColor == "Zwart" %} selected="selected" {% endif %}>Zwart</option>
+                                </select>
                             </div>
                             <div>
                                 <label for="length" class="verplicht labellook">Lengte</label>
-                                <input type="number" id="length" name="lenght" placeholder="{{user.length}}" required/>
+                                <input type="number" id="length" name="length" value="{{user.length}}" required/>
                             </div>
                             <div>
                                 <label for ="build" class="verplicht labellook">Figuur</label>
@@ -99,8 +104,12 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="eyeColor">Oog Kleur:</label>
-                                <input type="text" id="eyeColor" name="eyeColor" title="eyeColor" placeholder="{{user.eyeColor}}">
+                                <label for ="eyeColor" class="verplicht labellook">Eye Color</label>
+                                <select id="eyeColor" name="eyeColor" required>
+                                    <option value="Blauw" {% if user.eyeColor == "Blauw" %} selected="selected" {% endif %}>Blauw</option>
+                                    <option value="Bruin"{% if user.eyeColor == "Bruin" %} selected="selected" {% endif %}>Bruin</option>
+                                    <option value="Groen"{% if user.eyeColor == "Groen" %} selected="selected" {% endif %}>Groen</option>
+                                   
                                 </select>
                             </div>
                             <div>
@@ -111,19 +120,19 @@
                             </div>
                             <div>
                                 <label for="bio">Bio:</label>
-                                <textarea id="bio" name="bio" title="bio" placeholder="{{user.bio}}"></textarea>
+                                <textarea id="bio" name="bio" title="bio" value="{{user.bio}}"></textarea>
                             </div>
                             <div>
-                                <label for="postcode" class="verplicht labellook">Lengte</label>
-                                <input type="number" id="postcode" name="postcode" placeholder="{{user.postcode}}"/>
+                                <label for="postcode" class="verplicht labellook">Postcode</label>
+                                <input type="number" id="postcode" name="postcode" value="{{user.postcode}}"/>
                             </div>
                             <div>
                                 <label for="region" >Regio:</label>
-                                <input type="text" id="region" name="region" title="region" placeholder="{{user.region}}">
+                                <input type="text" id="region" name="region" title="region" value="{{user.region}}">
                             </div>
                             <div>
                                 <label for ="occupation" class="verplicht labellook">Occupation</label>
-                                <select id="occupation" name="occupation" placeholder="{{user.occupation}}">
+                                <select id="occupation" name="occupation">
                                     <option value="student" {% if user.occupation == 'student' %} selected="selected" {% endif %}>student</option>
                                     <option value="ik doe niet veel"{% if user.occupation == 'ik doe niet veel' %} selected="selected" {% endif %}>ik doe niet veel</option>
                                     <option value="kelner"{% if user.occupation == 'kelner' %} selected="selected" {% endif %}>kelner</option>
@@ -141,12 +150,15 @@
                                 <label for="admin" class="labelradio labellook"><input type="radio" id="admin" name="admin" value="1" {% if user.admin == '1' %} checked="checked" {% endif %}/>Ja</label>
                                 <label for="admin" class="labelradio labellook"><input type="radio" id="admin" name="admin" value="0" {% if user.admin == '0' %} checked="checked" {% endif %}/>Nee</label>
                             </div>
+                            <div>
+            <input type="submit" Value="Update" name="updateUser"/>
+          </div>
                         </form>
                 </fieldset>
             </div>
 
             <section class="balkRechts">
-                <h1></h1>
+                <h1>BALK RECHTS</h1>
             </section>
 
 

@@ -59,40 +59,65 @@ class EventDAO {
     $dbh = null;    
   }
   
-  public function addEventtype() {
-    $_POST["evntName"] = $evName;
-    $_POST["evntDescription"] = $evDescription; 
-    $_POST["evntPrice"] = $evPrice;
-      
-    $sql = "INSERT INTO eventtypes (evntName,evntDescription,evntPrice) values (:evName, :evDescription,:evPrice)";
+  public function deleteEvent($evID) {
+    $sql = "DELETE FROM events WHERE evntID = :ID";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
-    $stmt->execute(array(':evName'=> $evName,':evDescription'=> $evDescription,':evPrice'=>$evPrice));  
+    $stmt->execute(array(':ID'=> $evID));  
+    $dbh = null;    
+  } 
+  
+  public function updateEvent($evntID,$evDate,$evName,$venID) {
+    
+    $sql="UPDATE events SET evntDate = :evDate, evntName = :evName, venueID = :venID WHERE evntID = :evntID";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':evDate'=> $evDate,':evName'=> $evName,':venID'=>$venID,':evntID'=>$evntID));  
+    $dbh = null;            
+  }  
+  
+  public function addEventType($evntName,$evntDescription,$evntPrice) {      
+    $sql = "INSERT INTO eventtypes (evntName,evntDescription,evntPrice) values (:evntName, :evntDescription,:evntPrice)";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':evntName'=> $evntName,':evntDescription'=> $evntDescription,':evntPrice'=>$evntPrice));  
     $dbh = null;    
   }
   
-  public function updateEvent($evntID) {
-    $_POST["evntDate"] = $evDate;
-    $_POST["evntName"] = $evName; 
-    $_POST["venueID"] = $venID;
+  public function updateEventType($evntName,$evntDescription,$evntPrice) {
     
-    $sql="UPDATE events SET evntDate = :evDame, evntName = :evName, venueID = :venID WHERE evntID = :evntID";
+    $sql="UPDATE events SET evntDate = :evDate, evntName = :evName, venueID = :venID WHERE evntID = :evntID";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':evDate'=> $evDate,':evName'=> $evName,':venID'=>$venID,':evntID'=>$evntID));  
     $dbh = null;            
   }
   
-  public function updateEventtupe($evntName) {
-    $_POST["evntName"] = $evName;
-    $_POST["evntDescription"] = $evDescription; 
-    $_POST["evntPrice"] = $evPrice;  
-    
+  public function updateEventType($evntName) {    
     $sql="UPDATE eventtypes SET evntName = :evName, evntDescription = :evDescription, evntPrice = :evPrice WHERE evntName = :evNameID";
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array(':evName'=> $evName,':evDescription'=> $evDescription,':evPrice'=>$evPrice,':evNameID'=>$evntName));  
     $dbh = null; 
   }
+  public function deleteEventType($evntName){
+    $sql = "DELETE FROM eventtypes WHERE evntName = :name";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':name'=> $evntName));  
+    $dbh = null;   
+  }
+  public function getEventTypeByName($evntName){
+    $sql="SELECT * FROM eventtpes WHERE evntName = :name";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':name'=> $evntName));    
+    $rij = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    $dbh = null;
+    return $rij;
+  }
+  
+  
   
 }
