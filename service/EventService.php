@@ -52,5 +52,10 @@ class EventService {
     $eventDAO = new EventDAO();
     $eventDAO->deleteEventType($evntName);
   }
+  
+  public function updateEventType($evName, $evID, $evDescription, $evPrice) {
+    $eventDAO = new EventDAO();
+    $eventDAO->updateEventType($evName, $evID, $evDescription, $evPrice);
+  }
 
 }
