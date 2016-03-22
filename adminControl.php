@@ -253,7 +253,7 @@ if (isset($_POST["addEventType"])) {
   
   $eventSvc = new EventService();
   $eventSvc->addEventType($evntName,$evntDescription,$evntPrice);
-  include_once 'showAllAttributes.php';
+    include_once 'showAllAttributes.php';
   exit(0);
 }
 //event type verwijderen
