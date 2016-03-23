@@ -7,41 +7,50 @@ require_once 'service\UserService.php';
 $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
-if (isset($_GET['new'])) {
-$new = $_GET['new'];
+session_start();
 
- //new user form
+if(isset($_SESSION["login"])){
+  $login = $_SESSION["login"];
+} else {
+  $login = false;
+}
+
+if (isset($_GET['new'])) {
+  $new = $_GET['new'];
+
+  //new user form
   if ($new = 'user') {
     //prepare twig page
-    $view = $twig->render('newUser.twig', array('target'=>"loginControl.php"));
+    $view = $twig->render('newUser.twig', array('target' => "loginControl.php"));
   }
-  
+
   //execute twig page
   print($view);
   exit(0);
 }
 
-if(isset($_POST['login'])){
+if (isset($_POST['login'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
   $userSvc = new UserService();
-  $user = $userSvc->checkLogin($username, $password);
-  
-  if($user == false){
-      include_once 'presentation/loginPage.twig';
-      exit(0);
+  $loginCheck = $userSvc->checkLogin($username, $password);
+
+  if ($loginCheck == false) {
+    include_once 'presentation/loginPage.twig';
+    exit(0);
   }
-  else{
-      $_SESSION["user"] = $user;
-      $view = $twig->render('userProfilePage.twig',array('user'=>$user));
-  } 
+  else {
+    $_SESSION["login"] =  $loginCheck;
+    $login = $loginCheck;
+    $view = $twig->render('userProfilePage.twig', array('login' => $login));
+  }
   print($view);
   exit(0);
 }
 
-if(isset($_POST['registreer'])){
-    include_once 'presentation/registreerPage.twig';
+if (isset($_POST['registreer'])) {
+  include_once 'presentation/registreerPage.twig';
 }
 
 if(isset($_POST['registreren'])){
