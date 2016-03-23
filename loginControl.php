@@ -1,5 +1,4 @@
 <?php
-
 require_once 'library\vendor\autoload.php';
 require_once 'service\UserService.php';
 

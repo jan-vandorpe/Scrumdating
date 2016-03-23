@@ -77,7 +77,7 @@
                             <li><label>Straat: </label>{{event.venue.venueStreet}} {{event.venue.venueStreetNR}}</li>
                             <li><label>Aantal plaatsen:</label>{{event.venue.venueCapacity}}</li>
                         </ul>
-                        <a href="eventControl.php?userID={{login.username}}&eventID={{event.evntID}}"><input type="submit" value="Inschrijven"/></a>
+                        <a href="eventControl.php?userID={{login.userID}}&eventID={{event.evntID}}"><input type="submit" value="Inschrijven"/></a>
                     </div>
               
               {% endfor %}
