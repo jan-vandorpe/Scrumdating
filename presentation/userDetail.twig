@@ -67,7 +67,7 @@
                                 <input type="text" id="password" name="password" title="password" value="{{user.password}}">
                             </div>
                             <div>
-                              <span>email</span>
+                              <span>E-mail:</span>
                               <input type="email" id="email" name="email" title="email" value="{{user.email}}">
                             </div>
                             
@@ -95,7 +95,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for ="hairColor" class="verplicht labellook">Hair Color</label>
+                                <label for ="hairColor" class="verplicht labellook">Hair Color:</label>
                                 <select class="form-control" id="hairColor" name="hairColor" required>
                                     <option value="Kaal" {% if user.hairColor == "Kaal" %} selected="selected" {% endif %}>Kaal</option>
                                     <option value="Bruin"{% if user.hairColor == "Bruin" %} selected="selected" {% endif %}>Bruin</option>
@@ -105,11 +105,11 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="length" class="verplicht labellook">Lengte</label>
+                                <label for="length" class="verplicht labellook">Lengte:</label>
                                 <input type="number" id="length" name="length" value="{{user.length}}" required/>
                             </div>
                             <div>
-                                <label for ="build" class="verplicht labellook">Figuur</label>
+                                <label for ="build" class="verplicht labellook">Figuur:</label>
                                 <select id="build" name="build" required>
                                     <option value="mager" {% if user.build == "mager" %} selected="selected" {% endif %}>Mager</option>
                                     <option value="slank"{% if user.build == "slank" %} selected="selected" {% endif %}>Slank</option>
@@ -119,7 +119,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label for ="eyeColor" class="verplicht labellook">Eye Color</label>
+                                <label for ="eyeColor" class="verplicht labellook">Oog Kleur:</label>
                                 <select id="eyeColor" name="eyeColor" required>
                                     <option value="Blauw" {% if user.eyeColor == "Blauw" %} selected="selected" {% endif %}>Blauw</option>
                                     <option value="Bruin"{% if user.eyeColor == "Bruin" %} selected="selected" {% endif %}>Bruin</option>
@@ -128,34 +128,34 @@
                                 </select>
                             </div>
                             <div>
-                                <label>Soort relatie</label>
+                                <label>Soort Relatie:</label>
                                 <label for="friends" class="labelcheckbox labellook"><input type="checkbox" id="friends" name="friends" value="1" {% if user.friends == '1' %} checked="checked" {% endif %}>Vriendschap</label>
-                                <label for="oneNight" class="labelcheckbox labellook"><input type="checkbox" id="oneNight" name="oneNight" value="1" {% if user.oneNight == '1' %} checked="checked" {% endif %}>One night stand</label>
-                                <label for="longTerm" class="labelcheckbox labellook"><input type="checkbox" id="longTerm" name="longTerm" value="1"{% if user.longTerm == '1' %} checked="checked" {% endif %}>Lange termijn</label>
+                                <label for="oneNight" class="labelcheckbox labellook"><input type="checkbox" id="oneNight" name="oneNight" value="1" {% if user.oneNight == '1' %} checked="checked" {% endif %}>One-Night Stand</label>
+                                <label for="longTerm" class="labelcheckbox labellook"><input type="checkbox" id="longTerm" name="longTerm" value="1"{% if user.longTerm == '1' %} checked="checked" {% endif %}>Lange Termijn</label>
                             </div>
-                            <div>
+                            <div class="formalign">
                                 <label for="bio">Bio:</label>
                                 <textarea id="bio" name="bio" title="bio" value="{{user.bio}}"></textarea>
                             </div>
                             <div>
-                                <label for="postcode" class="verplicht labellook">Postcode</label>
+                                <label for="postcode" class="verplicht labellook">Postcode:</label>
                                 <input type="number" id="postcode" name="postcode" value="{{user.postcode}}"/>
                             </div>
                             <div>
                                 <label for ="region" class="verplicht labellook">Regio:</label>
                                 <select id="region" name="region">
-                                    <option value="oostkust" {% if user.region == 'oostkust' %} selected="selected" {% endif %}>oostkust</option>
-                                    <option value="westkust"{% if user.region == 'westkust' %} selected="selected" {% endif %}>westkust</option>
-                                    <option value="middenkust"{% if user.region == 'middenkust' %} selected="selected" {% endif %}>middenkust</option>
+                                    <option value="oostkust" {% if user.region == 'oostkust' %} selected="selected" {% endif %}>Oostkust</option>
+                                    <option value="westkust"{% if user.region == 'westkust' %} selected="selected" {% endif %}>Westkust</option>
+                                    <option value="middenkust"{% if user.region == 'middenkust' %} selected="selected" {% endif %}>Middenkust</option>
                                 </select>
                             </div>
                             <div>
-                                <label for ="occupation" class="verplicht labellook">Occupation</label>
+                                <label for ="occupation" class="verplicht labellook">Beroep:</label>
                                 <select id="occupation" name="occupation">
-                                    <option value="student" {% if user.occupation == 'student' %} selected="selected" {% endif %}>student</option>
+                                    <option value="student" {% if user.occupation == 'student' %} selected="selected" {% endif %}>Student</option>
                                     <option value="ik doe niet veel"{% if user.occupation == 'ik doe niet veel' %} selected="selected" {% endif %}>ik doe niet veel</option>
-                                    <option value="kelner"{% if user.occupation == 'kelner' %} selected="selected" {% endif %}>kelner</option>
-                                    <option value="werknemer"{% if user.occupation == 'werknemer' %} selected="selected" {% endif %}>werknemer</option>
+                                    <option value="kelner"{% if user.occupation == 'kelner' %} selected="selected" {% endif %}>Kelner</option>
+                                    <option value="werknemer"{% if user.occupation == 'werknemer' %} selected="selected" {% endif %}>Werknemer</option>
                                     <option value="werkgever"{% if user.occupation == 'werkgever' %} selected="selected" {% endif %}>werkgever</option>
                                 </select>
                             </div>
