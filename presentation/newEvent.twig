@@ -37,19 +37,14 @@
 
             <nav class="hoofdmenu clearFix">
                 <ul>
-                    <li><a href="showIndex.php" id="a"><p>Menu</p></a></li>
-                    <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
+                    <li><a href="Index.php" id="a"><p>Home</p></a></li>
+                    <li><a href="loginControl.php?profile={{login.userID}}" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
                     <li><a href="#" id="c"><p>Matchen</p></a></li>
-                    <li><a href="#" id="d"><p>Instellingen</p></a></li>
+                    <li><a href="eventControl.php?action=showEvents" id="d"><p>Events</p></a></li>
                 </ul>
             </nav>
         </header>
     <div class="inhoud clearFix">
-
-      <section class="balkLinks">
-        <h1>balk links</h1>
-      </section>
-
       <div class="container">
         <h2>Event Toevoegen</h2>
         <!--form hier -->
@@ -107,12 +102,6 @@
           </div>
         </form>
       </div>
-
-      <section class="balkRechts">
-        <h1>BALK RECHTS</h1>
-      </section>
-
-
     </div>
 
     <footer class="hoofdFooter">

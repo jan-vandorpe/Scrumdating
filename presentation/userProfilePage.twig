@@ -37,8 +37,8 @@
 
             <nav class="hoofdmenu clearFix">
                 <ul>
-                    <li><a href="showIndex.php" id="a"><p>Menu</p></a></li>
-                    <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
+                    <li><a href="Index.php" id="a"><p>Home</p></a></li>
+                    <li><a href="loginControl.php?profile={{login.userID}}" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
                     <li><a href="#" id="c"><p>Matchen</p></a></li>
                     <li><a href="eventControl.php?action=showEvents" id="d"><p>Events</p></a></li>
                 </ul>
@@ -51,40 +51,45 @@
                     <div class="contact cf clearFix">
                         <img src="images/pictures/maleAvatar.svg"/>
                         <div class="gegevens">
-                            <h5>{{login.username}}</h5>
+                            <h5>George</h5>
                         </div>
                     </div>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/femaleAvatar.svg"/>
                         <div class="gegevens">
-                            <h5>{{login.username}}</h5>
+                            <h5>Anneke</h5>
                         </div>
                     </div>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/femaleAvatar.svg"/>
                         <div class="gegevens">
-                            <h5>{{login.username}}</h5>
+                            <h5>Lien</h5>
                         </div>
                     </div>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/maleAvatar.svg"/>
                         <div class="gegevens">
-                            <h5>{{login.username}}</h5>
+                            <h5>Steven</h5>
                         </div>
                     </div>
             </section>
 
             <div class="midden">
                 <div class="userprofiel clearFix">
-
+                  {% if user.sex == 'f' %}
                     <img src="images/pictures/femaleAvatar.svg"/>
+                    {% else %}
+                      <img src="images/pictures/maleAvatar.svg"/>
+                      {% endif %}
                     <div class="gegevens ">
-                        <h2>{{login.username}}</h2>
-                        <p>{{login.region}}</p>
+                        <h2>{{user.username}}</h2>
+                        <h3>{{user.region}}</h3>
+                        <p>{{user.bio}}</p>
                     </div>
                     <div class="wijzigLinks ">
-                        <a href="#">Wijzig profiel</a>
-                        <a href="#">Wijzig events</a>
+                      {% if login.userID == user.userID %}
+                        <a href="loginControl.php?wijzig">Wijzig profiel</a>
+                        {% endif %}
                     </div>
                 </div>
                     
@@ -92,16 +97,16 @@
                     <h2>Berichten</h2>
                     <div class="bericht contact">
                         <img src="images/pictures/femaleAvatar.svg"/>
-                        <h5>{{login.username}}</h5>
+                        <h5>Anneke</h5>
                         <ul class="itemDisplay cf ">      
-                            <li>{{login.bericht}}</li>
+                            <li>Hoi! Vrijdag om 8 uur bij jouw? Call me.</li>
                         </ul>
                     </div>
                     <div class="bericht contact">
                         <img src="images/pictures/maleAvatar.svg"/>
-                        <h5>{{login.username}}</h5>
+                        <h5>George</h5>
                         <ul class="itemDisplay cf">      
-                            <li>{{login.bericht}}</li>
+                            <li>Is het nu vrijdag bij mij?</li>
                         </ul>
                     </div>
                 </div>
