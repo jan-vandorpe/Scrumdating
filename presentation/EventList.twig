@@ -12,24 +12,17 @@
     </head>
 
     <body>
-<header class="headerImage">
+        <header class="headerImage">
             <div class="login clearFix">
                 {% if login == false %}
-                  <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
-                    <div class="login clearFix"><input type="submit" value="registreer" name="registreer"/></div>
-                </form>
-                <form action="loginControl.php" method="post" class="login" id="login" name="login">
-                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
-                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
-                    <input type="submit" value="login" name="login" />
-                </form>
-                
+                    <form action="loginControl.php" method="post" class="login" id="login" name="login">
+                        <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
+                        <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
+                        <input type="submit" value="login" name="login" />
+                    </form>
                 {% else %}
-                  <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
-                  {% if login.admin == 1 %}
-                  <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
-                  {% endif %}
-                {% endif %}              
+                    <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
+                    {% endif %}              
             </div>
 
             <h1><span>Losse Flodders</span></h1>
@@ -37,13 +30,14 @@
 
             <nav class="hoofdmenu clearFix">
                 <ul>
-                    <li><a href="Index.php" id="a"><p>Home</p></a></li>
-                    <li><a href="loginControl.php?profile={{login.userID}}" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
+                    <li><a href="showIndex.php" id="a"><p>Menu</p></a></li>
+                    <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
                     <li><a href="#" id="c"><p>Matchen</p></a></li>
-                    <li><a href="eventControl.php?action=showEvents" id="d"><p>Events</p></a></li>
+                    <li><a href="#" id="d"><p>Instellingen</p></a></li>
                 </ul>
             </nav>
         </header>
+
 
 
         <div class="inhoud clearFix">
@@ -66,8 +60,30 @@
 
  
                 </div>
-
                 <div class="blok">
+                    <h2>Events</h2>
+
+                {% for event in eventList %}
+              
+                    <div class="event">
+                        <img src="presentation/images/events/event_01.jpg"/>
+                        <h4>{{event.eventName}}</h4>
+                        <ul class="itemDisplay">
+                            <li><label>Datum:</label> {{event.evntDate}}</li>
+                            <li><label>Soort: </label>{{event.evntType.evntDescription}}</li>
+                            <li><label>Prijs: </label>€ {{event.evntType.evntPrice}}</li>
+                            <li><label>{{event.venue.venueName}}</li>
+                            <li><label>Plaats: </label>{{event.venue.venueCity}}</li>
+                            <li><label>Straat: </label>{{event.venue.venueStreet}} {{event.venue.venueStreetNR}}</li>
+                            <li><label>Aantal plaatsen:</label>{{event.venue.venueCapacity}}</li>
+                        </ul>
+                        <a href="eventControl.php?userID={{login.userID}}&eventID={{event.evntID}}"><input type="submit" value="Inschrijven"/></a>
+                    </div>
+              
+              {% endfor %}
+              </div>
+                
+           {# <div class="blok">
                     <h2>Events</h2>
                     <div class="event">
                         <img src="images/events/event_01.jpg"/>
@@ -99,7 +115,7 @@
                         <a href="#"><input type="submit" value="Inschrijven"/></a>
                     </div>
                 </div>
-            </div>
+            </div> #}
 
             <section class="balkRechts blok">
 
