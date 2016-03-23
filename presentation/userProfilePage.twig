@@ -7,7 +7,7 @@
         <meta name="author" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png"  href="images/icons/favicon.png">
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="../css/style.css" />
         <title>Uw Westvloamse datingsite</title>
     </head>
 
@@ -15,6 +15,7 @@
         <header class="headerImage">
             <div class="login clearFix">
                 {% if login == false %}
+
                     <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
                         <div class="login clearFix"><input type="submit" value="registreer" name="registreer"/></div>
                     </form>
@@ -22,7 +23,13 @@
                         <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
                         <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
                         <input type="submit" value="login" name="login" />
+
+                    <form action="loginControl.php" method="post" class="clearFix" id="registreer" name="registreer">                                              
+                        <div>
+                            <input type="submit" value="registreer" name="registreer"/>
+                        </div>
                     </form>
+                   
 
                 {% else %}
                     <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
@@ -51,25 +58,41 @@
                 <h4>Contacten</h4>
                 <div class="contact cf clearFix">
                     <img src="images/pictures/maleAvatar.svg"/>
-                    <div class="gegevens">
+
+                   
+
+                    <div class="">
+
                         <h5>George</h5>
                     </div>
                 </div>
                 <div class="contact cf clearFix">
                     <img src="images/pictures/femaleAvatar.svg"/>
-                    <div class="gegevens">
+
+                    
+
+                    <div class="">
+
                         <h5>Anneke</h5>
                     </div>
                 </div>
                 <div class="contact cf clearFix">
                     <img src="images/pictures/femaleAvatar.svg"/>
-                    <div class="gegevens">
+
+                    
+
+                    <div class="">
+
                         <h5>Lien</h5>
                     </div>
                 </div>
                 <div class="contact cf clearFix">
                     <img src="images/pictures/maleAvatar.svg"/>
-                    <div class="gegevens">
+
+                    
+
+                    <div class="">
+
                         <h5>Steven</h5>
                     </div>
                 </div>
@@ -115,29 +138,36 @@
 
             <section class="balkRechts blok">
 
-                <h4>ingeschreven voor events</h4>
+                <div class="event blok">
+                    <h4>ingeschreven voor events</h4>
 
-                {% for event in eventLijst %}
+                    {% for event in eventLijst %}
 
-                    <ul class="itemDisplay">
-                        <li>{{event.evntType.evntName}}</li>
-                        <li>{{event.evntDate}}</li>
-                        <li>{{event.venue.venueCity}}</li>
-                    </ul>
+                        <ul class="itemDisplay">
+                            <li>{{event.evntType.evntName}}</li>
+                            <li>{{event.evntDate}}</li>
+                            <li>{{event.venue.venueCity}}</li>
+                        </ul>
 
-                {% endfor %}                   
+                    {% endfor %}                   
+                </div>
 
-                <h4>Upcoming events</h4>
-                {% for event in upcoming|slice(0, 4) %}
+                <div class="event blok">
 
-                    <ul class="itemDisplay">
-                        <li>{{event.evntType.evntName}}</li>
-                        <li>{{event.evntDate}}</li>
-                        <li>{{event.venue.venueCity}}</li>
-                    </ul>
+                    <img src="images/pictures/event_balk.jpg" class="eventbanner"/>
 
-                {% endfor %}              
-            </section>
+                    {% for event in upcoming|slice(0, 4) %}
+
+                        <ul class="itemDisplay">
+                            <li>{{event.evntType.evntName}}</li>
+                            <li>{{event.evntDate}}</li>
+                            <li>{{event.venue.venueCity}}</li>
+                        </ul>
+
+                    {% endfor %}   
+                </div>
+
+           </section>
 
 
         </div>

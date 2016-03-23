@@ -1,42 +1,61 @@
 @charset "UTF-8";
 /* CSS Document */
+
 /******OUTLINE******
 body, header, section, article, div, img, nav, ul, li{
-        outline: red dotted 1px;
-        margin: 0;
-        padding: 0;
+    outline: red dotted 1px;
+    margin: 0;
+    padding: 0;
 }
 */
+
 /*****NORMALISATION******/
 body, header, section, article, div, img, nav, ul, li, h1, h2, h3, h4,h5, p{
     margin: 0;
     padding: 0;
 }
+
 body{
     margin: 0;
     padding: 0;
     font-size: 100%;
 }
+
 /******TYPOGRAFIE*************************************************************************/
 body{
     font-family: arial, sans-serif;
 }
+
 .login{
     font-size: 0.9em;
+
 }
+
+form{
+
+}
+
 header h1{
     font-size: 2.5em;
     text-align: center;
 }
+
 header p{
     text-align: center;
 }
+
+
+
 legend{
     font-size: 1.2em;
 }
+
 select{
     font-size: 1.3em;
 }
+
+
+
 .hoofdFooter p{
     text-align: center;
     font-weight: bold;
@@ -44,38 +63,60 @@ select{
     text-transform: uppercase;
     letter-spacing: 0.3em;
 }
+
 .itemDisplay{
     font-size: 0.8em;
+
 }
+
 /****************************************************************************************/
+
+
 
 /******KLEUREN****************************************************************************/
 /*backgrounfgrey: #333333;
 */
+
+body{
+
+}
+
 .login form{
+  
     background-color: rgba(234,221,208,0.6);
 }
 .login input[type=text] input[type=password]{
     background: white;
 }
+
 .inhoud{
     background: rgba(192,192,192,0.6);
 }
 .midden{
     background: rgba(224,224,224,0.5);
 }
+
 .balkLinks{
+
     box-sizing: border-box;
+
 }
+
 .balkRechts{
     box-sizing: border-box;
+
 }
+
 header, h1 {
     color: white;
 }
-header .headerImage{
-    background:  black;
+
+.headerImage{
+    background: black;
 }
+
+
+
 .hoofdmenu ul li {
     background: red; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(white, white,black); /* For Safari 5.1 to 6.0 */
@@ -83,102 +124,173 @@ header .headerImage{
     background: -moz-linear-gradient(white, white,black); /* For Firefox 3.6 to 15 */
     background: linear-gradient(white, white,black); /* Standard syntax */
 }
+
 .hoofdmenu ul li p{
     color: black;
     font-size: 0.7em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
+
 legend{
+
     background: rgba(255,255,255,0.6);;
 }
+
+
 form{
     color: #4C4C4C;
 }
+
 input {
     color: #4C4C4C;
 }
+
 .hoofdFooter{
     background-color: rgba(234,221,208,0.6);
     color: gray;
 }
+
 /****************************************************************************************/
+
 
 /******STRUCTUUR******/
 body{
     background:url(../images/background/skulls.png);	
 }
+
+
 .login{
     padding: 0.3em;
+
 }
+
+/***login bovenaan***/
 .login form{
-    border-radius: 4px;  
+    padding: 1%;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+
 }
-.login label{
-    display: block;
-    width: 100%;
+
+.login div label{
+    color: white;   
+    font-size: 1em;
+    display: inline-block;
+    width: 8em;
+    margin: 0;
+    padding: 0.5em 0 0 0;
+    text-align: left;
 }
-.login input[type=text] input[type=password]{
-    width: auto;
+
+/******* velden, controls *******/
+.login input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="url"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="tel"],
+textarea {
+    box-sizing: border-box;
+    width: 14em;
+    min-height: 1em;
+    padding: 0.4em 0.5em;
+    margin: 0;
+    font-size: inherit;
 }
+
+
+
+
 .inhoud{
     position: relative;
     height: auto;
+    margin:auto;
+    height:100%;
+    width:98%;
+    padding: 0 1%;
+
 }
 .balkLinks{
     box-sizing: border-box;
     width: 100%;
     float: none;
     padding: 1em 0 0 0;
+
+
+
+
 }
+
 .balkRechts{
-    margin: auto;
+
     box-sizing: border-box;
     width:100%;
     float: left;
     height: inherit;
-    padding: 1em 0 0 0;
+    padding: 0 0 0 0;
 }
+
+
 .midden{
     float: left;
     box-sizing: border-box;
     padding: 5% 2%;
     width: 100%;
     margin: 0 auto 0 auto;
+
 }
+
 .nofloat{
     float:none
 }
+
 header .hoofdmenu p{
     padding-top: 1.8em;
+
 }
+
 .headerImage h1,.headerImage p {
+
 }
+
+
 .headerImage{
-    background:rgba(0,0,0,0.8);
+
     width: 100%;
     background-size: 150%;
     background-repeat: no-repeat;
+
 }
+
 .hoofdmenu{
     padding-bottom: 1%;
 }
+
 .hoofdmenu ul {
     list-style:none;
     border-radius: 4px;
     padding: 1%;
     min-width: 595px;
 }
+
 .hoofdmenu li {
     box-sizing: border-box;
-    padding:0.5em ;
+    padding:0 0 0.5em 0 ;
     float:left;
     margin: 0 1% 0 0;
     border-radius: 4px;
+
+
 }
+
 .hoofdmenu li:last-of-type {
     margin: 0 0 0 0;
 }
+
 .hoofdmenu a {  
     display: block;
     text-decoration: none;
@@ -186,25 +298,31 @@ header .hoofdmenu p{
     height:3em;
     background: url(../images/icons/icons.png)
 }
+
 .hoofdmenu p {  
     display: none;
     padding:25%;
     margin-left: 4.5em;
 }
+
+
+
+
 .hoofdmenu #a {background-position: -370px -360px;} 
 .hoofdmenu #b {background-position: -275px -85px;} 
 .hoofdmenu #c {background-position: -370px -85px;} 
 .hoofdmenu #d {background-position: -460px -360px;} 
-.eventbanner img{
 
+
+
+.eventbanner img{
     width: 100%;
 }
-.event label{
-    font-size: 0.8em;
-  font-weight:  bold;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+
+.event{
+
 }
+
 .event img{
     width: 100%;
 }
@@ -213,17 +331,28 @@ header .hoofdmenu p{
     font-weight:  bold;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+
 }
 .event{
     padding-bottom: 2em;
 }
+
+
+
+
+
+
+
 .vast{
     top:100px;
     left:150px;
 }
+
+
 .avatar{
     position: relative;
 }
+
 .userprofiel {
     position: relative;
 }
@@ -231,8 +360,11 @@ header .hoofdmenu p{
     float: left;
     width: 30%;
 }
+
+
 .contact h5 {
     padding-top: 1.3em;
+
 }
 .contact img{
     float: left;
@@ -240,6 +372,10 @@ header .hoofdmenu p{
 }
 .gegevens{
     margin: 1em 0 0 0;
+    padding-top:.4em;
+}
+.gegevens p{
+    padding-bottom:.4em;
 }
 .wijzigLinks{
     margin: 0.5em 0 1em 0;
@@ -248,7 +384,12 @@ header .hoofdmenu p{
 
 .wijzigLinks a{
     float: left;
+
 }
+.midden h2{
+    padding-bottom:.5em;
+}
+
 .wijzigLinks a{ 
     display: block;
 }
@@ -261,6 +402,7 @@ header .hoofdmenu p{
     border: 1px solid black;
     height: inherit;
 }
+
 .itemDisplay{
     list-style-type:  none;
     background: white;
@@ -269,6 +411,7 @@ header .hoofdmenu p{
     box-shadow: 2px 2px 2px gray inset;
     border-radius: 3px;
     margin: 0.5em 0;
+
 }
 .hoofdFooter{
     padding: 0.5em;
@@ -302,6 +445,7 @@ form .labelcheckbox{
     padding: 0;
     text-align:left;
     width:auto;
+
     min-width:25em;
     min-height:5em;
 }
@@ -319,6 +463,7 @@ form .labelcheckbox{
     zoom: 1;
     padding: 0;
     text-align:left;
+
 }
 header a{
     text-decoration:none;
@@ -328,6 +473,11 @@ header a:hover{
     text-decoration:underline;
 }
 /****************************************************************************************/
+
+
+
+
+
 
 /********CLEARFIX*************************************************************************/
 /*clear*/
@@ -350,26 +500,69 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 }
 /****************************************************************************************/
 
+
+
+
+
+
 /********MEDIA QUERIES*******************************************************************/
-@media screen and (max-width: 40.5em) {
-    .product-img {
-        width: 50%;
-        float: left;
-    }
-    .hoofdmenu ul li a  {
-    }
-}
+
 @media only screen and (min-width: 768px)  {
+
+.login{
+    padding: 0.3em;
+
+}
+
+/***login bovenaan***/
+.login form{
+    padding: 1%;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+
+}
+
+.login div label{
+    color: white;   
+    font-size: 1em;
+    display: inline-block;
+    width: 8em;
+    margin: 0;
+    padding: 0.5em 0 0 0;
+    text-align: left;
+}
+
+/******* velden, controls *******/
+.login input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="url"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="tel"],
+textarea {
+    box-sizing: border-box;
+    width: 14em;
+    min-height: 1em;
+    padding: 0.4em 0.5em;
+    margin: 0;
+    font-size: inherit;
+}
+
     .balkLinks{
         display:  block;
         width: 30%;
         float: right;
         margin: 0 0 1em 0;
     }
+
     .balkRechts{
         width: 30%;
         float: right;
     }
+
     .midden{
         padding: 2% 2%;
         width: 70%;
@@ -380,43 +573,51 @@ http://nicolasgallagher.com/micro-clearfix-hack/
         font-size:1em;
         width:9em;
     }
+
     .formalign textarea{
         min-width:25em;
         min-height:5em;
     }
+
     .hoofdmenu li {	
         width:24.25%;
     }
     .hoofdmenu p {
         display: block;
         padding-left: 0.5em;
+
         color: white;
     }
+
 }
 @media only screen and (min-width: 1000px) {
-    .login form{
-        float: right;
-    }
-    .login label{
-        display: inline;
-    }
+
+
     .balkLinks{
         display:  block;
         width: 20%;   
         float: left;
     }
+
     .balkRechts{
         width:20%;
         float: right;
     }
+
     .midden{
         padding: 2%;
         width: 60%;
         margin: 0 auto;	
     }
+
+
+
+
+
     .headerImage{
         background-size: 100%;
     }
+
     .wijzigLinks{
         position: absolute;
         right: 0;
@@ -429,8 +630,5 @@ http://nicolasgallagher.com/micro-clearfix-hack/
         padding: 0;
         text-align:left;
         width:auto;
-        position: absolute;
-        right: 0;
-        bottom: 0.5em; 
     }
 }
