@@ -362,10 +362,35 @@ padding: 0 0 1em 0;
 .hoofdFooter{
     padding: 0.5em;
 }
-
-
-
-
+.profielForm{
+    padding:1em;
+    margin: 0 auto;
+}
+.formalign * {
+    vertical-align: top;
+}
+.profielForm div{
+    padding-bottom:.5em;
+}
+.formalign textarea{
+    min-width:25em;
+    min-height:5em;
+}
+.profielForm label, .profielForm span{
+    display:inline-block;
+    font-size:1em;
+    width:9em;
+}
+.profielForm select{
+    font-size:1em;
+}
+form .labelcheckbox{
+    float:none;
+    display:inline;
+    zoom: 1;
+    padding: 0;
+    text-align:left;
+}
 /****************************************************************************************/
 
 
