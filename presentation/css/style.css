@@ -207,7 +207,10 @@ textarea {
 .inhoud{
     position: relative;
     height: auto;
-
+    margin:auto;
+    height:100%;
+    width:80%;
+    
 }
 .balkLinks{
     box-sizing: border-box;
@@ -367,7 +370,10 @@ header .hoofdmenu p{
 }
 .gegevens{
     margin: 1em 0 0 0;
-
+    padding-top:.4em;
+}
+.gegevens p{
+    padding-bottom:.4em;
 }
 .wijzigLinks{
     margin: 0.5em 0 1em 0;
@@ -378,7 +384,9 @@ header .hoofdmenu p{
     float: left;
 
 }
-
+.midden h2{
+    padding-bottom:.5em;
+}
 
 .wijzigLinks a{ 
     display: block;
@@ -417,11 +425,11 @@ header .hoofdmenu p{
     padding-bottom:.5em;
 }
 .formalign textarea{
-    min-width:25em;
+    min-width:15em;
     min-height:5em;
 }
 .profielForm label, .profielForm span{
-    display:inline-block;
+    display:block;
     font-size:1em;
     width:9em;
 }
@@ -430,10 +438,11 @@ header .hoofdmenu p{
 }
 form .labelcheckbox{
     float:none;
-    display:inline;
+    display:block;
     zoom: 1;
     padding: 0;
     text-align:left;
+    width:auto;
 }
 /****************************************************************************************/
 
@@ -490,6 +499,16 @@ http://nicolasgallagher.com/micro-clearfix-hack/
         width: 70%;
         margin: 0 auto;	
     }
+    .profielForm label, .profielForm span{
+    display:inline-block;
+    font-size:1em;
+    width:9em;
+    }
+    
+    .formalign textarea{
+    min-width:25em;
+    min-height:5em;
+    }
 
     .hoofdmenu li {	
         width:24.25%;
@@ -531,8 +550,16 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     }
 
     .wijzigLinks{
-        position: absolute;
-        right: 0;
-        bottom: 0.5em; 
+    position: absolute;
+    right: 0;
+    bottom: 0.5em; 
+    }
+    form .labelcheckbox{
+        float:none;
+        display:inline;
+        zoom: 1;
+        padding: 0;
+        text-align:left;
+        width:auto;
     }
 }

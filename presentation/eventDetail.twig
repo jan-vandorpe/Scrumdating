@@ -26,9 +26,10 @@
                 
                 {% else %}
                   <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
+                  <p><a href="loginControl.php?logout" alt="Log mij uit">Logout</a></p>
                   {% if login.admin == 1 %}
                   <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
-                  {% endif %}
+                  {% endif %}                 
                 {% endif %}              
             </div>
 
@@ -39,7 +40,7 @@
                 <ul>
                     <li><a href="Index.php" id="a"><p>Home</p></a></li>
                     <li><a href="loginControl.php?profile={{login.userID}}" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
-                    <li><a href="#" id="c"><p>Matchen</p></a></li>
+                    <li><a href="matchControl.php" id="c"><p>Matchen</p></a></li>
                     <li><a href="eventControl.php?action=showEvents" id="d"><p>Events</p></a></li>
                 </ul>
             </nav>
@@ -48,7 +49,7 @@
      <div class="container">
         <h2>Event Overzicht</h2>
         <!--form hier -->
-        <form method="post" id="events" name="events" action="adminControl.php">
+        <form method="post" id="events" class="profielForm" name="events" action="adminControl.php">
           <div>
             <label for="evntID">Event ID:</label>
             <input type="number" id="evntID" name="evntID" title="" value="{{event.evntID }}" value="{{event.evntID}}">
@@ -67,7 +68,7 @@
               {% endfor %}
             </select>            
           </div>
-          <div>
+          <div class="formalign">
             <label for="evntDescription">Event Description</label>
             <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled>{{event.evntType.evntDescription}}</textarea>
           </div>
@@ -79,7 +80,7 @@
             <label for="venueID">Venue:</label>
             <select name="venueID" title="Venue Name">
               {% for venue in venueList %}
-              <option value="{{venue.venueID}} {% if venue.venueID == event.venue.venueID %}" selected="selected"{% endif %}>{{venue.venueName}}</option>
+              <option value="{{venue.venueID}}" {% if venue.venueID == event.venue.venueID %} selected="selected"{% endif %}>{{venue.venueName}}</option>
               {% endfor %}
             </select>
           </div>

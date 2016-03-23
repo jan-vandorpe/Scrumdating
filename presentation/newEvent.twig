@@ -26,9 +26,10 @@
                 
                 {% else %}
                   <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
+                  <p><a href="loginControl.php?logout" alt="Log mij uit">Logout</a></p>
                   {% if login.admin == 1 %}
                   <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
-                  {% endif %}
+                  {% endif %}                 
                 {% endif %}              
             </div>
 
@@ -39,7 +40,7 @@
                 <ul>
                     <li><a href="Index.php" id="a"><p>Home</p></a></li>
                     <li><a href="loginControl.php?profile={{login.userID}}" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
-                    <li><a href="#" id="c"><p>Matchen</p></a></li>
+                    <li><a href="matchControl.php" id="c"><p>Matchen</p></a></li>
                     <li><a href="eventControl.php?action=showEvents" id="d"><p>Events</p></a></li>
                 </ul>
             </nav>
@@ -48,7 +49,7 @@
       <div class="container">
         <h2>Event Toevoegen</h2>
         <!--form hier -->
-        <form action="adminControl.php" method="post" id="events" name="events">
+        <form action="adminControl.php" class="profielForm" method="post" id="events" name="events">
           <div>
             <label for="evntDate">Event Datum:</label>
             <input type="date" id="evntDate" name="evntDate" title="Event Date in het formaat 1956-12-31">
@@ -61,7 +62,7 @@
               {% endfor %}
             </select>            
           </div>
-          <div>
+          <div class="formalign">
             <label for="evntDescription">Event Description</label>
             <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled value="{{eventTypeList[0].evntDescription}}"></textarea>
           </div>
@@ -73,7 +74,7 @@
             <label for="venueID">Venue:</label>
             <select name="venueID" title="Venue Name">
               {% for venue in venueList %}
-              <option value="{{venue.venueID}} {% if venue.venueID == event.venue.venueID %}" selected="selected"{% endif %}>{{venue.venueName}}</option>
+              <option value="{{venue.venueID}}" {% if venue.venueID == event.venue.venueID %} selected="selected"{% endif %}>{{venue.venueName}}</option>
               {% endfor %}
             </select>   
           </div>
@@ -85,7 +86,7 @@
             <label for="venueCity">Venue City:</label>
             <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled value="{{venueList[0].venueCity}}">            
           </div>
-          <div>
+          <div class="formalign">
             <label for="venueStreet">Venue Street:</label>
             <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled value="{{venueList[0].venueStreet}}">            
           </div>

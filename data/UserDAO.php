@@ -106,8 +106,20 @@ class UserDAO {
     $user = new user($rij["userID"], $rij["username"], $rij["password"], $rij["email"], $rij["sex"], $rij["birthDate"], $rij["preference"], $rij["hairColor"], $rij["length"], $rij["build"], $rij["eyeColor"], $rij["oneNight"], $rij["longTerm"], $rij["friends"], $rij["bio"], $rij["region"], $rij["postcode"], $rij["occupation"], $rij["smoker"], $rij["admin"]);
 
     $dbh = null;
-    return $user;  
-   
+    return $user;   
+  }
+  public function getBySexuality($sex,$preference){
+    $sql = "SELECT * FROM users WHERE sex = :sex AND preference = :preference";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array('sex'=>$sex,'preference'=>$preference));
+    $resultSet = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($resultset as $rij) {
+      $user = new user($rij["userID"], $rij["username"], $rij["password"], $rij["email"], $rij["sex"], $rij["birthDate"], $rij["preference"], $rij["hairColor"], $rij["length"], $rij["build"], $rij["eyeColor"], $rij["oneNight"], $rij["longTerm"], $rij["friends"], $rij["bio"], $rij["region"], $rij["postcode"], $rij["occupation"], $rij["smoker"], $rij["admin"]);
+      array_push($lijst, $user);
+    }
+    $dbh = null;
+    return $lijst;
   }
   
 

@@ -281,13 +281,19 @@ header .hoofdmenu p{
 
 
 
+
 .eventbanner img{
+
     width: 100%;
 }
 
-.event{
-
+.event label{
+    font-size: 0.8em;
+  font-weight:  bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
+
 
 .event img{
     width: 100%;
@@ -388,6 +394,26 @@ header .hoofdmenu p{
     padding-bottom:.5em;
 }
 .formalign textarea{
+
+    min-width:15em;
+    min-height:5em;
+}
+.profielForm label, .profielForm span{
+    display:block;
+    font-size:1em;
+    width:9em;
+}
+.profielForm select{
+    font-size:1em;
+}
+form .labelcheckbox{
+    float:none;
+    display:block;
+    zoom: 1;
+    padding: 0;
+    text-align:left;
+    width:auto;
+
     min-width:25em;
     min-height:5em;
 }
@@ -405,6 +431,14 @@ form .labelcheckbox{
     zoom: 1;
     padding: 0;
     text-align:left;
+
+}
+a{
+    text-decoration:none;
+    color:white;
+}
+a:hover{
+    text-decoration:underline;
 }
 /****************************************************************************************/
 
@@ -468,6 +502,17 @@ http://nicolasgallagher.com/micro-clearfix-hack/
         margin: 0 auto;	
     }
 
+    .profielForm label, .profielForm span{
+    display:inline-block;
+    font-size:1em;
+    width:9em;
+    }
+    
+    .formalign textarea{
+    min-width:25em;
+    min-height:5em;
+    }
+
     .hoofdmenu li {	
         width:24.25%;
     }
@@ -513,8 +558,22 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     }
 
     .wijzigLinks{
+
+    position: absolute;
+    right: 0;
+    bottom: 0.5em; 
+    }
+    form .labelcheckbox{
+        float:none;
+        display:inline;
+        zoom: 1;
+        padding: 0;
+        text-align:left;
+        width:auto;
+
         position: absolute;
         right: 0;
         bottom: 0.5em; 
+
     }
 }
