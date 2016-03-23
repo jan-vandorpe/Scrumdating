@@ -55,8 +55,24 @@ class UserService {
   }
   public function getUsersBySexuality($sex,$preference){
     $userDAO = new UserDAO();
+    if($sex==null){
+      $matches=$userDAO->getBySexuality('f', 'm');
+      $matches2=$userDAO->getBySexuality('m', 'm');
+      $matches3=$userDAO->getBySexuality('f', 'f');
+      $matches4=$userDAO->getBySexuality('m', 'f');
+      foreach($matches2 as $match){
+        array_push($matches,$match);
+      }
+        foreach($matches3 as $match){
+        array_push($matches,$match);
+      }
+      foreach($matches4 as $match){
+        array_push($matches,$match);
+      }     
+      
+    }else {
     $matches=$userDAO->getBySexuality($sex, $preference);
-    
+    }    
     return $matches;
   }
 

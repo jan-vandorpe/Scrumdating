@@ -114,7 +114,9 @@ class UserDAO {
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array('sex'=>$sex,'preference'=>$preference));
     $resultSet = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($resultset as $rij) {
+    $lijst = array();
+    
+    foreach ($resultSet as $rij) {
       $user = new user($rij["userID"], $rij["username"], $rij["password"], $rij["email"], $rij["sex"], $rij["birthDate"], $rij["preference"], $rij["hairColor"], $rij["length"], $rij["build"], $rij["eyeColor"], $rij["oneNight"], $rij["longTerm"], $rij["friends"], $rij["bio"], $rij["region"], $rij["postcode"], $rij["occupation"], $rij["smoker"], $rij["admin"]);
       array_push($lijst, $user);
     }

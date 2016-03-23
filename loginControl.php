@@ -11,6 +11,15 @@ $twig = new Twig_Environment($loader);
 if (!isset($_SESSION)) {
   session_start();
 }
+if(isset($_GET['logout'])){
+  session_destroy();
+  //zet alle variabelen klaar in de presentatie pagina
+$view = $twig->render('index.twig', array('login' => false));
+
+//toon de pagina
+print($view);
+exit(0);
+}
 
 if (isset($_SESSION["login"])) {
   $login = $_SESSION["login"];
@@ -18,14 +27,14 @@ if (isset($_SESSION["login"])) {
 else {
   $login = false;
 }
-if (isset($_GET["profile"])) {
+if(isset($_GET["profile"])) {
   $userSvc = new UserService();
   $user = $userSvc->getUserByID($_GET["profile"]);
   $userID = $_GET["profile"];
    
   $eventSvc = new EventService();
   $eventLineSrvc = new EventLineService();
-    
+  
   $lijst = $eventLineSrvc->IngeschrevenByID($userID);
   $eventList = $eventSvc->getEventList();
     
