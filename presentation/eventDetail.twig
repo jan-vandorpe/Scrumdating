@@ -12,7 +12,7 @@
   </head>
 
   <body>
-        <header class="headerImage">
+<header class="headerImage">
             <div class="login clearFix">
                 {% if login == false %}
                   <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
@@ -26,6 +26,9 @@
                 
                 {% else %}
                   <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
+                  {% if login.admin == 1 %}
+                  <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
+                  {% endif %}
                 {% endif %}              
             </div>
 
@@ -42,15 +45,9 @@
             </nav>
         </header>
     <div class="inhoud clearFix">
-
-      <section class="balkLinks">
-        <h1>balk links</h1>
-      </section>
-
-      <div class="container">
+     <div class="container">
         <h2>Event Overzicht</h2>
         <!--form hier -->
-        <a href="#">Event Aanmaken</a>
         <form method="post" id="events" name="events" action="adminControl.php">
           <div>
             <label for="evntID">Event ID:</label>
@@ -72,7 +69,7 @@
           </div>
           <div>
             <label for="evntDescription">Event Description</label>
-            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled value="{{event.evntType.evntDescription}}"></textarea>
+            <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled>{{event.evntType.evntDescription}}</textarea>
           </div>
           <div>
             <label for="evntPrice" >Event Price:</label>
@@ -84,7 +81,7 @@
               {% for venue in venueList %}
               <option value="{{venue.venueID}} {% if venue.venueID == event.venue.venueID %}" selected="selected"{% endif %}>{{venue.venueName}}</option>
               {% endfor %}
-            </select>   
+            </select>
           </div>
           <div>
             <label for="venueIDDisplay" >Venue ID:</label>
@@ -113,12 +110,6 @@
           </div>
         </form>
       </div>
-
-      <section class="balkRechts">
-        <h1>BALK RECHTS</h1>
-      </section>
-
-
     </div>
 
     <footer class="hoofdFooter">

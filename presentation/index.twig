@@ -26,6 +26,9 @@
                 
                 {% else %}
                   <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
+                  {% if login.admin == 1 %}
+                  <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
+                  {% endif %}
                 {% endif %}              
             </div>
 

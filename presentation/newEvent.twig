@@ -12,7 +12,7 @@
   </head>
 
   <body>
-        <header class="headerImage">
+<header class="headerImage">
             <div class="login clearFix">
                 {% if login == false %}
                   <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
@@ -26,6 +26,9 @@
                 
                 {% else %}
                   <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
+                  {% if login.admin == 1 %}
+                  <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
+                  {% endif %}
                 {% endif %}              
             </div>
 
@@ -85,13 +88,11 @@
           </div>
           <div>
             <label for="venueCity">Venue City:</label>
-            <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled value="{{venueList[0].venueCity}}">
-            </select>
+            <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled value="{{venueList[0].venueCity}}">            
           </div>
           <div>
             <label for="venueStreet">Venue Street:</label>
-            <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled value="{{venueList[0].venueStreet}}">
-            </select>
+            <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled value="{{venueList[0].venueStreet}}">            
           </div>
           <div>
             <label for="venueStreetNR" >Venue Street Number:</label>
