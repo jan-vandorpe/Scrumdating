@@ -48,7 +48,7 @@
      <div class="container">
         <h2>Event Overzicht</h2>
         <!--form hier -->
-        <form method="post" id="events" name="events" action="adminControl.php">
+        <form method="post" id="events" class="profielForm" name="events" action="adminControl.php">
           <div>
             <label for="evntID">Event ID:</label>
             <input type="number" id="evntID" name="evntID" title="" value="{{event.evntID }}" value="{{event.evntID}}">
@@ -67,7 +67,7 @@
               {% endfor %}
             </select>            
           </div>
-          <div>
+          <div class="formalign">
             <label for="evntDescription">Event Description</label>
             <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled>{{event.evntType.evntDescription}}</textarea>
           </div>

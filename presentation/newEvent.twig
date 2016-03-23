@@ -48,7 +48,7 @@
       <div class="container">
         <h2>Event Toevoegen</h2>
         <!--form hier -->
-        <form action="adminControl.php" method="post" id="events" name="events">
+        <form action="adminControl.php" class="profielForm" method="post" id="events" name="events">
           <div>
             <label for="evntDate">Event Datum:</label>
             <input type="date" id="evntDate" name="evntDate" title="Event Date in het formaat 1956-12-31">
@@ -61,7 +61,7 @@
               {% endfor %}
             </select>            
           </div>
-          <div>
+          <div class="formalign">
             <label for="evntDescription">Event Description</label>
             <textarea id="evntDescription" name="evntDescription" title="Event Description?" disabled value="{{eventTypeList[0].evntDescription}}"></textarea>
           </div>
@@ -85,7 +85,7 @@
             <label for="venueCity">Venue City:</label>
             <input type="text" id="venueCity" name="venueCity" title="Venue City" disabled value="{{venueList[0].venueCity}}">            
           </div>
-          <div>
+          <div class="formalign">
             <label for="venueStreet">Venue Street:</label>
             <input type="text" id="venueStreet" name="venueStreet" title="Venue Street" disabled value="{{venueList[0].venueStreet}}">            
           </div>
