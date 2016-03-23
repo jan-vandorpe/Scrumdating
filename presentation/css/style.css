@@ -341,7 +341,10 @@ header .hoofdmenu p{
 }
 .gegevens{
     margin: 1em 0 0 0;
-
+    padding-top:.4em;
+}
+.gegevens p{
+    padding-bottom:.4em;
 }
 .wijzigLinks{
     margin: 0.5em 0 1em 0;
@@ -352,7 +355,9 @@ header .hoofdmenu p{
     float: left;
 
 }
-
+.midden h2{
+    padding-bottom:.5em;
+}
 
 .wijzigLinks a{ 
     display: block;
