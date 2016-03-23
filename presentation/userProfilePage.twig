@@ -51,25 +51,25 @@
                     <h4>Contacten</h4>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/maleAvatar.svg"/>
-                        <div class="gegevens">
+                        <div class="">
                             <h5>George</h5>
                         </div>
                     </div>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/femaleAvatar.svg"/>
-                        <div class="gegevens">
+                        <div class="">
                             <h5>Anneke</h5>
                         </div>
                     </div>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/femaleAvatar.svg"/>
-                        <div class="gegevens">
+                        <div class="">
                             <h5>Lien</h5>
                         </div>
                     </div>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/maleAvatar.svg"/>
-                        <div class="gegevens">
+                        <div class="">
                             <h5>Steven</h5>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
             </div>
 
             <section class="balkRechts blok">
-                
+                <div class="event blok">
                     <h4>ingeschreven voor events</h4>
                     
                     {% for event in eventLijst %}
@@ -127,9 +127,13 @@
                         </ul>
                             
               
-                    {% endfor %}                   
+                    {% endfor %}   
+                    </div>
+                                    <div class="event blok">
+
+                    <img src="images/pictures/event_balk.jpg" class="eventbanner"/>
             
-                    <h4>Upcoming events</h4>
+                  
                     {% for event in upcoming|slice(0, 4) %}
                       
                     <ul class="itemDisplay">
@@ -138,7 +142,8 @@
                             <li>{{event.venue.venueCity}}</li>
                         </ul>
               
-                    {% endfor %}              
+                    {% endfor %}     
+                    </div>
             </section>
 
 
