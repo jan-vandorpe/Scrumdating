@@ -26,10 +26,9 @@
                 
                 {% else %}
                   <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
-                  <p><a href="loginControl.php?logout" alt="Log mij uit">Logout</a></p>
                   {% if login.admin == 1 %}
                   <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
-                  {% endif %}                 
+                  {% endif %}
                 {% endif %}              
             </div>
 
@@ -40,7 +39,7 @@
                 <ul>
                     <li><a href="Index.php" id="a"><p>Home</p></a></li>
                     <li><a href="loginControl.php?profile={{login.userID}}" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
-                    <li><a href="matchControl.php" id="c"><p>Matchen</p></a></li>
+                    <li><a href="#" id="c"><p>Matchen</p></a></li>
                     <li><a href="eventControl.php?action=showEvents" id="d"><p>Events</p></a></li>
                 </ul>
             </nav>
@@ -116,28 +115,27 @@
             <section class="balkRechts blok">
                 
                     <h4>ingeschreven voor events</h4>
-                        <ul class="itemDisplay">
-                            <li>{{event.eventName}}</li>
-                            <li>{{event.eventDate}}</li>
-                            <li>{{venue.venueCity}}</li>
+                    
+                    {% for event in eventLijst %}
+              
+                    <ul class="itemDisplay">
+                            <li>{{event.evntType.evntName}}</li>
+                            <li>{{event.evntDate}}</li>
+                            <li>{{event.venue.venueCity}}</li>
                         </ul>
-                        <ul class="itemDisplay">
-                            <li>{{event.eventName}}</li>
-                            <li>{{event.eventDate}}</li>
-                            <li>{{venue.venueCity}}</li>
-                        </ul>                           
+              
+                    {% endfor %}                   
             
-                    <h4>Upcomming events</h4>
-                           <ul class="itemDisplay">
-                            <li>{{event.eventName}}</li>
-                            <li>{{event.eventDate}}</li>
-                            <li>{{venue.venueCity}}</li>
+                    <h4>Upcoming events</h4>
+                    {% for event in upcoming|slice(0, 4) %}
+                      
+                    <ul class="itemDisplay">
+                            <li>{{event.evntType.evntName}}</li>
+                            <li>{{event.evntDate}}</li>
+                            <li>{{event.venue.venueCity}}</li>
                         </ul>
-                        <ul class="itemDisplay">
-                            <li>{{event.eventName}}</li>
-                            <li>{{event.eventDate}}</li>
-                            <li>{{venue.venueCity}}</li>
-                        </ul>                     
+              
+                    {% endfor %}              
             </section>
 
 

@@ -12,5 +12,14 @@ class EventLineService{
       $eventLineDAO = new EventLineDAO();
       $eventLineDAO->Uitschrijven($userID,$evntID);
     }
+        $EventLineDAO = new EventLineDAO();
+        $EventLineDAO->Inschrijven($userID,$evntID);
+    }    
+    
+    public function IngeschrevenByID($userID) {
+        $EventLineDAO = new EventLineDAO();
+        $lijst = $EventLineDAO->IngeschrevenByID($userID);
+        return $lijst;
+    }    
 }
 

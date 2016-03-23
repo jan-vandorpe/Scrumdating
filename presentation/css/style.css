@@ -28,7 +28,7 @@ body{
 
 .login{
     font-size: 0.9em;
-   
+
 }
 
 form{
@@ -65,8 +65,8 @@ select{
 }
 
 .itemDisplay{
-font-size: 0.8em;
-    
+    font-size: 0.8em;
+
 }
 
 /****************************************************************************************/
@@ -96,18 +96,18 @@ body{
 }
 
 .balkLinks{
-    
+
     box-sizing: border-box;
-  
+
 }
 
 .balkRechts{
     box-sizing: border-box;
-   
+
 }
 
-header, h1 p{
-    color: beige;
+header, h1 {
+    color: white;
 }
 
 header .headerImage{
@@ -116,7 +116,18 @@ header .headerImage{
 
 
 .hoofdmenu ul li {
-    background: rgba(255,255,255,0.8);
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(white, white,black); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, white,black); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, white,black); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, white,black); /* Standard syntax */
+}
+
+.hoofdmenu ul li p{
+    color: black;
+    font-size: 0.7em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 legend{
@@ -160,38 +171,43 @@ body{
     width: 100%;
 }
 .login input[type=text] input[type=password]{
-    
+
     width: auto;
 }
 
 .inhoud{
     position: relative;
     height: auto;
+    margin:auto;
+    height:100%;
+    width:80%;
     
 }
 .balkLinks{
     box-sizing: border-box;
     width: 100%;
     float: none;
-  
-  height: inherit;
+    padding: 1em 0 0 0;
+
+
 
 
 }
 
 .balkRechts{
-   margin: auto;
+    margin: auto;
     box-sizing: border-box;
     width:100%;
     float: left;
     height: inherit;
+    padding: 1em 0 0 0;
 }
 
 
 .midden{
     float: left;
     box-sizing: border-box;
-    padding: 2%;
+    padding: 5% 2%;
     width: 100%;
     margin: 0 auto 0 auto;
 
@@ -202,12 +218,12 @@ body{
 }
 
 header .hoofdmenu p{
-    padding-top: 1em;
-    text-shadow: 1px 1px 1px black;
+    padding-top: 1.8em;
+
 }
 
 .headerImage h1,.headerImage p {
-    text-shadow: 1px 1px 1px black;
+
 }
 
 
@@ -236,8 +252,8 @@ header .hoofdmenu p{
     float:left;
     margin: 0 1% 0 0;
     border-radius: 4px;
-    border: 1px solid white;
-    box-shadow: 3px 3px 5px #808080;
+
+
 }
 
 .hoofdmenu li:last-of-type {
@@ -255,29 +271,36 @@ header .hoofdmenu p{
 .hoofdmenu p {  
     display: none;
     padding:25%;
-    margin-left: 3em;
+    margin-left: 4.5em;
 }
 
 
 
 
-.hoofdmenu #a {background-position: -90px -85px;} 
+.hoofdmenu #a {background-position: -370px -360px;} 
 .hoofdmenu #b {background-position: -275px -85px;} 
 .hoofdmenu #c {background-position: -370px -85px;} 
-.hoofdmenu #d {background-position: -90px -180px;} 
+.hoofdmenu #d {background-position: -460px -360px;} 
 
 
+
+.eventbanner img{
+    width: 100%;
+}
+
+.event{
+
+}
 
 .event img{
     width: 100%;
 }
-
 .event label{
     font-size: 0.8em;
-  font-weight:  bold;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  
+    font-weight:  bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
 }
 .event{
     padding-bottom: 2em;
@@ -300,31 +323,47 @@ header .hoofdmenu p{
 }
 
 .userprofiel {
-position: relative;
+    position: relative;
 }
 .userprofiel img{
     float: left;
     width: 30%;
 }
+
+
 .contact h5 {
     padding-top: 1.3em;
-    
+
 }
 .contact img{
     float: left;
     width: 3em;
 }
 .gegevens{
-
+    margin: 1em 0 0 0;
+    padding-top:.4em;
+}
+.gegevens p{
+    padding-bottom:.4em;
 }
 .wijzigLinks{
-margin-top: 0em;
-   
+    margin: 0.5em 0 1em 0;
+    padding: 0 0 1em 0;
 }
+
+.wijzigLinks a{
+    float: left;
+
+}
+.midden h2{
+    padding-bottom:.5em;
+}
+
 .wijzigLinks a{ 
     display: block;
 }
 .blok{
+    margin: 0 0 1em 0;
     box-sizing: border-box;
     background-color: rgba(64,64,64,0.3);
     padding: 0.3em;
@@ -341,7 +380,7 @@ margin-top: 0em;
     box-shadow: 2px 2px 2px gray inset;
     border-radius: 3px;
     margin: 0.5em 0;
-    
+
 }
 .hoofdFooter{
     padding: 0.5em;
@@ -357,11 +396,11 @@ margin-top: 0em;
     padding-bottom:.5em;
 }
 .formalign textarea{
-    min-width:25em;
+    min-width:15em;
     min-height:5em;
 }
 .profielForm label, .profielForm span{
-    display:inline-block;
+    display:block;
     font-size:1em;
     width:9em;
 }
@@ -370,10 +409,11 @@ margin-top: 0em;
 }
 form .labelcheckbox{
     float:none;
-    display:inline;
+    display:block;
     zoom: 1;
     padding: 0;
     text-align:left;
+    width:auto;
 }
 /****************************************************************************************/
 
@@ -422,20 +462,41 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     .balkLinks{
         display:  block;
         width: 30%;
-       
         float: right;
+        margin: 0 0 1em 0;
     }
 
     .balkRechts{
-float: right;
+        width: 30%;
+        float: right;
     }
 
     .midden{
-      
-        padding: 2%;
+        padding: 2% 2%;
         width: 70%;
-        margin: 0 auto 0 auto;	
+        margin: 0 auto;	
     }
+    .profielForm label, .profielForm span{
+    display:inline-block;
+    font-size:1em;
+    width:9em;
+    }
+    
+    .formalign textarea{
+    min-width:25em;
+    min-height:5em;
+    }
+
+    .hoofdmenu li {	
+        width:24.25%;
+    }
+    .hoofdmenu p {
+        display: block;
+        padding-left: 0.5em;
+
+        color: white;
+    }
+
 }
 @media only screen and (min-width: 1000px) {
     .login form{
@@ -462,24 +523,25 @@ float: right;
         margin: 0 auto;	
     }
 
-    .hoofdmenu li {	
-        width:24.25%;
-    }
 
-    .hoofdmenu p {
-        display: block;
-        padding-left: 0.5em;
 
-        color: white;
-    }
+
 
     .headerImage{
         background-size: 100%;
     }
-    
+
     .wijzigLinks{
     position: absolute;
     right: 0;
     bottom: 0.5em; 
-}
+    }
+    form .labelcheckbox{
+        float:none;
+        display:inline;
+        zoom: 1;
+        padding: 0;
+        text-align:left;
+        width:auto;
+    }
 }

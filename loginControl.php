@@ -1,6 +1,8 @@
 <?php
 require_once 'library\vendor\autoload.php';
 require_once 'service\UserService.php';
+require_once 'service\EventService.php';
+require_once 'service\EventLineService.php';
 
 //initialize twig environment
 $loader = new Twig_Loader_Filesystem('presentation');
@@ -8,10 +10,6 @@ $twig = new Twig_Environment($loader);
 
 if (!isset($_SESSION)) {
   session_start();
-}
-if (isset($_GET['logout'])){
-  session_destroy();
-  include_once 'Index.php';
 }
 
 if (isset($_SESSION["login"])) {
@@ -23,10 +21,24 @@ else {
 if (isset($_GET["profile"])) {
   $userSvc = new UserService();
   $user = $userSvc->getUserByID($_GET["profile"]);
-
-  $view = $twig->render('userProfilePage.twig', array('user' => $user, 'login' => $login,));
-  print($view);
-  exit(0);
+  $userID = $_GET["profile"];
+   
+  $eventSvc = new EventService();
+  $eventLineSrvc = new EventLineService();
+    
+  $lijst = $eventLineSrvc->IngeschrevenByID($userID);
+  $eventList = $eventSvc->getEventList();
+    
+  $Result = array();
+  foreach ($lijst as $rij) {
+        
+    $event = $eventSvc->getEventByID($rij["evntID"]);
+    array_push($Result, $event);
+  }
+    
+    $view = $twig->render('userProfilePage.twig', array('login' => $login, 'user' => $login, 'eventLijst' =>$Result, 'upcoming'=>$eventList));
+    print($view);
+    exit(0);   
 }
 
 if (isset($_GET['new'])) {
@@ -57,11 +69,27 @@ if (isset($_POST['login'])) {
   else {
     $_SESSION["login"] = $loginCheck;
     $login = $loginCheck;
-    $view = $twig->render('userProfilePage.twig', array('login' => $login,'user'=>$login));
+    $userID = $login->getUserID();
+    
+    $eventSvc = new EventService();
+  $eventLineSrvc = new EventLineService();
+    
+  $lijst = $eventLineSrvc->IngeschrevenByID($userID);
+  $eventList = $eventSvc->getEventList();
+    
+  $Result = array();
+  foreach ($lijst as $rij) {
+        
+    $event = $eventSvc->getEventByID($rij["evntID"]);
+    array_push($Result, $event);
   }
-  print($view);
-  exit(0);
+    
+    $view = $twig->render('userProfilePage.twig', array('login' => $login, 'user' => $login, 'eventLijst' =>$Result, 'upcoming'=>$eventList));
+    print($view);
+    exit(0);   
+  }
 }
+ 
 
 if (isset($_POST['registreer'])) {
   include_once 'presentation/registreerPage.twig';
@@ -134,7 +162,7 @@ if (isset($_POST["addUser"])) {
   $userSvc = new UserService();
   $user = $userSvc->updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker);
   $_SESSION['login'] = $user;
-  $view = $twig->render('userProfilePage.twig', array('login' => $user,'user' => $user));
+  $view = $twig->render('userProfilePage.twig', array('login' => $user));
   print($view);
   exit(0);
 }
