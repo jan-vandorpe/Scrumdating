@@ -115,28 +115,27 @@
             <section class="balkRechts blok">
                 
                     <h4>ingeschreven voor events</h4>
-                        <ul class="itemDisplay">
-                            <li>{{event.eventName}}</li>
-                            <li>{{event.eventDate}}</li>
-                            <li>{{venue.venueCity}}</li>
+                    
+                    {% for event in eventLijst %}
+              
+                    <ul class="itemDisplay">
+                            <li>{{event.evntType.evntName}}</li>
+                            <li>{{event.evntDate}}</li>
+                            <li>{{event.venue.venueCity}}</li>
                         </ul>
-                        <ul class="itemDisplay">
-                            <li>{{event.eventName}}</li>
-                            <li>{{event.eventDate}}</li>
-                            <li>{{venue.venueCity}}</li>
-                        </ul>                           
+              
+                    {% endfor %}                   
             
-                    <h4>Upcomming events</h4>
-                           <ul class="itemDisplay">
-                            <li>{{event.eventName}}</li>
-                            <li>{{event.eventDate}}</li>
-                            <li>{{venue.venueCity}}</li>
+                    <h4>Upcoming events</h4>
+                    {% for event in upcoming|slice(0, 4) %}
+                      
+                    <ul class="itemDisplay">
+                            <li>{{event.evntType.evntName}}</li>
+                            <li>{{event.evntDate}}</li>
+                            <li>{{event.venue.venueCity}}</li>
                         </ul>
-                        <ul class="itemDisplay">
-                            <li>{{event.eventName}}</li>
-                            <li>{{event.eventDate}}</li>
-                            <li>{{venue.venueCity}}</li>
-                        </ul>                     
+              
+                    {% endfor %}              
             </section>
 
 
