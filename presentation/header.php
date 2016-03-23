@@ -1,18 +1,4 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png"  href="images/icons/favicon.png">
-    <link rel="stylesheet" href="../css/style.css" />
-    <title>Uw Westvloamse datingsite</title>
-  </head>
-
-  <body>
-        <header class="headerImage">
+<header class="headerImage">
             <div class="login clearFix">
                 {% if login == false %}
                   <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
@@ -41,34 +27,3 @@
                 </ul>
             </nav>
         </header>
-
-
-
-    <div class="inhoud clearFix">
-
-      <section class="balkLinks">
-        <h1>balk links</h1>
-      </section>
-
-      <div class="container">
-        <div class="welkom">
-          {% if login == false %}
-            <h2>Welkom, gast!</h2>            
-          {% else %}
-            <h2>Welkom terug {{login.username}}!</h2>
-          {% endif %}  
-        </div>
-      </div>
-
-      <section class="balkRechts">
-        <h1>BALK RECHTS</h1>
-      </section>
-
-
-    </div>
-
-    <footer class="hoofdFooter">
-      <p><span>This project was built by Jordy, Wouter, Gregory and Micha &COPY; 2016</span></p>
-    </footer>
-  </body>
-</html>
