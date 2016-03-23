@@ -15,23 +15,15 @@
         <header class="headerImage">
             <div class="login clearFix">
                 {% if login == false %}
-                    <form action="loginControl.php" method="post" class="clearFix" id="registreer" name="registreer">                                              
-                        <div>
-                            <input type="submit" value="registreer" name="registreer"/>
-                        </div>
+                    <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
+                        <div class="login clearFix"><input type="submit" value="registreer" name="registreer"/></div>
                     </form>
-                    <form action="loginControl.php" method="post" class="clearFix" id="login" name="login">
-                        <div>
-                            <label for="username">gebruikersnaam :</label><input type="text" id="username" name="username">
-                        </div>
-                        <div>
-                            <label for="password">wachtwoord :</label><input type="password" id="password" name="password">
-                        </div>                               
-                        <div>
-                            <input type="submit" value="login" name="login" />
-                        </div>
+                    <form action="loginControl.php" method="post" class="login" id="login" name="login">
+                        <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
+                        <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
+                        <input type="submit" value="login" name="login" />
                     </form>
-
+                   
                 {% else %}
                     <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
                     <p><a href="loginControl.php?logout" alt="Log mij uit">Logout</a></p>
@@ -59,25 +51,41 @@
                 <h4>Contacten</h4>
                 <div class="contact cf clearFix">
                     <img src="images/pictures/maleAvatar.svg"/>
+
+                   
+
                     <div class="">
+
                         <h5>George</h5>
                     </div>
                 </div>
                 <div class="contact cf clearFix">
                     <img src="images/pictures/femaleAvatar.svg"/>
+
+                    
+
                     <div class="">
+
                         <h5>Anneke</h5>
                     </div>
                 </div>
                 <div class="contact cf clearFix">
                     <img src="images/pictures/femaleAvatar.svg"/>
+
+                    
+
                     <div class="">
+
                         <h5>Lien</h5>
                     </div>
                 </div>
                 <div class="contact cf clearFix">
                     <img src="images/pictures/maleAvatar.svg"/>
+
+                    
+
                     <div class="">
+
                         <h5>Steven</h5>
                     </div>
                 </div>
@@ -122,6 +130,7 @@
             </div>
 
             <section class="balkRechts blok">
+
                 <div class="event blok">
                     <h4>ingeschreven voor events</h4>
 
@@ -150,7 +159,8 @@
 
                     {% endfor %}   
                 </div>
-            </section>
+
+           </section>
 
 
         </div>
