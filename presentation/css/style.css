@@ -268,7 +268,20 @@ header .hoofdmenu p{
 
 
 
+.event img{
+    width: 100%;
+}
 
+.event label{
+    font-size: 0.8em;
+  font-weight:  bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  
+}
+.event{
+    padding-bottom: 2em;
+}
 
 
 

@@ -9,6 +9,14 @@ require_once 'service\VenueService.php';
 $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
+session_start();
+
+if(isset($_SESSION['login'])){ //Gebruiker al ingelogd?
+  $login = $_SESSION['login'];   
+} else {
+  $login = false;
+}
+
 //"create new" form pages
 if (isset($_GET['new'])) {
   $new = $_GET['new'];
@@ -20,22 +28,22 @@ if (isset($_GET['new'])) {
     $venueList = $venueSvc->getVenueList();
 
     //prepare twig page
-    $view = $twig->render('newEvent.twig', array('eventTypeList' => $eventTypeList, 'venueList' => $venueList));
+    $view = $twig->render('newEvent.twig', array('eventTypeList' => $eventTypeList, 'venueList' => $venueList, 'login'=>$login));
   }
   //new user form
   if ($new == 'user') {
     //prepare twig page
-    $view = $twig->render('newUser.twig', array('target' => "adminControl.php"));
+    $view = $twig->render('newUser.twig', array('target' => "adminControl.php", 'login'=>$login));
   }
   //new venue form
   if ($new == 'venue') {
     //prepare twig page
-    $view = $twig->render('newVenue.twig');
+    $view = $twig->render('newVenue.twig', array('login'=>$login));
   }
   //new event type form
   if($new=='eventType'){
     //prepare twig page
-    $view = $twig->render('newEventType.twig');
+    $view = $twig->render('newEventType.twig', array('login'=>$login));
   }
   //execute twig page
   print($view);
@@ -48,7 +56,7 @@ if (isset($_GET['user'])) {
   $user = $userSvc->getUserByID($_GET['user']);
 
 //prepare twig page
-  $view = $twig->render('userDetail.twig', array('user' => $user));
+  $view = $twig->render('userDetail.twig', array('user' => $user, 'login'=>$login));
 
   //execute twig page
   print($view);
@@ -146,7 +154,7 @@ if (isset($_GET['event'])) {
   $venueList = $venueSvc->getVenueList();
 
   //prepare twig page
-  $view = $twig->render('eventDetail.twig', array('event' => $event, 'eventTypeList' => $eventTypeList, 'venueList' => $venueList));
+  $view = $twig->render('eventDetail.twig', array('event' => $event, 'eventTypeList' => $eventTypeList, 'venueList' => $venueList, 'login'=>$login));
 
   //execute twig page
   print($view);
@@ -191,7 +199,7 @@ if (isset($_GET['venue'])) {
   $venue = $venueSvc->getVenueByID($_GET['venue']);
 
   //prepare twig page
-  $view = $twig->render('venueDetail.twig', array('venue' => $venue));
+  $view = $twig->render('venueDetail.twig', array('venue' => $venue,array('login'=>$login)));
 
   //execute twig page
   print($view);
@@ -239,7 +247,7 @@ if (isset($_GET['eventType'])) {
   $eventType = $eventTypeSvc->getEventTypeByName($_GET['eventType']);
 
   //prepare twig page
-  $view = $twig->render('eventTypeDetail.twig', array('eventType' => $eventType));
+  $view = $twig->render('eventTypeDetail.twig', array('eventType' => $eventType, 'login'=>$login));
 
   //execute twig page
   print($view);
