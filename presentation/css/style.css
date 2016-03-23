@@ -346,10 +346,20 @@ margin-top: 0em;
 .hoofdFooter{
     padding: 0.5em;
 }
-
-
-
-
+.profielForm{
+    width:100%;
+    padding:1em;
+}
+.profielForm label, .profielForm select{
+    font-size:1em;
+    width:7em;
+}
+.formalign * {
+    vertical-align: top;
+}
+.profielForm div{
+    padding-bottom:.5em;
+}
 /****************************************************************************************/
 
 
