@@ -445,6 +445,32 @@ form .labelcheckbox{
     padding: 0;
     text-align:left;
     width:auto;
+
+    min-width:25em;
+    min-height:5em;
+}
+.profielForm label, .profielForm span{
+    display:inline-block;
+    font-size:1em;
+    width:9em;
+}
+.profielForm select{
+    font-size:1em;
+}
+form .labelcheckbox{
+    float:none;
+    display:inline;
+    zoom: 1;
+    padding: 0;
+    text-align:left;
+
+}
+header a{
+    text-decoration:none;
+    color:white;
+}
+header a:hover{
+    text-decoration:underline;
 }
 /****************************************************************************************/
 
