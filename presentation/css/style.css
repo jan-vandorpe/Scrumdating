@@ -3,9 +3,9 @@
 
 /******OUTLINE******
 body, header, section, article, div, img, nav, ul, li{
-        outline: red dotted 1px;
-        margin: 0;
-        padding: 0;
+    outline: red dotted 1px;
+    margin: 0;
+    padding: 0;
 }
 */
 
@@ -110,9 +110,10 @@ header, h1 {
     color: white;
 }
 
-header .headerImage{
-    background:  black;
+.headerImage{
+    background: black;
 }
+
 
 
 .hoofdmenu ul li {
@@ -162,18 +163,46 @@ body{
     padding: 0.3em;
 
 }
+
+/***login bovenaan***/
 .login form{
-    border-radius: 4px;  
+    box-sizing: border-box;
+    border-radius: 4px;
+
+
 }
 
-.login label{
-    display: block;
+.login div label{
+    color: white;   
+    
+    font-size: 1em;
+    display: inline-block;
+    width: 8em;
+    margin: 0;
+    padding: 0.5em 0 0 0;
+    text-align: left;
+}
+
+/******* velden, controls *******/
+.login input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="url"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="tel"],
+textarea {
+    box-sizing: border-box;
     width: 100%;
+    min-height: 1em;
+    padding: 0.4em 0.5em;
+    margin: 0;
+    font-size: inherit;
 }
-.login input[type=text] input[type=password]{
 
-    width: auto;
-}
+
+
 
 .inhoud{
     position: relative;
@@ -192,12 +221,12 @@ body{
 }
 
 .balkRechts{
-    margin: auto;
+
     box-sizing: border-box;
     width:100%;
     float: left;
     height: inherit;
-    padding: 1em 0 0 0;
+    padding: 0 0 0 0;
 }
 
 
@@ -225,7 +254,7 @@ header .hoofdmenu p{
 
 
 .headerImage{
-    background:rgba(0,0,0,0.8);
+
     width: 100%;
     background-size: 150%;
     background-repeat: no-repeat;
@@ -245,7 +274,7 @@ header .hoofdmenu p{
 
 .hoofdmenu li {
     box-sizing: border-box;
-    padding:0.5em ;
+    padding:0 0 0.5em 0 ;
     float:left;
     margin: 0 1% 0 0;
     border-radius: 4px;
@@ -440,16 +469,10 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 
 /********MEDIA QUERIES*******************************************************************/
-@media screen and (max-width: 40.5em) {
-    .product-img {
-        width: 50%;
-        float: left;
-    }
-    .hoofdmenu ul li a  {
-    }
 
-}
 @media only screen and (min-width: 768px)  {
+
+
     .balkLinks{
         display:  block;
         width: 30%;
@@ -480,12 +503,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 }
 @media only screen and (min-width: 1000px) {
-    .login form{
-        float: right;
-    }
-    .login label{
-        display: inline;
-    }
+
 
     .balkLinks{
         display:  block;
