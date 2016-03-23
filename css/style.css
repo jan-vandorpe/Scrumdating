@@ -507,7 +507,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 /********MEDIA QUERIES*******************************************************************/
 
-@media only screen and (min-width: 768px)  {
+@media only screen and (min-width: 680px)  {
 
 .login{
     padding: 0.3em;
