@@ -36,7 +36,7 @@ if (isset($_GET["profile"])) {
     array_push($Result, $event);
   }
     
-    $view = $twig->render('userProfilePage.twig', array('login' => $login, 'user' => $login, 'eventLijst' =>$Result, 'upcoming'=>$eventList));
+    $view = $twig->render('userProfilePage.twig', array('login' => $login, 'user' => $user, 'eventLijst' =>$Result, 'upcoming'=>$eventList));
     print($view);
     exit(0);   
 }

@@ -56,3 +56,27 @@ if(isset($_GET["userID"])&&isset($_GET["eventID"])){
     exit(0);   
 }
 
+if(isset($_GET["uitschrijven"])){
+    
+    $eventID = $_GET["uitschrijven"];
+    $userID = $_GET["userID"];
+    
+    $eventLineSrvc = new EventLineService();
+    $eventSvc = new EventService();
+    
+    $eventLine = $eventLineSrvc->Uitschrijven($userID, $eventID);    
+    $lijst = $eventLineSrvc->IngeschrevenByID($userID);
+    $eventList = $eventSvc->getEventList();
+    
+    $Result = array();
+    foreach ($lijst as $rij) {
+        
+        $event = $eventSvc->getEventByID($rij["evntID"]);
+        array_push($Result, $event);
+    }
+    
+    $view = $twig->render('userProfilePage.twig', array('login' => $login, 'user' => $login, 'eventLijst' =>$Result, 'upcoming'=>$eventList));
+    print($view);
+    exit(0);   
+}
+
