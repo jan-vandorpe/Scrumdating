@@ -103,7 +103,9 @@ if (isset($_POST["addUser"])) {
   if(!isset($_POST['smoker'])){$smoker = 0;}else{$smoker = $_POST['smoker'];}
 
   $userSvc = new UserService();
-  $userSvc->updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker);
-  include_once 'showAllAttributes.php';
+  $user = $userSvc->updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker);
+  $_SESSION['login'] = $user;
+  $view = $twig->render('userProfilePage.twig', array('login' => $user));
+   print($view);
   exit(0);
 }
