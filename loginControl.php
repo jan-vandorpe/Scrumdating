@@ -9,6 +9,10 @@ $twig = new Twig_Environment($loader);
 if (!isset($_SESSION)) {
   session_start();
 }
+if (isset($_GET['logout'])){
+  session_destroy();
+  include_once 'Index.php';
+}
 
 if (isset($_SESSION["login"])) {
   $login = $_SESSION["login"];
@@ -20,7 +24,7 @@ if (isset($_GET["profile"])) {
   $userSvc = new UserService();
   $user = $userSvc->getUserByID($_GET["profile"]);
 
-  $view = $twig->render('userProfilePage.twig', array('user' => $user, 'login' => $login));
+  $view = $twig->render('userProfilePage.twig', array('user' => $user, 'login' => $login,));
   print($view);
   exit(0);
 }
@@ -53,7 +57,7 @@ if (isset($_POST['login'])) {
   else {
     $_SESSION["login"] = $loginCheck;
     $login = $loginCheck;
-    $view = $twig->render('userProfilePage.twig', array('login' => $login));
+    $view = $twig->render('userProfilePage.twig', array('login' => $login,'user'=>$login));
   }
   print($view);
   exit(0);
@@ -130,7 +134,7 @@ if (isset($_POST["addUser"])) {
   $userSvc = new UserService();
   $user = $userSvc->updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker);
   $_SESSION['login'] = $user;
-  $view = $twig->render('userProfilePage.twig', array('login' => $user));
+  $view = $twig->render('userProfilePage.twig', array('login' => $user,'user' => $user));
   print($view);
   exit(0);
 }

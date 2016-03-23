@@ -53,5 +53,11 @@ class UserService {
     $userDAO = new UserDAO();
     $userDAO->updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker);
   }
+  public function getUsersBySexuality($sex,$preference){
+    $userDAO = new UserDAO();
+    $matches=$userDAO->getBySexuality($sex, $preference);
+    
+    return $matches;
+  }
 
 }

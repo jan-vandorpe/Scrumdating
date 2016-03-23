@@ -73,7 +73,7 @@
             <label for="venueID">Venue:</label>
             <select name="venueID" title="Venue Name">
               {% for venue in venueList %}
-              <option value="{{venue.venueID}} {% if venue.venueID == event.venue.venueID %}" selected="selected"{% endif %}>{{venue.venueName}}</option>
+              <option value="{{venue.venueID}}" {% if venue.venueID == event.venue.venueID %} selected="selected"{% endif %}>{{venue.venueName}}</option>
               {% endfor %}
             </select>   
           </div>
