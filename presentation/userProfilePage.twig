@@ -12,24 +12,24 @@
     </head>
 
     <body>
-<header class="headerImage">
+        <header class="headerImage">
             <div class="login clearFix">
                 {% if login == false %}
-                  <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
-                    <div class="login clearFix"><input type="submit" value="registreer" name="registreer"/></div>
-                </form>
-                <form action="loginControl.php" method="post" class="login" id="login" name="login">
-                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
-                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
-                    <input type="submit" value="login" name="login" />
-                </form>
-                
+                    <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
+                        <div class="login clearFix"><input type="submit" value="registreer" name="registreer"/></div>
+                    </form>
+                    <form action="loginControl.php" method="post" class="login" id="login" name="login">
+                        <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
+                        <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
+                        <input type="submit" value="login" name="login" />
+                    </form>
+
                 {% else %}
-                  <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
-                  <p><a href="loginControl.php?logout" alt="Log mij uit">Logout</a></p>
-                  {% if login.admin == 1 %}
-                  <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
-                  {% endif %}                 
+                    <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
+                    <p><a href="loginControl.php?logout" alt="Log mij uit">Logout</a></p>
+                    {% if login.admin == 1 %}
+                        <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
+                    {% endif %}                 
                 {% endif %}              
             </div>
 
@@ -48,52 +48,52 @@
         <div class="inhoud clearFix">
 
             <section class="balkLinks blok">
-                    <h4>Contacten</h4>
-                    <div class="contact cf clearFix">
-                        <img src="images/pictures/maleAvatar.svg"/>
-                        <div class="gegevens">
-                            <h5>George</h5>
-                        </div>
+                <h4>Contacten</h4>
+                <div class="contact cf clearFix">
+                    <img src="images/pictures/maleAvatar.svg"/>
+                    <div class="gegevens">
+                        <h5>George</h5>
                     </div>
-                    <div class="contact cf clearFix">
-                        <img src="images/pictures/femaleAvatar.svg"/>
-                        <div class="gegevens">
-                            <h5>Anneke</h5>
-                        </div>
+                </div>
+                <div class="contact cf clearFix">
+                    <img src="images/pictures/femaleAvatar.svg"/>
+                    <div class="gegevens">
+                        <h5>Anneke</h5>
                     </div>
-                    <div class="contact cf clearFix">
-                        <img src="images/pictures/femaleAvatar.svg"/>
-                        <div class="gegevens">
-                            <h5>Lien</h5>
-                        </div>
+                </div>
+                <div class="contact cf clearFix">
+                    <img src="images/pictures/femaleAvatar.svg"/>
+                    <div class="gegevens">
+                        <h5>Lien</h5>
                     </div>
-                    <div class="contact cf clearFix">
-                        <img src="images/pictures/maleAvatar.svg"/>
-                        <div class="gegevens">
-                            <h5>Steven</h5>
-                        </div>
+                </div>
+                <div class="contact cf clearFix">
+                    <img src="images/pictures/maleAvatar.svg"/>
+                    <div class="gegevens">
+                        <h5>Steven</h5>
                     </div>
+                </div>
             </section>
 
             <div class="midden">
                 <div class="userprofiel clearFix">
-                  {% if user.sex == 'f' %}
-                    <img src="images/pictures/femaleAvatar.svg"/>
+                    {% if user.sex == 'f' %}
+                        <img src="images/pictures/femaleAvatar.svg"/>
                     {% else %}
-                      <img src="images/pictures/maleAvatar.svg"/>
-                      {% endif %}
+                        <img src="images/pictures/maleAvatar.svg"/>
+                    {% endif %}
                     <div class="gegevens ">
                         <h2>{{user.username}}</h2>
                         <h3>{{user.region}}</h3>
                         <p>{{user.bio}}</p>
                     </div>
                     <div class="wijzigLinks ">
-                      {% if login.userID == user.userID %}
-                        <a href="loginControl.php?wijzig">Wijzig profiel</a>
+                        {% if login.userID == user.userID %}
+                            <a href="loginControl.php?wijzig">Wijzig profiel</a>
                         {% endif %}
                     </div>
                 </div>
-                    
+
                 <div class="blok">
                     <h2>Berichten</h2>
                     <div class="bericht contact">
@@ -114,29 +114,29 @@
             </div>
 
             <section class="balkRechts blok">
-                
-                    <h4>ingeschreven voor events</h4>
-                    
-                    {% for event in eventLijst %}
-              
+
+                <h4>ingeschreven voor events</h4>
+
+                {% for event in eventLijst %}
+
                     <ul class="itemDisplay">
-                            <li>{{event.evntType.evntName}}</li>
-                            <li>{{event.evntDate}}</li>
-                            <li>{{event.venue.venueCity}}</li>
-                        </ul>
-              
-                    {% endfor %}                   
-            
-                    <h4>Upcoming events</h4>
-                    {% for event in upcoming|slice(0, 4) %}
-                      
+                        <li>{{event.evntType.evntName}}</li>
+                        <li>{{event.evntDate}}</li>
+                        <li>{{event.venue.venueCity}}</li>
+                    </ul>
+
+                {% endfor %}                   
+
+                <h4>Upcoming events</h4>
+                {% for event in upcoming|slice(0, 4) %}
+
                     <ul class="itemDisplay">
-                            <li>{{event.evntType.evntName}}</li>
-                            <li>{{event.evntDate}}</li>
-                            <li>{{event.venue.venueCity}}</li>
-                        </ul>
-              
-                    {% endfor %}              
+                        <li>{{event.evntType.evntName}}</li>
+                        <li>{{event.evntDate}}</li>
+                        <li>{{event.venue.venueCity}}</li>
+                    </ul>
+
+                {% endfor %}              
             </section>
 
 
