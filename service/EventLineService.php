@@ -11,9 +11,6 @@ class EventLineService{
     public function Uitschrijven($userID,$evntID){
       $eventLineDAO = new EventLineDAO();
       $eventLineDAO->Uitschrijven($userID,$evntID);
-    }
-        $EventLineDAO = new EventLineDAO();
-        $EventLineDAO->Inschrijven($userID,$evntID);
     }    
     
     public function IngeschrevenByID($userID) {

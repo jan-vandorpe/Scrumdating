@@ -162,7 +162,7 @@ if (isset($_POST["addUser"])) {
   $userSvc = new UserService();
   $user = $userSvc->updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker);
   $_SESSION['login'] = $user;
-  $view = $twig->render('userProfilePage.twig', array('login' => $user));
+  $view = $twig->render('userProfilePage.twig', array('login' => $user,'user'=>$user));
   print($view);
   exit(0);
 }
