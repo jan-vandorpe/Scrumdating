@@ -29,9 +29,10 @@
                 
                 {% else %}
                   <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
+                  <p><a href="loginControl.php?logout" alt="Log mij uit">Logout</a></p>
                   {% if login.admin == 1 %}
                   <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
-                  {% endif %}
+                  {% endif %}                 
                 {% endif %}              
             </div>
 
@@ -42,7 +43,7 @@
                 <ul>
                     <li><a href="Index.php" id="a"><p>Home</p></a></li>
                     <li><a href="loginControl.php?profile={{login.userID}}" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
-                    <li><a href="#" id="c"><p>Matchen</p></a></li>
+                    <li><a href="matchControl.php" id="c"><p>Matchen</p></a></li>
                     <li><a href="eventControl.php?action=showEvents" id="d"><p>Events</p></a></li>
                 </ul>
             </nav>
