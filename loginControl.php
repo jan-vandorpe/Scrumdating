@@ -72,8 +72,9 @@ if (isset($_POST['login'])) {
   $loginCheck = $userSvc->checkLogin($username, $password);
 
   if ($loginCheck == false) {
-    include_once 'presentation/loginPage.twig';
-    exit(0);
+    $view = $twig->render('loginPage.twig', array('login' => $login));
+    print($view);
+    exit(0);   
   }
   else {
     $_SESSION["login"] = $loginCheck;
