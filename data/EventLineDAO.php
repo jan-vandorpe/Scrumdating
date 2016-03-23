@@ -24,5 +24,11 @@ class EventLineDAO{
     $dbh = null;
     return $lijst;
     }
-    
+    public function Uitschrijven($userID,$evntID){
+    $sql = "DELETE FROM eventline WHERE userID = :userID AND evntID = :evntID";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':userID'=> $userID,':evntID'=> $evntID));  
+    $dbh = null;   
+    }       
 }
