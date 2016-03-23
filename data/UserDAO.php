@@ -97,7 +97,17 @@ class UserDAO {
     $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
     $stmt = $dbh->prepare($sql);
     $stmt->execute(array('userID'=>$userID,':username' => $username,':password'=>$password,':email'=>$email,':sex'=>$sex,':birthDate'=>$birthDate,':preference'=>$preference,':hairColor'=>$hairColor,':length'=>$length,':build'=>$build,':eyeColor'=>$eyeColor,':oneNight'=>$oneNight,':longTerm'=>$longTerm,':friends'=>$friends,':bio'=>$bio,':region'=>$region,':postcode'=>$postcode,':occupation'=>$occupation,':smoker'=>$smoker));  
-    $dbh = null;    
+    
+    $sql = "SELECT * FROM users WHERE username= :username AND password= :password";
+    $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute(array(':username' => $username, ':password' => $password));
+    $rij = $stmt->fetch(PDO::FETCH_ASSOC);
+    $user = new user($rij["userID"], $rij["username"], $rij["password"], $rij["email"], $rij["sex"], $rij["birthDate"], $rij["preference"], $rij["hairColor"], $rij["length"], $rij["build"], $rij["eyeColor"], $rij["oneNight"], $rij["longTerm"], $rij["friends"], $rij["bio"], $rij["region"], $rij["postcode"], $rij["occupation"], $rij["smoker"], $rij["admin"]);
+
+    $dbh = null;
+    return $user;  
+   
   }
   
 
