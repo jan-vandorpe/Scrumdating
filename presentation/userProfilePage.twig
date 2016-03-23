@@ -123,7 +123,9 @@
                             <li>{{event.evntType.evntName}}</li>
                             <li>{{event.evntDate}}</li>
                             <li>{{event.venue.venueCity}}</li>
+                            {% if user.userID == login.userID %}
                             <a href="eventControl.php?uitschrijven={{event.evntID}}&userID={{login.userID}}">Uitschrijven</a>
+                            {% endif %}
                         </ul>
                             
               
