@@ -38,11 +38,21 @@ if(isset($_GET["userID"])&&isset($_GET["eventID"])){
     $eventID = $_GET["eventID"];
     
     $eventLineSrvc = new EventLineService();
-    $eventLineSrvc->Inschrijven($userID, $eventID);
+    $eventSvc = new EventService();
     
-    $view = $twig->render('userProfilePage.twig', array('login' => $login, 'user' => $login));
+    $eventLine = $eventLineSrvc->Inschrijven($userID, $eventID);    
+    $lijst = $eventLineSrvc->IngeschrevenByID($userID);
+    $eventList = $eventSvc->getEventList();
+    
+    $Result = array();
+    foreach ($lijst as $rij) {
+        
+        $event = $eventSvc->getEventByID($rij["evntID"]);
+        array_push($Result, $event);
+    }
+    
+    $view = $twig->render('userProfilePage.twig', array('login' => $login, 'user' => $login, 'eventLijst' =>$Result, 'upcoming'=>$eventList));
     print($view);
-    exit(0);
-    
-    
+    exit(0);   
 }
+
