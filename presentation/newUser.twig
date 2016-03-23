@@ -11,13 +11,22 @@
         <title>Uw Westvloamse datingsite</title>
     </head>
 
-    <body>
+  <body>
         <header class="headerImage">
             <div class="login clearFix">
-                <form action="login.html" method="post" class="login" id="login" name="login">
-                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
-                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>
+                {% if login == false %}
+                  <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
+                    <div class="login clearFix"><input type="submit" value="registreer" name="registreer"/></div>
                 </form>
+                <form action="loginControl.php" method="post" class="login" id="login" name="login">
+                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
+                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
+                    <input type="submit" value="login" name="login" />
+                </form>
+                
+                {% else %}
+                  <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
+                {% endif %}              
             </div>
 
             <h1><span>Losse Flodders</span></h1>
@@ -33,10 +42,8 @@
             </nav>
 
         </header>
+    <div class="inhoud clearFix">
 
-
-
-        <div class="inhoud clearFix">
 
             <section class="balkLinks">
                 <h1>balk links</h1>

@@ -5,153 +5,183 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>Attributen</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/attributen_style.css" />
-    </head>
-    <body>
-        <div>
-            <table class="users">
-                <caption>gebruikersgegevens</caption>
-                <thead>
-                    <tr>
-                        <th>userID</th>
-                        <th>username</th>
-                        <th>password</th>
-                        <th>email</th>
-                        <th>sex</th>
-                        <th>birthDate</th>
-                        <th>preference</th>
-                        <th>hairColor</th>
-                        <th>length</th>
-                        <th>build</th>
-                        <th>eyeColor</th>
-                        <th>oneNight</th>
-                        <th>longTerm</th>
-                        <th>friends</th>
-                        <th>bio</th>
-                        <th>region</th>
-                        <th>postcode</th>
-                        <th>occupation</th>
-                        <th>smoker</th>
-                        <th>admin</th>
-                        <th>delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {% for user in userList %}
-                    <tr>
-                      <td><a href='adminControl.php?user={{user.userID}}' alt='Profile van user ID {{user.username}}'>{{user.userID}}</a></td>
-                        <td>{{user.username}}</td>
-                        <td>{{user.password}}</td>
-                        <td>{{user.email}}</td>
-                        <td>{{user.sex}}</td>
-                        <td>{{user.birthDate}}</td>
-                        <td>{{user.preference}}</td>
-                        <td>{{user.hairColor}}</td>
-                        <td>{{user.length}}</td>
-                        <td>{{user.build}}</td>
-                        <td>{{user.eyeColor}}</td>
-                        <td>{{user.oneNight}}</td>
-                        <td>{{user.longTerm}}</td>
-                        <td>{{user.friends}}</td>
-                        <td>{{user.bio}}</td>
-                        <td>{{user.region}}</td>
-                        <td>{{user.postcode}}</td>
-                        <td>{{user.occupation}}</td>
-                        <td>{{user.smoker}}</td>
-                        <td>{{user.admin}}</td>
-                        <td><a href="adminControl.php?deleteUser={{user.userID}}" alt="Delete user {{user.userID}}">Delete user</a></td>
-                    </tr>
-                    {% endfor %}
-                    <tr><td  colspan="2"><a href="adminControl.php?new=user">New User</a></tr>
-                </tbody>
-            </table>
-        </div>
-        <div>
+  <head>
+    <title>Attributen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/attributen_style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="headerImage">
+      <div class="login clearFix">
+        {% if login == false %}
+          <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
+            <div class="login clearFix"><input type="submit" value="registreer" name="registreer"/></div>
+          </form>
+          <form action="loginControl.php" method="post" class="login" id="login" name="login">
+            <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
+            <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
+            <input type="submit" value="login" name="login" />
+          </form>
 
-            <table class="events">
-                <caption>events</caption>
-                <thead>
-                    <tr>
-                        <th>eventID</th>
-                        <th>eventDate</th>
-                        <th>eventName</th>
-                        <th>venueID</th>
-                        <th>delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {% for event in eventList %}
-                    <tr>
-                      <td><a href="adminControl.php?event={{event.evntID}}" alt="Details van event {{event.evntID}}">{{event.evntID}}</a></td>
-                      <td>{{event.evntDate|date("d/m/Y")}}</td>
-                        <td>{{event.evntType.evntName}}</td>
-                        <td>{{event.venue.venueID}}</td>
-                        <td><a href="adminControl.php?deleteEvent={{event.evntID}}" alt="Delete event {{event.evntID}}">Delete event</a></td>
-                    </tr>                  
-                    {% endfor %}
-                    <tr><td><a href="adminControl.php?new=event">New Event</a></tr>
-                </tbody>
-            </table>
+        {% else %}
+          <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
+          {% endif %}              
+      </div>
 
-        </div>
-        <div>
-            <table class="venues">
-                <caption>venues</caption>
-                <thead>
-                    <tr>
-                        <th>venueID</th>
-                        <th>venueName</th>
-                        <th>venueCity</th>
-                        <th>venueStreet</th>
-                        <th>venueStreetNR</th>
-                        <th>venueCapacity</th>
-                        <th>delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {% for venue in venueList %}
-                    <tr>
-                      <td><a href="adminControl.php?venue={{venue.venueID}}" alt="Details van venue {{venue.venueName}}">{{venue.venueID}}</a></td>
-                        <td>{{venue.venueName}}</td>
-                        <td>{{venue.venueCity}}</td>
-                        <td>{{venue.venueStreet}}</td>
-                        <td>{{venue.venueStreetNR}}</td>
-                        <td>{{venue.venueCapacity}}</td>
-                        <td><a href="adminControl.php?deleteVenue={{venue.venueID}}" alt="Delete venue {{venue.venueID}}">Delete venue</a></td>
-                    </tr>
-                    {% endfor %}
-                    <tr><td><a href="adminControl.php?new=venue">New Venue</a></tr>
-                </tbody>
-            </table>
-        </div>
-        <div>
-            <table class="eventtypes">
-                <caption>eventypes</caption>
-                <thead>                 
-                    <tr>
-                        <th>eventName</th>
-                        <th>evntDescription</th>
-                        <th>evntPrice</th>
-                        <th>delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   {% for eventType in eventTypeList %}
-                    <tr>
-                      <td><a href="adminControl.php?eventType={{eventType.evntName}}" alt="Details van event type {{eventType.evntName}}">{{eventType.evntName}}</a></td>
-                        <td>{{eventType.evntDescription}}</td>
-                        <td>{{eventType.evntPrice}}</td>
-                        <td><a href="adminControl.php?deleteEventType={{eventType.evntName}}" alt="Delete eventType {{eventType.evntName}}">Delete event type</a></td>
-                    </tr>
-                   {% endfor %}
-                   <tr><td><a href="adminControl.php?new=eventType">New EventType</a></tr>
-                </tbody>
-            </table>
+      <h1><span>Losse Flodders</span></h1>
+      <p>Westvlaamse datingsite</p>
 
-        </div>
-    </body>
+      <nav class="hoofdmenu clearFix">
+        <ul>
+          <li><a href="showIndex.php" id="a"><p>Menu</p></a></li>
+          <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
+          <li><a href="#" id="c"><p>Matchen</p></a></li>
+          <li><a href="#" id="d"><p>Instellingen</p></a></li>
+        </ul>
+      </nav>
+    </header>
+    <div>
+      <table class="users">
+        <caption>gebruikersgegevens</caption>
+        <thead>
+          <tr>
+            <th>userID</th>
+            <th>username</th>
+            <th>password</th>
+            <th>email</th>
+            <th>sex</th>
+            <th>birthDate</th>
+            <th>preference</th>
+            <th>hairColor</th>
+            <th>length</th>
+            <th>build</th>
+            <th>eyeColor</th>
+            <th>oneNight</th>
+            <th>longTerm</th>
+            <th>friends</th>
+            <th>bio</th>
+            <th>region</th>
+            <th>postcode</th>
+            <th>occupation</th>
+            <th>smoker</th>
+            <th>admin</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in userList %}
+            <tr>
+              <td><a href='adminControl.php?user={{user.userID}}' alt='Profile van user ID {{user.username}}'>{{user.userID}}</a></td>
+              <td>{{user.username}}</td>
+              <td>{{user.password}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.sex}}</td>
+              <td>{{user.birthDate}}</td>
+              <td>{{user.preference}}</td>
+              <td>{{user.hairColor}}</td>
+              <td>{{user.length}}</td>
+              <td>{{user.build}}</td>
+              <td>{{user.eyeColor}}</td>
+              <td>{{user.oneNight}}</td>
+              <td>{{user.longTerm}}</td>
+              <td>{{user.friends}}</td>
+              <td>{{user.bio}}</td>
+              <td>{{user.region}}</td>
+              <td>{{user.postcode}}</td>
+              <td>{{user.occupation}}</td>
+              <td>{{user.smoker}}</td>
+              <td>{{user.admin}}</td>
+              <td><a href="adminControl.php?deleteUser={{user.userID}}" alt="Delete user {{user.userID}}">Delete user</a></td>
+            </tr>
+          {% endfor %}
+          <tr><td  colspan="2"><a href="adminControl.php?new=user">New User</a></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+
+      <table class="events">
+        <caption>events</caption>
+        <thead>
+          <tr>
+            <th>eventID</th>
+            <th>eventDate</th>
+            <th>eventName</th>
+            <th>venueID</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in eventList %}
+            <tr>
+              <td><a href="adminControl.php?event={{event.evntID}}" alt="Details van event {{event.evntID}}">{{event.evntID}}</a></td>
+              <td>{{event.evntDate|date("d/m/Y")}}</td>
+              <td>{{event.evntType.evntName}}</td>
+              <td>{{event.venue.venueID}}</td>
+              <td><a href="adminControl.php?deleteEvent={{event.evntID}}" alt="Delete event {{event.evntID}}">Delete event</a></td>
+            </tr>                  
+          {% endfor %}
+          <tr><td><a href="adminControl.php?new=event">New Event</a></tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div>
+      <table class="venues">
+        <caption>venues</caption>
+        <thead>
+          <tr>
+            <th>venueID</th>
+            <th>venueName</th>
+            <th>venueCity</th>
+            <th>venueStreet</th>
+            <th>venueStreetNR</th>
+            <th>venueCapacity</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for venue in venueList %}
+            <tr>
+              <td><a href="adminControl.php?venue={{venue.venueID}}" alt="Details van venue {{venue.venueName}}">{{venue.venueID}}</a></td>
+              <td>{{venue.venueName}}</td>
+              <td>{{venue.venueCity}}</td>
+              <td>{{venue.venueStreet}}</td>
+              <td>{{venue.venueStreetNR}}</td>
+              <td>{{venue.venueCapacity}}</td>
+              <td><a href="adminControl.php?deleteVenue={{venue.venueID}}" alt="Delete venue {{venue.venueID}}">Delete venue</a></td>
+            </tr>
+          {% endfor %}
+          <tr><td><a href="adminControl.php?new=venue">New Venue</a></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table class="eventtypes">
+        <caption>eventypes</caption>
+        <thead>                 
+          <tr>
+            <th>eventName</th>
+            <th>evntDescription</th>
+            <th>evntPrice</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for eventType in eventTypeList %}
+            <tr>
+              <td><a href="adminControl.php?eventType={{eventType.evntName}}" alt="Details van event type {{eventType.evntName}}">{{eventType.evntName}}</a></td>
+              <td>{{eventType.evntDescription}}</td>
+              <td>{{eventType.evntPrice}}</td>
+              <td><a href="adminControl.php?deleteEventType={{eventType.evntName}}" alt="Delete eventType {{eventType.evntName}}">Delete event type</a></td>
+            </tr>
+          {% endfor %}
+          <tr><td><a href="adminControl.php?new=eventType">New EventType</a></tr>
+        </tbody>
+      </table>
+
+    </div>
+  </body>
 </html>
