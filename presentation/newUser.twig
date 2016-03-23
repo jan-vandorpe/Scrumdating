@@ -55,7 +55,7 @@
                 <fieldset class="vast">
                     <h1>Profiel Aanmaak</h1>
                     <form action="{{target}}" method="post" class="profielForm" id="profileData" name="profileData">
-                        <div>
+                        <div class="usernameForm">
                             <label for="username" >Userame:</label>
                             <input type="text" id="username" name="username" title="username" value='{{user.username}}' placeholder="">
 
@@ -65,27 +65,33 @@
                             <input type="text" id="password" name="password" title="password" value="{{user.password}}">
                         </div>
                         <div>
-                            <span>email</span>
+                            <span>E-mail:</span>
                             <input type="email" id="email" name="email" title="email" value="{{user.email}}">
                         </div>
+                        
                         <div>
-                            <span>Geslacht</span>
-                            <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="m"/>Man</label>
-                            <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="f"/>Vrouw</label>
-                            <label for="sex" class="labelradio labellook"><input type="radio" id="sex" name="sex" value="o"/>Anders</label>
+                            <label for ="sex" class="verplicht">Geslacht:</label>
+                            <select id="sex" name="sex">
+                                <option value="m">Man</option>
+                                <option value="f">Vrouw</option>
+                                <option value="o">Anders</option>
+                            </select>
                         </div>
                         <div>
                             <label for="birthDate">Geboorte Datum:</label>
                             <input type="date" id="birthDate" name="birthDate" title="Geboorte Datum 1956-12-31">
                         </div>
+                        
                         <div>
-                            <span>Preference</span>
-                            <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="m"/>Man</label>
-                            <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="f"/>Vrouw</label>
-                            <label for="preference" class="labelradio labellook"><input type="radio" id="preference" name="preference" value="a"/>Man & Vrouw</label>
-                        </div>                       
+                            <label for ="preference" class="verplicht">Voorkeur:</label>
+                            <select id="preference" name="preference">
+                                <option value="m">Man</option>
+                                <option value="f">Vrouw</option>
+                                <option value="a">Man & Vrouw</option>
+                            </select>
+                        </div>
                         <div class="form-group">
-                            <label for ="hairColor" class="verplicht labellook">Hair Color</label>
+                            <label for ="hairColor" class="verplicht">Haar Kleur:</label>
                             <select class="form-control" id="hairColor" name="hairColor" required>
                                 <option value="Kaal">Kaal</option>
                                 <option value="Bruin">Bruin</option>
@@ -95,7 +101,7 @@
                             </select>
                         </div>
                         <div>
-                                <label for ="eyeColor" class="verplicht labellook">Eye Color</label>
+                                <label for ="eyeColor" class="verplicht">Oog Kleur:</label>
                                 <select id="eyeColor" name="eyeColor" required>
                                     <option value="Blauw">Blauw</option>
                                     <option value="Bruin">Bruin</option>
@@ -104,11 +110,11 @@
                                 </select>
                             </div>
                         <div>
-                            <label for="length" class="verplicht labellook">Lengte</label>
+                            <label for="length" class="verplicht">Lengte:</label>
                             <input type="number" id="length" name="length" required/>
                         </div>
                         <div>
-                            <label for ="build" class="verplicht labellook">Figuur</label>
+                            <label for ="build" class="verplicht">Figuur:</label>
                             <select id="build" name="build" required>
                                 <option value="mager">Mager</option>
                                 <option value="slank">Slank</option>
@@ -118,42 +124,45 @@
                             </select>
                         </div>
                         
-                        <div>
-                            <label>Soort relatie</label>
+                        <div class="relationship">
+                            <label>Soort Relatie:</label>
                             <label for="friends" class="labelcheckbox labellook"><input type="checkbox" id="friends" name="friends" value="1">Vriendschap</label>
-                            <label for="oneNight" class="labelcheckbox labellook"><input type="checkbox" id="oneNight" name="oneNight" value="1">One night stand</label>
+                            <label for="oneNight" class="labelcheckbox labellook"><input type="checkbox" id="oneNight" name="oneNight" value="1">One-night Stand</label>
                             <label for="longTerm" class="labelcheckbox labellook"><input type="checkbox" id="longTerm" name="longTerm" value="1">Lange termijn</label>
                         </div>
-                        <div>
+                        
+                        <div class="formalign">
                             <label for="bio">Bio:</label>
                             <textarea id="bio" name="bio" title="bio"></textarea>
                         </div>
                         <div>
-                            <label for="postcode" class="verplicht labellook">Postcode</label>
+                            <label for="postcode" class="verplicht">Postcode:</label>
                             <input type="number" id="postcode" name="postcode"/>
                         </div>
                         <div>
                                 <label for ="region" class="verplicht labellook">Regio:</label>
                                 <select id="region" name="region">
-                                    <option value="oostkust">oostkust</option>
-                                    <option value="westkust">westkust</option>
-                                    <option value="middenkust">middenkust</option>
+                                    <option value="oostkust">Oostkust</option>
+                                    <option value="westkust">Westkust</option>
+                                    <option value="middenkust">Middenkust</option>
                                 </select>
                             </div>
                         <div>
-                            <label for ="occupation" class="verplicht labellook">Occupation</label>
+                            <label for ="occupation" class="verplicht labellook">Beroep:</label>
                             <select id="occupation" name="occupation">
-                                <option value="student">student</option>
+                                <option value="student">Student</option>
                                 <option value="ik doe niet veel">ik doe niet veel</option>
-                                <option value="kelner">kelner</option>
-                                <option value="werknemer">werknemer</option>
-                                <option value="werkgever">werkgever</option>
+                                <option value="kelner">Kelner</option>
+                                <option value="werknemer">Werknemer</option>
+                                <option value="werkgever">Werkgever</option>
                             </select>
                         </div>
                         <div>
-                            <span>Roker</span>
-                            <label for="smoker" class="labelradio labellook"><input type="radio" id="smoker" name="smoker" value="1"/>Ja</label>
-                            <label for="smoker" class="labelradio labellook"><input type="radio" id="smoker" name="smoker" value="0"/>Nee</label>
+                            <label for ="smoker" class="verplicht">Ben je een roker?</label>
+                            <select id="smoker" name="smoker">
+                                <option value="1">Ja</option>
+                                <option value="0">Nee</option>
+                            </select>
                         </div>            
                         <div>
                             <input type="submit" value="Add" name="addUser"/>            
