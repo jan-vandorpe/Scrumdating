@@ -6,6 +6,7 @@ require_once 'library/vendor/autoload.php';
 
 //Verwijst naar de DAO userDAO
 require_once 'service/UserService.php';
+session_start();
 
 //vertel Twig in welke map onze templates (html paginas) zitten
 $loader = new Twig_Loader_Filesystem('presentation');
@@ -14,18 +15,13 @@ $loader = new Twig_Loader_Filesystem('presentation');
 $twig = new Twig_Environment($loader);
 
 if(isset($_SESSION['login'])){ //Gebruiker al ingelogd?
-  $userSvc = new UserService();
-  $user = $userSvc->getUserById($_SESSION['login']); //haal gegevens van die gebruiker op
-  if ($user==null){ 
-    unset($_SESSION['login']); //geen gebruiker gevonden? Unset de session want verkeerd
-    $user = "Guest";
-  }
+  $login = $_SESSION['login'];   
 } else {
-  $user = "Guest";
+  $login = false;
 }
 
 //zet alle variabelen klaar in de presentatie pagina
-$view = $twig->render('index.twig', array('user' => $user));
+$view = $twig->render('index.twig', array('login' => $login));
 
 //toon de pagina
 print($view);
