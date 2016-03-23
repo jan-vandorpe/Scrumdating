@@ -40,10 +40,10 @@
 
             <nav class="hoofdmenu clearFix">
                 <ul>
-                    <li><a href="showIndex.php" id="a"><p>Menu</p></a></li>
-                    <li><a href="profielaanmaak.twig" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
+                    <li><a href="Index.php" id="a"><p>Home</p></a></li>
+                    <li><a href="loginControl.php?profile={{login.userID}}" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
                     <li><a href="#" id="c"><p>Matchen</p></a></li>
-                    <li><a href="#" id="d"><p>Instellingen</p></a></li>
+                    <li><a href="eventControl.php?action=showEvents" id="d"><p>Events</p></a></li>
                 </ul>
             </nav>
         </header>
@@ -54,11 +54,10 @@
             
             <div class="midden">
                 <fieldset class="vast">
-                    <h1>Profiel Aanmaak</h1>
-                        <form action="adminControl.php" method="post" class="profielForm" id="profileData" name="profileData">
+                    <h1>Profiel Wijzigen</h1>
+                        <form action="{{target}}" method="post" class="profielForm" id="profileData" name="profileData">
                             <div>
-                                <label for="userID">User ID:</label>
-                                <input type="number" id="userID" name="userID" title="Hier is je userID" value="{{user.userID}}">                               
+                                <input type="number" id="userID" name="userID" title="Hier is je userID" value="{{user.userID}}" hidden>                               
                             </div>
                             <div>
                                 <label for="username" >User Name:</label>
@@ -129,7 +128,7 @@
                             </div>
                             <div>
                                 <label for="bio">Bio:</label>
-                                <textarea id="bio" name="bio" title="bio" value="{{user.bio}}"></textarea>
+                                <textarea id="bio" name="bio" title="bio">{{user.bio}}</textarea>
                             </div>
                             <div>
                                 <label for="postcode" class="verplicht labellook">Postcode</label>

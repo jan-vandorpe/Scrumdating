@@ -54,14 +54,36 @@
             </section>
 
             <div class="midden">
-                <div class="eventbanner">
+                <div class="event clearFix">
 
                     <img src="images/pictures/event_balk.jpg"/>
 
  
                 </div>
-
                 <div class="blok">
+                    <h2>Events</h2>
+
+                {% for event in eventList %}
+              
+                    <div class="event">
+                        <img src="presentation/images/events/event_01.jpg"/>
+                        <h4>{{event.eventName}}</h4>
+                        <ul class="itemDisplay">
+                            <li><label>Datum:</label> {{event.evntDate}}</li>
+                            <li><label>Soort: </label>{{event.evntType.evntDescription}}</li>
+                            <li><label>Prijs: </label>€ {{event.evntType.evntPrice}}</li>
+                            <li><label>{{event.venue.venueName}}</li>
+                            <li><label>Plaats: </label>{{event.venue.venueCity}}</li>
+                            <li><label>Straat: </label>{{event.venue.venueStreet}} {{event.venue.venueStreetNR}}</li>
+                            <li><label>Aantal plaatsen:</label>{{event.venue.venueCapacity}}</li>
+                        </ul>
+                        <a href="eventControl.php?userID={{login.username}}&eventID={{event.evntID}}"><input type="submit" value="Inschrijven"/></a>
+                    </div>
+              
+              {% endfor %}
+              </div>
+                
+           {# <div class="blok">
                     <h2>Events</h2>
                     <div class="event">
                         <img src="images/events/event_01.jpg"/>
@@ -85,7 +107,7 @@
                             <li><label>Datum:</label> {{event.eventDate}}</li>
                             <li><label>Soort: </label>{{eventType.evntDescription}}</li>
                             <li><label>Prijs: </label>{{eventType.evntPrice}}</li>
-                            <li><label>{{venue.venueName}}</label></li>
+                            <li><label>{{venue.venueName}}</li>
                             <li><label>Plaats: </label>{{venue.venueCity}}</li>
                             <li><label>Straat: </label>{{venue.venueStreet}} {{venue.venueStreetNR}}</li>
                             <li><label>Aantal plaatsen:</label>{{venue.venueCapacity}}</li>
@@ -93,7 +115,7 @@
                         <a href="#"><input type="submit" value="Inschrijven"/></a>
                     </div>
                 </div>
-            </div>
+            </div> #}
 
             <section class="balkRechts blok">
 
