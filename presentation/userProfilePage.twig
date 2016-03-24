@@ -114,6 +114,7 @@
             </div>
 
             <section class="balkRechts blok">
+               <div class="event blok">
                 
                     <h4>ingeschreven voor events</h4>
                     
@@ -123,11 +124,16 @@
                             <li>{{event.evntType.evntName}}</li>
                             <li>{{event.evntDate}}</li>
                             <li>{{event.venue.venueCity}}</li>
+                            {% if user.userID == login.userID %}
                             <a href="eventControl.php?uitschrijven={{event.evntID}}&userID={{login.userID}}">Uitschrijven</a>
+                            {% endif %}
                         </ul>
                             
               
-                    {% endfor %}                   
+                    {% endfor %}
+                    </div>
+                                    <div class="event blok">
+                                      <img src="images/pictures/event_balk.jpg" class="eventbanner"/>
             
                     <h4>Upcoming events</h4>
                     {% for event in upcoming|slice(0, 4) %}
@@ -138,7 +144,8 @@
                             <li>{{event.venue.venueCity}}</li>
                         </ul>
               
-                    {% endfor %}              
+                    {% endfor %}  
+                                    </div>
             </section>
 
 

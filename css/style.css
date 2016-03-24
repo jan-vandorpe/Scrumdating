@@ -180,7 +180,7 @@ body{
     display: inline-block;
     width: 8em;
     margin: 0;
-    padding: 0.5em 0 0 0;
+    
     text-align: left;
 }
 
@@ -472,6 +472,7 @@ header a{
 header a:hover{
     text-decoration:underline;
 }
+
 /****************************************************************************************/
 
 
@@ -510,7 +511,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 @media only screen and (min-width: 680px)  {
 
 .login{
-    padding: 0.3em;
+    
 
 }
 
@@ -588,6 +589,20 @@ textarea {
 
         color: white;
     }
+
+}
+@media only screen and (min-width: 890px) {
+
+    #registreer{
+    width:10%;
+    float:right;
+    height:4em;
+}
+#login{
+    width:90%;
+    float:left;
+    height:4em;
+}
 
 }
 @media only screen and (min-width: 1000px) {
