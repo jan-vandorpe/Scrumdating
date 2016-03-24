@@ -102,7 +102,9 @@ if (isset($_POST['login'])) {
  
 
 if (isset($_POST['registreer'])) {
-  include_once 'presentation/registreerPage.twig';
+ $view = $twig->render('registreerPage.twig', array('login' => $login));
+ print($view);
+ exit(0);
 }
 
 if (isset($_POST['registreren'])) {
@@ -113,7 +115,7 @@ if (isset($_POST['registreren'])) {
   $userSvc = new UserService();
   $user = $userSvc->registreerUser($username, $password, $email);
   $userID = $user->getUserID();
-  $view = $twig->render('newUser.twig', array('user' => $user, 'target' => "loginControl.php?userID=$userID"));
+  $view = $twig->render('newUser.twig', array('user' => $user, 'target' => "loginControl.php?userID=$userID", 'login' => $login));
   print($view);
   exit(0);
 }
@@ -170,7 +172,8 @@ if (isset($_POST["addUser"])) {
   }
 
   $userSvc = new UserService();
-  $user = $userSvc->updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker);
+  $userSvc->updateUser($userID, $username, $password, $email, $sex, $birthDate, $preference, $hairColor, $length, $build, $eyeColor, $oneNight, $longTerm, $friends, $bio, $region, $postcode, $occupation, $smoker);
+  $user = $userSvc->getUserByID($userID);
   $_SESSION['login'] = $user;
   $view = $twig->render('userProfilePage.twig', array('login' => $user,'user'=>$user));
   print($view);
