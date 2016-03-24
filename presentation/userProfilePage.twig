@@ -51,162 +51,6 @@
                     <h4>Contacten</h4>
                     <div class="contact cf clearFix">
                         <img src="images/pictures/maleAvatar.svg"/>
-                        <div class="">
-                            <h5>George</h5>
-                        </div>
-                    </div>
-                    <div class="contact cf clearFix">
-                        <img src="images/pictures/femaleAvatar.svg"/>
-                        <div class="">
-                            <h5>Anneke</h5>
-                        </div>
-                    </div>
-                    <div class="contact cf clearFix">
-                        <img src="images/pictures/femaleAvatar.svg"/>
-                        <div class="">
-                            <h5>Lien</h5>
-                        </div>
-                    </div>
-                    <div class="contact cf clearFix">
-                        <img src="images/pictures/maleAvatar.svg"/>
-                        <div class="">
-                            <h5>Steven</h5>
-                        </div>
-                    </div>
-            </section>
-
-            <div class="midden">
-                <div class="userprofiel clearFix">
-                  {% if user.sex == 'f' %}
-                    <img src="images/pictures/femaleAvatar.svg"/>
-                    {% else %}
-                      <img src="images/pictures/maleAvatar.svg"/>
-                      {% endif %}
-                    <div class="gegevens ">
-                        <h2>{{user.username}}</h2>
-                        <h3>{{user.region}}</h3>
-                        <p>{{user.bio}}</p>
-                    </div>
-                    <div class="wijzigLinks ">
-                      {% if login.userID == user.userID %}
-                        <a href="loginControl.php?wijzig">Wijzig profiel</a>
-                        {% endif %}
-                    </div>
-                </div>
-                    
-                <div class="blok">
-                    <h2>Berichten</h2>
-                    <div class="bericht contact">
-                        <img src="images/pictures/femaleAvatar.svg"/>
-                        <h5>Anneke</h5>
-                        <ul class="itemDisplay cf ">      
-                            <li>Hoi! Vrijdag om 8 uur bij jouw? Call me.</li>
-                        </ul>
-                    </div>
-                    <div class="bericht contact">
-                        <img src="images/pictures/maleAvatar.svg"/>
-                        <h5>George</h5>
-                        <ul class="itemDisplay cf">      
-                            <li>Is het nu vrijdag bij mij?</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <section class="balkRechts blok">
-                <div class="event blok">
-                    <h4>ingeschreven voor events</h4>
-                    
-                    {% for event in eventLijst %}
-              
-                    <ul class="itemDisplay">
-                            <li>{{event.evntType.evntName}}</li>
-                            <li>{{event.evntDate}}</li>
-                            <li>{{event.venue.venueCity}}</li>
-                            <a href="eventControl.php?uitschrijven={{event.evntID}}&userID={{login.userID}}">Uitschrijven</a>
-                        </ul>
-                            
-              
-                    {% endfor %}   
-                    </div>
-                                    <div class="event blok">
-
-                    <img src="images/pictures/event_balk.jpg" class="eventbanner"/>
-            
-                  
-                    {% for event in upcoming|slice(0, 4) %}
-                      
-                    <ul class="itemDisplay">
-                            <li>{{event.evntType.evntName}}</li>
-                            <li>{{event.evntDate}}</li>
-                            <li>{{event.venue.venueCity}}</li>
-                        </ul>
-              
-                    {% endfor %}     
-                    </div>
-            </section>
-
-
-        </div>
-
-        <footer class="hoofdFooter">
-            <p><span>This project was built by Jordy, Wouter, Gregory and Micha &COPY; 2016</span></p>
-        </footer>
-    </body>
-</html>
-<!doctype html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <meta name="author" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png"  href="images/icons/favicon.png">
-        <link rel="stylesheet" href="css/style.css" />
-        <title>Uw Westvloamse datingsite</title>
-    </head>
-
-    <body>
-<header class="headerImage">
-            <div class="login clearFix">
-                {% if login == false %}
-                  <form action="loginControl.php" method="post" class="login" id="registreer" name="registreer">                                              
-                    <div class="login clearFix"><input type="submit" value="registreer" name="registreer"/></div>
-                </form>
-                <form action="loginControl.php" method="post" class="login" id="login" name="login">
-                    <label for="username">gebruikersnaam :<input type="text" id="username" name="username"></label>
-                    <label for="password">wachtwoord :<input type="password" id="password" name="password"></label>                               
-                    <input type="submit" value="login" name="login" />
-                </form>
-                
-                {% else %}
-                  <p>Gebruiker: <a href="loginControl.php?profile={{login.userID}}" alt="Mijn profiel pagine">{{login.username}}</a></p>
-                  <p><a href="loginControl.php?logout" alt="Log mij uit">Logout</a></p>
-                  {% if login.admin == 1 %}
-                  <p><a href="showAllAttributes.php" alt="Admin controls">Admin Console</a></p>
-                  {% endif %}                 
-                {% endif %}              
-            </div>
-
-            <h1><span>Losse Flodders</span></h1>
-            <p>Westvlaamse datingsite</p>
-
-            <nav class="hoofdmenu clearFix">
-                <ul>
-                    <li><a href="Index.php" id="a"><p>Home</p></a></li>
-                    <li><a href="loginControl.php?profile={{login.userID}}" id="b" alt="profiel" title="profiel"><p>Profiel</p></a></li>
-                    <li><a href="matchControl.php" id="c"><p>Matchen</p></a></li>
-                    <li><a href="eventControl.php?action=showEvents" id="d"><p>Events</p></a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="inhoud clearFix">
-
-            <section class="balkLinks blok">
-                    <h4>Contacten</h4>
-                    <div class="contact cf clearFix">
-                        <img src="images/pictures/maleAvatar.svg"/>
                         <div class="gegevens">
                             <h5>George</h5>
                         </div>
@@ -270,6 +114,7 @@
             </div>
 
             <section class="balkRechts blok">
+               <div class="event blok">
                 
                     <h4>ingeschreven voor events</h4>
                     
@@ -285,7 +130,10 @@
                         </ul>
                             
               
-                    {% endfor %}                   
+                    {% endfor %}
+                    </div>
+                                    <div class="event blok">
+                                      <img src="images/pictures/event_balk.jpg" class="eventbanner"/>
             
                     <h4>Upcoming events</h4>
                     {% for event in upcoming|slice(0, 4) %}
@@ -296,7 +144,8 @@
                             <li>{{event.venue.venueCity}}</li>
                         </ul>
               
-                    {% endfor %}              
+                    {% endfor %}  
+                                    </div>
             </section>
 
 
